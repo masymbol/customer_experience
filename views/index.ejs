@@ -1,6 +1,38 @@
 <% include header %>
+<script src="https://www.google.com/jsapi"
+        type="text/javascript"></script>
+    <script language="Javascript" type="text/javascript">
+    //<!
+    google.load('search', '1');
 
+    function OnLoad() {
+      // Create a search control
+      var searchControl = new google.search.SearchControl();
+
+      // Add in a full set of searchers
+      var localSearch = new google.search.LocalSearch();
+        searchControl.addSearcher(new google.search.BlogSearch());
+         searchControl.addSearcher(new google.search.ImageSearch());
+          searchControl.addSearcher(new google.search.NewsSearch());
+     searchControl.addSearcher(new google.search.WebSearch());
+      searchControl.addSearcher(new google.search.VideoSearch()); 
+  searchControl.addSearcher(new google.search.BookSearch());
+     searchControl.addSearcher(new google.search.PatentSearch());
+         
+
+      // tell the searcher to draw itself and tell it where to attach
+      searchControl.draw(document.getElementById("searchcontrol"));
+
+      // execute an inital search
+      searchControl.execute("masymbol");
+    }
+    google.setOnLoadCallback(OnLoad);
+
+    //]]>
+    </script>
+    
 <h1><%= title %></h1>
 <p class="title">Welcome to <%= title %></p>
 
+<div id="searchcontrol" align="center">Loading</div>
 <% include footer %>
