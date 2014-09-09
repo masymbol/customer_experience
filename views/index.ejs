@@ -2,5 +2,62 @@
 
 <h1><%= title %></h1>
 <p class="title">Welcome to <%= title %></p>
-
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>		
+		<script type="text/javascript">
+            $(function(){				
+                $('#select_div').click(function(e){
+                    e.preventDefault();
+                    console.log('select_link clicked');
+                    
+                     /*$.ajax({
+                        dataType: 'jsonp',
+                        data: "data=yeah",						
+                        jsonp: 'callback',
+                        url: 'http://localhost:3000/google-search?callback=?',						
+                        success: function(data) {
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+                        }
+                    });*/
+ 
+					var data = {};
+					//data.title = "title";
+					//data.message = "message";
+					data.search = $('#gsc-i-id1').val();
+					
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: 'http://localhost:3001/google-search',						
+                        success: function(data) {
+                            console.log('success');
+                            $('#search-content').append(data);
+                            console.log("data: ", JSON.stringify(data));
+                            
+                        }
+                    });
+ 
+                });	
+                
+                $.ajax({
+    type: "GET",
+    url: "http://localhost:3001/google-search",
+    success: function (data, text) {
+        //console.log(data);
+        alert("hi");
+    }
+});
+		
+            });
+        </script>
+        
+        <!--<div id="select_div1"><a href="#" id="select_link">Test</a></div>
+        <div id="mydiv"><a href="#" id="select_link">Testing</a></div>-->
+        
+        <form class="gsc-search-box" action="google-search" method="post">
+  <input type="text" autocomplete="off" size="10" class=" gsc-input " name="search" title="search" id="gsc-i-id1" dir="ltr" spellcheck="false" style="outline: medium none;">     
+  <input id="select_div" type="button" value="Search" class="gsc-search-button" title="search">
+  <div id="search-content"></div>
+</form>   
 <% include footer %>
