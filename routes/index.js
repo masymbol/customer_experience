@@ -31,9 +31,9 @@ router.post('/google-search', function(req, res){
 			}else{
 				console.log("Rscript file running.........");
 			}
-	});
+	});*/
 
-});*/
+});
 
 
 
