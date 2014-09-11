@@ -54,6 +54,47 @@
 		<div id="main_wrapper">
 			<div class="page_content">
 				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>		
+									<script type="text/javascript">
+            						$(function(){				
+                					$('#select_div').click(function(e){
+                        			e.preventDefault();
+                    
+					         			var data = {};
+					         			data.search = $('#gsc-i-id1').val();
+					
+					         			$.ajax({
+						         			type: 'POST',
+						         			data: JSON.stringify(data),
+				                 			contentType: 'application/json',
+                                 			url: 'http://localhost:3001/google-search',						
+                                 			success: function(data) {
+                                     			console.log('success');
+                                     			$('#search-content').append(data);
+                                     			console.log("data: ", JSON.stringify(data));                            
+                                 			}
+                             			});
+ 
+                         			});	
+	
+                     			});
+                 				</script>
+
+                 				<h2>Dashboard</h2>
+                 				<form class="gsc-search-box" action="/google-search" method='POST'>
+        
+           							<input type="text" name="search" title="search" id="gsc-i-id1" >     
+           							<input id="select_div" type="button" value="Search" class="gsc-search-button" title="search">
+         						</form>   								
+								
+								</div>
+							</div>
+						</div>
+					</div>						
 
 					<div class="row">
 						<div class="col-md-12">
@@ -251,9 +292,6 @@
 		<script src="assets/lib/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 		<!-- owl carousel -->
 		<script src="assets/lib/owl-carousel/owl.carousel.min.js"></script>
-		
-		<!-- dashboard functions -->
-		<script src="assets/js/apps/tisa_dashboard.js"></script>
 		
     </body>
 </html>

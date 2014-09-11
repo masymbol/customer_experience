@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+#searchinput {
+font-style: normal;
+border-radius: 3px;
+font-family: 'Arimo', arial, serif;
+font-weight: normal;
+line-height: 25px;
+font-size: 24px;
+color: #999;
+width: 621px;
+position: relative;
+height: 32px;
+padding: 15px;
+}
+
+#searchbtn {
+background-color: #5bb75b;
+font-size: 22px;
+padding: 3px;
+}
