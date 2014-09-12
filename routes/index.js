@@ -102,17 +102,19 @@ router.post('/google_search', function(req, res){
 	var searchQuery = req.body.search;
 	console.log("searchQuery: "+searchQuery);
 	var user_name = req.session.username;
-	
+	var java_script_file_path = "/home/raghuvarma/Documents/nodejs_examples/social_media/java_Twitter_project/twitter_script.sh";
+	var java_files_path = "/home/raghuvarma/Documents/nodejs_examples/social_media/public/users_data/"+user_name+"/";
+	var log_file_path = "/home/raghuvarma/Documents/nodejs_examples/social_media/Logs/";
 	
 	function puts(error, stdout, stderr) { sys.puts(stdout) }
 
-		exec("bash /home/raghuvarma/Documents/nodejs_examples/social_media/java_Twitter_project/twitter_script.sh "+searchQuery+" /home/raghuvarma/Documents/nodejs_examples/social_media/public/user_data/ /home/raghuvarma/Documents/nodejs_examples/social_media/Logs/", function(err, data){
+		exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
 			if (err){
 				console.log("Error while running jar file: "+err); 
 
 			}else{
 				console.log("jar jar file running.........");
-				res.redirect("/preview", );
+				res.redirect("/preview");
 			}
 	});
 	
