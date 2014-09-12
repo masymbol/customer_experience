@@ -46,7 +46,22 @@
 				<div class="navbar-header">
 					<a href="dashboard.html" class="navbar-brand"><img src="assets/img/blank.gif" alt="Logo"></a>
 				</div>			
-				
+				<ul class="nav navbar-nav navbar-right">				
+				<% if ((Object.keys(req).length > 1) && (Object.keys(req.session).length > 1 ) && (req.session.loggedIn == true)) { %>
+				  <li class="user_menu"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="navbar_el_icon ion-person"></span><span class="caret"></span></a>
+    				<ul class="dropdown-menu dropdown-menu-right">
+      				<li><a href="#">Profile
+          				<li><a href="#">My messages</a></li>
+          				<li><a href="#">My tasks</a></li>
+          				<li class="divider"></li>
+          				<li><a href='/logout'>Log Out</a></li>
+    				</ul>
+  				</li>
+  				<% } else { %>
+  				<li><a href="/login" style="border:none;" class="btn btn-mini btn-sign-in">Login</a></li>
+				<li><a href="/register" style="border:none;" class="btn btn-mini btn-sign-up">Register</a></li>
+  				<% } %>
+				</ul>
 			</div>
 		</header>
 		
@@ -71,7 +86,7 @@
 						         			type: 'POST',
 						         			data: JSON.stringify(data),
 				                 			contentType: 'application/json',
-                                 			url: 'http://localhost:3001/google-search',						
+                                 			url: 'http://localhost:3001/google_search',						
                                  			success: function(data) {
                                      			console.log('success');
                                      			$('#search-content').append(data);
@@ -85,8 +100,7 @@
                  				</script>
 
                  				<h2>Dashboard</h2>
-                 				<form class="gsc-search-box" action="/google-search" method='POST'>
-        
+                 				<form class="gsc-search-box" action="/google_search" method='POST'>        
            							<input type="text" name="search" title="search" id="gsc-i-id1" >     
            							<input id="select_div" type="button" value="Search" class="gsc-search-button" title="search">
          						</form>   								

@@ -7,7 +7,6 @@ a {
   color: #00B7FF;
 }
 
-
 #searchinput {
 font-style: normal;
 border-radius: 3px;
@@ -26,4 +25,27 @@ padding: 15px;
 background-color: #5bb75b;
 font-size: 22px;
 padding: 3px;
+}
+
+
+a {
+  color: #00B7FF;
+}
+.alerterror, .alertsuccess, .alertinfo{
+	margin:0 auto; 
+	width:auto; 
+	padding: 10px 10px;
+	text-align:center;
+	margin-left: 40px;
+	
+}
+
+.alerterror, .alertsuccess{
+	background-color:red;
+}
+.alertsuccess{
+	background-color:green;
+}
+.alertinfo{
+	background-color:#FAA937;
 }
