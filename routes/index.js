@@ -110,9 +110,11 @@ router.post('/google_search', function(req, res){
 	var searchQuery = req.body.search;
 	console.log("searchQuery: "+searchQuery);
 	var user_name = req.session.username;
-	var java_script_file_path = "/home/raghuvarma/Documents/nodejs_examples/social_media/java_Twitter_project/twitter_script.sh";
-	var java_files_path = "/home/raghuvarma/Documents/nodejs_examples/social_media/public/users_data/"+user_name+"/";
-	var log_file_path = "/home/raghuvarma/Documents/nodejs_examples/social_media/Logs/";
+	var woring_dir = process.env.PWD;
+	var java_script_file_path = woring_dir+"/java_Twitter_project/twitter_script.sh";
+	var java_files_path = woring_dir+"/public/users_data/"+user_name+"/";
+	var log_file_path = woring_dir+"/Logs/";
+	var rscript_file = woring_dir+"/swaps/twitter/search.R"
 	
 	function puts(error, stdout, stderr) { sys.puts(stdout) }
 
@@ -124,7 +126,7 @@ router.post('/google_search', function(req, res){
 			}
 	});
 	
-	exec("sudo Rscript /home/raghuvarma/Desktop/swaps/twitter/search.R "+searchQuery, function(err, data){
+		exec("sudo Rscript "+rscript_file+" "+searchQuery+" "+java_files_path, function(err, data){			
 			if (err){
 				console.log("Error in Rscript : "+err); 
 

@@ -1,0 +1,15 @@
+library(reshape)
+BB <- read.csv("/home/hduser/figure/bb.csv")
+colnames(BB)
+cast(BB, year ~ month, length)
+bad <- is.na(BB)
+BB[bad]
+BB$text<- gsub('[[:punct:]]', ' ', BB$text)
+BB$text<- gsub('[[:cntrl:]]', ' ', BB$text)
+BB$text<- gsub('\\d+', ' ', BB$text)
+BB.text <- as.data.frame(BB$text)
+BB.text$year<- BB$year
+BB.text$Date <- as.Date(paste(BB$year, BB$month, BB$day, sep = "-"),format = "%Y-%m-%d")
+BB.text$Date <- strptime(as.character(BB.text$Date), "%Y-%m-%d")
+colnames(BB.text) <- c("text", "year", "date")
+colnames(BB.text)

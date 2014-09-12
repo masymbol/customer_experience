@@ -1,0 +1,3 @@
+logistic <- function(r){
+  r
+}
