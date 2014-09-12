@@ -85,8 +85,17 @@ router.get('/login', function(req, res) {
     res.render("login", {title:apptitle, req:req, message: ""});
 });
 
-router.get('/google_search', function(req, res) {
-    res.render("/", {title:apptitle, req:req, message: ""});
+router.get('/preview', function(req, res) {
+    res.render("preview", {title:apptitle, req:req, message: ""});
+});
+
+router.post('/preview', function(req, res) {
+	var searchQuery = req.body.search;
+	console.log("searchQuery: "+searchQuery);
+	var user_name = req.session.username;
+    res.render('preview', {
+						title:apptitle, req:req, message:'Preview'
+					});
 });
 
 router.post('/google_search', function(req, res){
@@ -103,6 +112,7 @@ router.post('/google_search', function(req, res){
 
 			}else{
 				console.log("jar jar file running.........");
+				res.redirect("/preview", );
 			}
 	});
 	
@@ -114,6 +124,8 @@ router.post('/google_search', function(req, res){
 				console.log("Rscript file running.........");
 			}
 	});*/
+	
+	
 
 });
 
