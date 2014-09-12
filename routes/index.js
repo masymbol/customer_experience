@@ -119,21 +119,20 @@ router.post('/google_search', function(req, res){
 		exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
 			if (err){
 				console.log("Error while running jar file: "+err); 
-
 			}else{
-				console.log("jar jar file running.........");
-				res.redirect("/preview");
+				console.log("jar jar file running.........");				
 			}
 	});
 	
-	/*exec(" sudo Rscript /home/raghuvarma/Desktop/swaps/twitter/search.R "+searchQuery, function(err, data){
+	exec("sudo Rscript /home/raghuvarma/Desktop/swaps/twitter/search.R "+searchQuery, function(err, data){
 			if (err){
 				console.log("Error in Rscript : "+err); 
 
 			}else{
 				console.log("Rscript file running.........");
+				res.redirect("/preview");
 			}
-	});*/
+	});
 	
 	
 
