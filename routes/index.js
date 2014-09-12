@@ -86,7 +86,15 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/preview', function(req, res) {
-    res.render("preview", {title:apptitle, req:req, message: ""});
+    if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+      res.render('preview', { title: 'Dashboard Page', req:req, message: "Welcome user.." });
+    });             
+  }else{
+		res.render('login', { title: 'Login', req:req, message:'ERROR: ' });
+  }
 });
 
 router.post('/preview', function(req, res) {
