@@ -65,21 +65,15 @@ userSchema.pre('save', function(next) {
 /* GET home page. */
 router.get('/', function(req, res) {
   if(req.session.loggedIn){
-               console.log("username: "+req.session.username );
-               var login_user = req.session.username;
-               User.findOne({ username: login_user }, function (err, user) {
-                       if(user.d3_data){
-                               var d3_graph_path;
-                               console.log("user.d3_data: "+user.d3_data);
-                               res.render('index', { title: 'Dashboard Page', req:req, d3_graph_path: user.d3_data, message: "error" });
-                       }else{
-                               res.render('index', { title: 'Dashboard Page', req:req, message: "error" });
-                       }
-               });             
-       }else{
-               res.render('login', { title: 'Login', req:req, message:'ERROR: ' });
-               //res.render('login', { title: 'Login', req:req, flash: req.flash('info') });
-       }
+    console.log("username: "+req.session.username );
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+      res.render('index', { title: 'Dashboard Page', req:req, message: "error" });
+    });             
+  }else{
+		res.render('login', { title: 'Login', req:req, message:'ERROR: ' });
+    //res.render('login', { title: 'Login', req:req, flash: req.flash('info') });
+  }
 });
 
 router.get('/register', function(req, res) {
