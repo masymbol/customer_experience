@@ -91,7 +91,12 @@ router.get('/preview', function(req, res) {
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
-    	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata });
+    	var working_directory = process.env.PWD;
+    	var users_csv = working_directory+'/public/users_data/'+login_user+'/users/'+userdata+'users'+'.csv';
+    	var geoLocation_csv = working_directory+'/public/users_data/'+login_user+'/geoLocation/'+userdata+'geoLocation'+'.csv';
+    	var influencers_csv = working_directory+'/public/users_data/'+login_user+'/influencers/'+userdata+'influencers'+'.csv';
+    	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv};
+    	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });
     });             
   }else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
@@ -137,7 +142,7 @@ router.post('/google_search', function(req, res){
 				res.redirect("/preview");
 			}
 	});
-	
+		
 
 });
 
