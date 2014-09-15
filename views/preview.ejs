@@ -37,6 +37,10 @@
 		
 		<!-- moment.js (date library) -->
 		<script src="assets/lib/moment-js/moment.min.js"></script>
+		
+		<!-- Load d3.js and c3.js -->
+		<script src="javascripts/d3.min.js"></script>
+		<script src="javascripts/c3.min.js"></script>
 
     </head>
     <body>
@@ -63,6 +67,12 @@
   				<% } %>
 				</ul>
 			</div>
+			<div class="messages main_wrapper">
+				<% if (message && message.length > 1) { %>
+  					<div class="alerterror"><%= message %><b><%= searchQuery %></b></div>
+  				<% } %>
+  				<b><%= userdata %></b>
+			</div>
 		</header>
 		
 		<!-- main content -->
@@ -81,48 +91,8 @@
 								</div>
 							</div>
 						</div>
-					</div>						
+					</div>				
 
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-body">
-									<div id="chart"></div>
-										<!-- Load d3.js and c3.js -->
-										<script src="http://d3js.org/d3.v3.min.js"></script>
-										<script src="javascripts/c3.min.js"></script>
-										<script type="text/javascript">
-    										var stock_price_open = ['Stock Price Open'];
-    										var stock_price_high = ['Stock Price High'];
-    										var stock_price_low = ['Stock Price Low'];
-    										var stock_price_close = ['Stock Price Close'];
-    										d3.csv("csv/NASDAQ_daily_prices.csv", function(tests)
-											{
-												data = tests.map(function(d)
-												{
-													stock_price_open.push(d.stock_price_open);
-													stock_price_high.push(d.stock_price_high);
-													stock_price_low.push(d.stock_price_low);
-													stock_price_close.push(d.stock_price_close);
-												})
-    											var chart = c3.generate({
-			    									bindto: '#chart',
-			    									data: {
-			      										columns: [
-			            									stock_price_open,
-			            									stock_price_high,
-			            									stock_price_low,
-			            									stock_price_close,
-			        									],
-			    									}
-												});
-											})	
-    	
-    									</script>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="panel panel-default">

@@ -63,6 +63,11 @@
   				<% } %>
 				</ul>
 			</div>
+			<div class="messages main_wrapper">
+				<% if (message && message.length > 1) { %>
+  					<div class="alerterror"><%= message %></div>
+  				<% } %>
+			</div>
 		</header>
 		
 		<!-- main content -->
@@ -89,7 +94,7 @@
 								<div class="panel-body">
 									<div id="chart"></div>
 										<!-- Load d3.js and c3.js -->
-										<script src="http://d3js.org/d3.v3.min.js"></script>
+										<script src="javascripts/d3.min.js"></script>
 										<script src="javascripts/c3.min.js"></script>
 										<script type="text/javascript">
     										var stock_price_open = ['Stock Price Open'];

@@ -6,7 +6,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var bcrypt = require('bcrypt-nodejs');
 var apptitle = "Masymbol";
 
-var flash = require('./flash');
+//var flash = require('./flash');
 
 var exec = require('child_process').exec;
 
@@ -68,10 +68,10 @@ router.get('/', function(req, res) {
     console.log("username: "+req.session.username );
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
-      res.render('index', { title: 'Dashboard Page', req:req, message: "error" });
+      res.render('index', { title: 'Dashboard Page', req:req, message: req.flash('info') });
     });             
   }else{
-		res.render('login', { title: 'Login', req:req, message:'ERROR: ' });
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
     //res.render('login', { title: 'Login', req:req, flash: req.flash('info') });
   }
 });
@@ -86,14 +86,15 @@ router.get('/login', function(req, res) {
 });
 
 router.get('/preview', function(req, res) {
-    if(req.session.loggedIn){
+  if(req.session.loggedIn){
     console.log("username: "+req.session.username );
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
-      res.render('preview', { title: 'Dashboard Page', req:req, message: "Welcome user.." });
+    	var userdata = req.session.userdata;
+    	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata });
     });             
   }else{
-		res.render('login', { title: 'Login', req:req, message:'ERROR: ' });
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
   }
 });
 
@@ -109,6 +110,7 @@ router.post('/preview', function(req, res) {
 router.post('/google_search', function(req, res){
 	var searchQuery = req.body.search;
 	console.log("searchQuery: "+searchQuery);
+	req.session.userdata = searchQuery;
 	var user_name = req.session.username;
 	var woring_dir = process.env.PWD;
 	var java_script_file_path = woring_dir+"/java_Twitter_project/twitter_script.sh";
@@ -135,7 +137,6 @@ router.post('/google_search', function(req, res){
 				res.redirect("/preview");
 			}
 	});
-	
 	
 
 });

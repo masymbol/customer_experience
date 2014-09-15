@@ -9,6 +9,7 @@ var expressSession = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var flash = require('./routes/flash');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSession({ resave: true, saveUninitialized: true, secret: 'social-media-secret' }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 
 app.use('/', routes);
 app.use('/users', users);
