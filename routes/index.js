@@ -92,10 +92,14 @@ router.get('/preview', function(req, res) {
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
     	var working_directory = process.env.PWD;
-    	var users_csv = working_directory+'/public/users_data/'+login_user+'/users/'+userdata+'users'+'.csv';
-    	var geoLocation_csv = working_directory+'/public/users_data/'+login_user+'/geoLocation/'+userdata+'geoLocation'+'.csv';
-    	var influencers_csv = working_directory+'/public/users_data/'+login_user+'/influencers/'+userdata+'influencers'+'.csv';
-    	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv};
+    	var users_csv = '/users_data/'+login_user+'/users/'+userdata+'users'+'.csv';
+    	var geoLocation_csv ='/users_data/'+login_user+'/geoLocation/'+userdata+'geoLocation'+'.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/influencers/'+userdata+'influencers'+'.csv';
+    	var post_csv = '/users_data/'+login_user+'/post/'+userdata+'.csv';
+    	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
+    	var sentiment_graph = '/users_data/'+login_user+'/sentiment_graphs/sentiment_score.jpg';
+
+    	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph};
     	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });
     });             
   }else{
@@ -125,7 +129,7 @@ router.post('/google_search', function(req, res){
 	
 	function puts(error, stdout, stderr) { sys.puts(stdout) }
 
-		exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
+	exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
 			if (err){
 				console.log("Error while running jar file: "+err); 
 			}else{
@@ -142,7 +146,7 @@ router.post('/google_search', function(req, res){
 				res.redirect("/preview");
 			}
 	});
-		
+
 
 });
 

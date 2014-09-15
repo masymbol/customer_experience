@@ -49,3 +49,8 @@ a {
 .alertinfo{
 	background-color:#FAA937;
 }
+
+#recent_users img, #most_influencers img{
+	border: 2px solid black;
+	margin: 2px;
+}
