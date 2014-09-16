@@ -29,6 +29,6 @@ print("Authorised..")
 args <-commandArgs(TRUE)
 ans <- as.character(args[1])
 str <- as.character(args[2])
-source("/home/raghuvarma/Desktop/swaps/twitter/search_fun.R")
+source("/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/twitter/search_fun.R")
 logistic(ans,str)
 
