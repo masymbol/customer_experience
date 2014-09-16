@@ -54,6 +54,20 @@
 				max-height: 322px;
 				overflow: scroll;
 			}
+
+			/* Styles for Posts */
+			span.single-row {
+    		display: table;
+    		width: 100%;
+			}
+			span.single-row span {
+			  float: none;
+			  display: table-cell;
+			  vertical-align: top;
+			}
+			span.top-post-source{
+				padding-right: 10px;
+			}
 		</style>
     </head>
     <body>
@@ -112,8 +126,8 @@
 									<div class="heading_b">Word Cloud</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div id="flot_social" class="chart" style="width:100%">		
-    										<img src="<%= disp_data.wordcloud_image %>" alt="wordcloud" />
+											<div id="flot_social__wordcloud" class="chart" style="width:100%; height: 321px;">		
+    										<img src="<%= disp_data.wordcloud_image %>" alt="wordcloud" style="width:100%; height: 330px;"/>
 											</div>
 										</div>
 									</div>
@@ -126,7 +140,7 @@
 									<div class="heading_b">Sentiment Graphs</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div id="flot_social_graph">											
+											<div id="flot_social_sentiment">											
     										
 											</div>
 											<script type="text/javascript">
@@ -150,7 +164,7 @@
 													var neu = ['Neutral', neutral.length];
 													console.log("pos"+pos+"neg"+neg+"neu"+neu);
 													var chart = c3.generate({
-	    											bindto: '#flot_social_graph',
+	    											bindto: '#flot_social_sentiment',
 	    											data: {
 	      												columns: [
 	            											pos,
@@ -186,7 +200,7 @@
 									<div class="heading_b">Recent Users</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div id="flot_social" class="chart" style="width:100%">		
+											<div id="flot_social_recent_user" class="chart" style="width:100%">		
 												<div id="recent_users"></div>
 												<script>
 													var allTextLines;
@@ -230,7 +244,7 @@
 										<div class="heading_b">Most Influencers</div>
 										<div class="row">
 											<div class="col-md-12">
-												<div id="flot_social" class="chart" style="width:100%">		
+												<div id="flot_social_most_influencers" class="chart" style="width:100%">		
 													<div id="most_influencers"></div>
 													<script>
 														var allTextLines;
@@ -276,9 +290,16 @@
 									<div class="heading_b">Top Posts</div>
 									<div class="row">
 											<div class="col-md-12">
-												<div id="flot_social" class="chart" style="width:100%">		
+												<div id="flot_social_top_posts" class="chart" style="width:100%">		
 													<div id="posts">
+														<span class="single-row-fixed">
+																<a href="#" class="list-group-item">
+																	<span class="top-post-source"><b>Source</b></span>
+																	<span class="top-post-text"><b>Text</b></span>
+																</a>
+															</span>
 														<div class="list-group" id="posts-list-group">
+															
     												</div>
 													</div>
 													<script>
@@ -294,7 +315,7 @@
 																if(allTextLines.length > 20){
 																	for(i = 1; i < 10; i++){
 																		if(allTextLines[i].split(",")[2] && allTextLines[i].split(",")[1]){
-																		$('#posts-list-group').append('<a href="#" class="list-group-item"><span class="top-post-source">'+allTextLines[i].split(",")[2]+'</span><span class="top-post-text">'+allTextLines[i].split(",")[1]+'</span>');
+																		$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source">'+allTextLines[i].split(",")[2]+'</span><span class="top-post-text">'+allTextLines[i].split(",")[1]+'</span></span>');
 																		}
 																	}
 																}
@@ -303,7 +324,7 @@
 													      		console.log("i: "+i+" => Value: "+val);
 													      		if(val){
 													      			if(allTextLines[i].split(",")[2] && allTextLines[i].split(",")[1]){
-													      				$('#posts-list-group').append('<a href="#" class="list-group-item"><span class="top-post-source>'+val.split(",")[2]+'</span><span class="top-post-text">'+val.split(",")[1]+'</span>');
+													      				$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source>'+val.split(",")[2]+'</span><span class="top-post-text">'+val.split(",")[1]+'</span></span>');
 													      			}
 													    			}
 													    		});
@@ -322,52 +343,11 @@
 						<div class="col-md-6">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<div class="heading_b">Browsers</div>
+									<div class="heading_b">Timeline</div>
 									<div class="row">										
 										<div class="col-md-12">
 											<div id="flot_browsers" class="chart" style="width:100%">
-											<div id="donutchart"></div>
-												<script type="text/javascript">
-    												var stock_price_open = ['Stock Price Open'];
-    												var stock_price_high = ['Stock Price High'];
-    												var stock_price_low = ['Stock Price Low'];
-    												var stock_price_close = ['Stock Price Close'];
-    												var stock_price_adj_close = ['Stock Price Adj Close'];
-    												d3.csv("csv/NASDAQ_daily_prices.csv", function(tests)
-													{
-														data = tests.map(function(d)
-														{
-															stock_price_open.push(d.stock_price_open);
-															stock_price_high.push(d.stock_price_high);
-															stock_price_low.push(d.stock_price_low);
-															stock_price_close.push(d.stock_price_close);
-															stock_price_adj_close.push(d.stock_price_adj_close);
-														})
-    													var chart = c3.generate({
-			    											bindto: '#donutchart',
-			    											data: {
-			      												columns: [
-			            											stock_price_open,
-			            											stock_price_high,
-			            											stock_price_low,
-			            											stock_price_close,
-			            											stock_price_adj_close,
-			        											],
-			        											type : 'donut',
-			        											onclick: function (d, i) { console.log("onclick", d, i); },
-			        											onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-			        											onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-			    											},
-    														legend: {
-        														position: 'right'
-    														},
-			    											donut: {
-			    												title: "Stock Price"
-			    											}
-														});
-													})  	
-    	
-    											</script>
+											<div id="donutchart"></div>												
 											</div>
 										</div>
 									</div>

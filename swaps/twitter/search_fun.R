@@ -98,20 +98,36 @@ p<-max(analysis$score,na.rm=TRUE) # find max
 q<-min(analysis$score,na.rm=TRUE)
 dfpv1<-analysis[which(analysis$score==p),]
 dfng1<-analysis[which(analysis$score==q),]
-write.table(dfpv1,"most_pos_neg/most_pos.csv")
+
+p1<-data.frame(dfpv1$score)
+p2<-data.frame(dfpv1$text)
+p3<-cbind(p1,p2)
+
+p11<-data.frame(dfng1$score)
+p12<-data.frame(dfng1$text)
+p13<-cbind(p11,p12)
+
+write.table(p3,"most_pos_neg/most_pos.csv")
 write("Write_success","most_pos_neg/_success.txt")
-write.table(dfng1,"most_pos_neg/most_neg.csv")
+write.table(p13,"most_pos_neg/most_neg.csv")
 write("Write_success","most_pos_neg/_success.txt")
 
 
 print("some +ve tweets :-")
 df2 <- analysis[which(analysis$score==3 | analysis$score==2 | analysis$score==1),]
-write.table(df2,"Some_pos_neg/some_pos.csv")
+p21<-data.frame(df2$score)
+p22<-data.frame(df2$text)
+p23<-cbind(p21,p22)
+write.table(p23,"Some_pos_neg/some_pos.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
 print("some -ve tweets :-")
 df3 <- analysis[which(analysis$score==-3 | analysis$score==-2 | analysis$score==-1),]
-write.table(df3,"Some_pos_neg/some_neg.csv")
+p31<-data.frame(df3$score)
+p32<-data.frame(df3$text)
+p33<-cbind(p31,p32)
+
+write.table(p33,"Some_pos_neg/some_neg.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
 tweets.text <- sapply(tweets, function(x) x$getText())
