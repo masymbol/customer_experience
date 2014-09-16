@@ -13,13 +13,28 @@ tweets <- searchTwitter(ans,n=25)
 print("search completed...")
 
 bigdata.df <- do.call (rbind,lapply(tweets,as.data.frame))                        
-write.csv(bigdata.df,"post/iphone.csv")
-write("Write_success","post/_success.txt")
- 
 Tweets.text = laply(tweets,function(t)t$getText())
-pos = scan('/home/raghuvarma/Desktop/swaps/project/positive-words.txt', what='character', comment.char=';')
 
-neg = scan('/home/raghuvarma/Desktop/swaps/project/negative-words.txt', what='character', comment.char=';')
+combined_text <- bigdata.df["text"]
+combined_text["Source"] <- "Twitter"
+
+##### g+ #####
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+setAPIkey('AIzaSyDmaKUqQNBbFjSjlut-q9dTWR7RY_juWQk')
+ppostt <- searchPost(ans,results = 30)
+gp_text <- ppostt["msg"]
+q <- ppostt["msg"]
+gp_text["Source"] <- "G+"
+colnames(gp_text) <- c("text","Source")
+combined_text <- rbind(combined_text, gp_text)
+
+write.csv(combined_text,"post/post.csv")
+write.csv(bigdata.df,"post/Twitter_post.csv")
+write.csv(ppostt,"post/Gp_post.csv")
+write("Write_success","post/_success.txt")
+
+pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
+neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
 
 score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
   
@@ -58,11 +73,20 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
 analysis = score.sentiment(Tweets.text, pos, neg)    
 table(analysis$score)   
 mean(analysis$score)
-jpeg('sentiment_graphs/sentiment_score.jpg')  
+
+txt <-data.frame(analysis$text)
+scr <-data.frame(analysis$score)
+res <- cbind(scr,txt)
+write.csv(res,"sentiment_graphs/score_analysis.csv")
+#jpeg('sentiment_graphs/sentiment_score.jpg')  
 write("Write_success","sentiment_graphs/_success.txt") 
-hist(analysis$score)   
-dev.off()
+#hist(analysis$score)   
+#dev.off()
 View(analysis)
+
+########## Timeframe graph ##########
+print("timeframe entered")
+write.csv(res,"post/score_and_text.csv")
 
 ############################## most +ve and _ve tweets ############################
 a <- grep(3, analysis$score) #find 3 of score
@@ -142,6 +166,16 @@ jpeg('wordcloud_img/wordcloud.jpg')
 wordcloud(dm$word, dm$freq, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
 dev.off()
 write("Write_success","wordcloud_img/_success.txt")
+
+########### time frame ###########
+print("timeframe re-entered")
+read <- read.csv("post/score_and_text.csv")
+jpeg('post/timeframe.jpg')
+plot(read$analysis.score,read$analysis.text)
+dev.off()
+#########
+
+
 }
 
 

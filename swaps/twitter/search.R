@@ -11,10 +11,11 @@ library(tm)
 library(httr)
 library(wordcloud)
 library(devtools)
-library(twitteR)
 library(plyr)
-library(stringr)
+library(lubridate)
 library(twitteR)
+
+library(plusser)
 
 tweets <- "new_character"
 api_key <- "fmC6OcWB4jqwBT7bRmVssagmP"
