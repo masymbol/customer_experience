@@ -107,15 +107,6 @@ router.get('/preview', function(req, res) {
   }
 });
 
-router.post('/preview', function(req, res) {
-	var searchQuery = req.body.search;
-	console.log("searchQuery: "+searchQuery);
-	var user_name = req.session.username;
-    res.render('preview', {
-						title:apptitle, req:req, message:'Preview'
-					});
-});
-
 router.post('/google_search', function(req, res){
 	var searchQuery = req.body.search;
 	console.log("searchQuery: "+searchQuery);
