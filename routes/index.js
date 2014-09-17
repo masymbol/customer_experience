@@ -112,11 +112,11 @@ router.post('/google_search', function(req, res){
 	console.log("searchQuery: "+searchQuery);
 	req.session.userdata = searchQuery;
 	var user_name = req.session.username;
-	var woring_dir = process.env.PWD;
-	var java_script_file_path = woring_dir+"/java_Twitter_project/twitter_script.sh";
-	var java_files_path = woring_dir+"/public/users_data/"+user_name+"/";
-	var log_file_path = woring_dir+"/Logs/";
-	var rscript_file = woring_dir+"/swaps/twitter/search.R"
+	var working_dir = process.env.PWD;
+	var java_script_file_path = working_dir+"/java_Twitter_project/twitter_script.sh";
+	var java_files_path = working_dir+"/public/users_data/"+user_name+"/";
+	var log_file_path = working_dir+"/Logs/";
+	var rscript_file = working_dir+"/swaps/twitter/search.R"
 	
 	function puts(error, stdout, stderr) { sys.puts(stdout) }
 

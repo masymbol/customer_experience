@@ -195,7 +195,7 @@
 
 					</div>
 
-					<div class="row">
+					<!--<div class="row">
 						<div class="col-md-6">
 							<div class="panel panel-default">
 								<div class="panel-body">
@@ -302,7 +302,69 @@
 							</div>
 						</div>
 
-					</div>
+					</div>-->
+
+					<!--<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b">Total Data</div>
+									<div class="row">
+											<div class="col-md-12">
+												<div id="flot_social_total_data" class="chart" style="width:100%">		
+													<div id="total_data">
+														<!--<span class="single-row-fixed1">-->
+																<!--<a href="#" class="list-group-item1">-->
+																<!--<table>
+																	<span class="top-post-source"><b>ScreenName</b></span>
+																	<span class="top-post-source"><b>Twitter Text</b></span>
+																	<span class="top-post-source"><b>Followers</b></span>
+																	<span class="top-post-source"><b>Retweet Count</b></span>
+																	<span class="top-post-source"><b>Long</b></span>
+																	<span class="top-post-text"><b>Lat</b></span>
+																<!--</a>-->
+															<!--</span>-->
+														<!--<div class="list-group" id="total_data-list-group">
+															
+    												</div>
+													</div>
+													<script>
+														var allTextLines;
+														var images = '';
+														$.ajax({
+													    url: "pawankalyan.csv",
+													    aync: false,
+													    success: function (csvd) {
+													      console.log(csvd.length);
+													      allTextLines = csvd.split(/\r\n|\n/);
+
+																/*if(allTextLines.length > 20){
+																	for(i = 1; i < 10; i++){
+																		$('#total_data-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source">'+allTextLines[i].split(",")[3]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[0]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[5]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[7]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[8]+'</span><span class="top-post-text">'+allTextLines[i].split(",")[9]+'</span></span>');
+																	}
+																}*/
+																//if(allTextLines.length <= 20){
+																	jQuery.each(allTextLines, function(i, val) {
+													      		console.log("i: "+i+" => Value: "+val);
+													      		//if(val){
+													      			//$('#total_data-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source>'+val.toString().split(",")[0]+'</span><span class="top-post-text">'+val.toString().split(",")[1]+'</span></span>');
+													      			$('#total_data-list-group').append("<span class='single-row'><a href='#' class='list-group-item'><span class='top-post-source'>"+i+"==> "+val.split(",")[3]+"</span><span class='top-post-source'>"+val.split(",")[0]+"</span><span class='top-post-source'>"+val.split(",")[5]+"</span><span class='top-post-source'>"+val.split(",")[7]+"</span><span class='top-post-source'>"+val.split(",")[8]+"</span><span class='top-post-text'>"+val.split(",")[9]+"</span></span>");
+													    			//}
+													    		});
+																//}
+													    },
+													    dataType: "text"
+														});
+
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>					
+
+					</div>-->
 
 					<div class="row">
 						<div class="col-md-6">

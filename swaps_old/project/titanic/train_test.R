@@ -1,0 +1,187 @@
+setwd("/root/Titanic")
+traindata<-read.csv("train(2).csv", header = TRUE, stringsAsFactors = FALSE)
+testData<-read.csv("test(2).csv", header = TRUE, stringsAsFactors = FALSE)
+head(traindata)
+plot(density(traindtools to deploy r codetools to deploy r codeata$Age, na.rm = TRUE))
+plot(density(traindata$Fare, na.rm = TRUE))
+counts <- table(traindata$Survived, traindata$Sex)
+counts
+barplot(counts, xlab = "Gender", ylab = "Number of People", main = "survived and deceased between male and female")
+counts[2] / (counts[1] + counts[2])
+counts[4] / (counts[3] + counts[4])
+Pclass_survival <- table(traindata$Survived, traindata$Pclass)
+Pclass_survival
+barplot(Pclass_survival, xlab = "Cabin Class", ylab = "Number of People",main = "survived and deceased between male and female")
+View(traindata)
+traindata = traindata[-c(1,9:12)]
+View(traindata)
+traindata$Sex = gsub("female", 1, traindata$Sex)
+traindata$Sex = gsub("male", 0, traindata$Sex)
+View(traindata$Sex)
+master_vector = grep("Master.",traindata$Name, fixed=TRUE)
+miss_vector = grep("Miss.", traindata$Name, fixed=TRUE)
+mrs_vector = grep("Mrs.", traindata$Name, fixed=TRUE)
+mr_vector = grep("Mr.", traindata$Name, fixed=TRUE)
+dr_vector = grep("Dr.", traindata$Name, fixed=TRUE)
+dr_vector
+View(traindata)
+for(i in master_vector) {
+  traindata$Name[i] = "Master"
+}
+for(i in miss_vector) {
+  traindata$Name[i] = "Miss"
+}
+for(i in mrs_vector) {
+  traindata$Name[i] = "Mrs"
+}
+for(i in mr_vector) {
+  traindata$Name[i] = "Mr"
+}
+for(i in dr_vector) {
+  traindata$Name[i] = "Dr"
+}
+master_age = round(mean(traindata$Age[traindata$Name == "Master"], na.rm = TRUE), digits = 2)
+miss_age = round(mean(traindata$Age[traindata$Name == "Miss"], na.rm = TRUE), digits =2)
+mrs_age = round(mean(traindata$Age[traindata$Name == "Mrs"], na.rm = TRUE), digits = 2)
+mr_age = round(mean(traindata$Age[traindata$Name == "Mr"], na.rm = TRUE), digits = 2)
+dr_age = round(mean(traindata$Age[traindata$Name == "Dr"], na.rm = TRUE), digits = 2)
+
+for (i in 1:nrow(traindata)) {
+  if (is.na(traindata[i,5])) {
+    if (traindata$Name[i] == "Master") {
+      traindata$Age[i] = master_age
+    } else if (traindata$Name[i] == "Miss") {
+      traindata$Age[i] = miss_age
+    } else if (traindata$Name[i] == "Mrs") {
+      traindata$Age[i] = mrs_age
+    } else if (traindata$Name[i] == "Mr") {
+      traindata$Age[i] = mr_age
+    } else if (traindata$Name[i] == "Dr") {
+      traindata$Age[i] = dr_age
+    } else {
+      print("Uncaught Title")
+    }
+  }
+}
+traindata["Child"]=NA
+for (i in 1:nrow(traindata)) {
+  if (traindata$Age[i] <= 12) {
+    traindata$Child[i] = 1
+  } else {
+    traindata$Child[i] = 2
+  }
+}
+traindata["Family"] = NA
+
+for(i in 1:nrow(traindata)) {
+  x = traindata$SibSp[i]
+  y = traindata$Parch[i]
+  traindata$Family[i] = x + y + 1
+}
+traindata["Mother"]=NA
+for(i in 1:nrow(traindata)) {
+  if(traindata$Name[i] == "Mrs" & traindata$Parch[i] > 0) {
+    traindata$Mother[i] = 1
+  } else {
+    traindata$Mother[i] = 2
+  }
+}
+PassengerId = testData[1]
+testData = testData[-c(1, 8:11)]
+
+testData$Sex = gsub("female", 1, testData$Sex)
+testData$Sex = gsub("^male", 0, testData$Sex)
+
+test_master_vector = grep("Master.",testData$Name)
+test_miss_vector = grep("Miss.", testData$Name)
+test_mrs_vector = grep("Mrs.", testData$Name)
+test_mr_vector = grep("Mr.", testData$Name)
+test_dr_vector = grep("Dr.", testData$Name)
+
+for(i in test_master_vector) {
+  testData[i, 2] = "Master"
+}
+for(i in test_miss_vector) {
+  testData[i, 2] = "Miss"
+}
+for(i in test_mrs_vector) {
+  testData[i, 2] = "Mrs"
+}
+for(i in test_mr_vector) {
+  testData[i, 2] = "Mr"
+}
+for(i in test_dr_vector) {
+  testData[i, 2] = "Dr"
+}
+
+test_master_age = round(mean(testData$Age[testData$Name == "Master"], na.rm = TRUE), digits = 2)
+test_miss_age = round(mean(testData$Age[testData$Name == "Miss"], na.rm = TRUE), digits =2)
+test_mrs_age = round(mean(testData$Age[testData$Name == "Mrs"], na.rm = TRUE), digits = 2)
+test_mr_age = round(mean(testData$Age[testData$Name == "Mr"], na.rm = TRUE), digits = 2)
+test_dr_age = round(mean(testData$Age[testData$Name == "Dr"], na.rm = TRUE), digits = 2)
+
+for (i in 1:nrow(testData)) {
+  if (is.na(testData[i,4])) {
+    if (testData[i, 2] == "Master") {
+      testData[i, 4] = test_master_age
+    } else if (testData[i, 2] == "Miss") {
+      testData[i, 4] = test_miss_age
+    } else if (testData[i, 2] == "Mrs") {
+      testData[i, 4] = test_mrs_age
+    } else if (testData[i, 2] == "Mr") {
+      testData[i, 4] = test_mr_age
+    } else if (testData[i, 2] == "Dr") {
+      testData[i, 4] = test_dr_age
+    } else {
+      print(paste("Uncaught title at: ", i, sep=""))
+      print(paste("The title unrecognized was: ", testData[i,2], sep=""))
+    }
+  }
+}
+
+#We do a manual replacement here, because we weren't able to programmatically figure out the title.
+#We figured out it was 89 because the above print statement should have warned us.
+testData[89, 4] = test_miss_age
+
+testData["Child"] = NA
+
+for (i in 1:nrow(testData)) {
+  if (testData[i, 4] <= 12) {
+    testData[i, 7] = 1
+  } else {
+    testData[i, 7] = 1
+  }
+}
+
+testData["Family"] = NA
+
+for(i in 1:nrow(testData)) {
+  testData[i, 8] = testData[i, 5] + testData[i, 6] + 1
+}
+
+testData["Mother"] = NA
+
+for(i in 1:nrow(testData)) {
+  if(testData[i, 2] == "Mrs" & testData[i, 6] > 0) {
+    testData[i, 9] = 1
+  } else {
+    testData[i, 9] = 2
+  }
+}
+train.glm <- glm(Survived ~ Pclass + Sex + Age + Child + Sex*Pclass + Family + Mother, family = binomial, data = traindata)
+summary(train.glm)
+p.hats <- predict.glm(train.glm, newdata = testData, type = "response")
+ 
+survival <- vector()
+for(i in 1:length(p.hats)) {
+  if(p.hats[i] > .5) {
+    survival[i] <- 1
+  } else {
+    survival[i] <- 0
+  }
+}
+kaggle.sub <- cbind(PassengerId,survival)
+colnames(kaggle.sub) <- c("PassengerId", "Survived")
+write.csv(kaggle.sub, file = "result1.csv", row.names = FALSE)
+
+

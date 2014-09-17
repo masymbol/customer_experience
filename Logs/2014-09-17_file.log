@@ -1,0 +1,1183 @@
+2014-09-17 07:39:30,049 INFO  [main] root: processing is start
+2014-09-17 07:39:30,051 INFO  [main] root: start main method :1410919770050
+2014-09-17 07:39:30,176 INFO  [main] root: start main method :1410919770176
+2014-09-17 07:39:30,244 INFO  [Thread-1] root: most influencers start :1410919770243
+2014-09-17 07:39:30,244 INFO  [Thread-1] root: most influencers start :1410919770243
+2014-09-17 07:39:30,244 INFO  [Thread-1] root: most influencers start :1410919770243
+2014-09-17 07:39:30,244 INFO  [Thread-0] root: GeoLocation class run method start :1410919770243
+2014-09-17 07:39:30,244 INFO  [Thread-0] root: GeoLocation class run method start :1410919770243
+2014-09-17 07:39:30,244 INFO  [Thread-0] root: GeoLocation class run method start :1410919770243
+2014-09-17 07:41:24,098 INFO  [main] root: processing is start
+2014-09-17 07:41:24,098 INFO  [main] root: start main method :1410919884098
+2014-09-17 07:41:24,107 INFO  [main] root: start main method :1410919884107
+2014-09-17 07:41:24,109 INFO  [Thread-1] root: most influencers start :1410919884109
+2014-09-17 07:41:24,109 INFO  [Thread-1] root: most influencers start :1410919884109
+2014-09-17 07:41:24,110 INFO  [Thread-0] root: GeoLocation class run method start :1410919884110
+2014-09-17 07:41:24,110 INFO  [Thread-0] root: GeoLocation class run method start :1410919884110
+2014-09-17 07:41:24,110 INFO  [Thread-0] root: GeoLocation class run method start :1410919884110
+2014-09-17 07:41:35,640 WARN  [Thread-0] root: Twitter warning
+2014-09-17 07:41:35,640 WARN  [Thread-0] root: Twitter warning
+2014-09-17 07:41:35,640 WARN  [Thread-0] root: Twitter warning
+2014-09-17 07:41:35,640 WARN  [Thread-0] root: Twitter exception
+2014-09-17 07:41:35,640 WARN  [Thread-0] root: Twitter exception
+2014-09-17 07:41:35,640 WARN  [Thread-0] root: Twitter exception
+2014-09-17 07:41:35,640 INFO  [Thread-0] root: GeoLocation class run method end :1410919895640
+2014-09-17 07:41:35,640 INFO  [Thread-0] root: GeoLocation class run method end :1410919895640
+2014-09-17 07:41:35,640 INFO  [Thread-0] root: GeoLocation class run method end :1410919895640
+2014-09-17 07:41:35,712 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 07:41:35,712 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 07:41:35,712 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 07:41:35,713 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 07:41:35,713 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 07:41:35,713 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 07:41:35,713 INFO  [Thread-1] root: most influencers end :1410919895713
+2014-09-17 07:41:35,713 INFO  [Thread-1] root: most influencers end :1410919895713
+2014-09-17 07:41:35,713 INFO  [Thread-1] root: most influencers end :1410919895713
+2014-09-17 07:41:35,713 INFO  [Thread-1] root: process completed
+2014-09-17 07:41:35,713 INFO  [Thread-1] root: process completed
+2014-09-17 07:41:35,713 INFO  [Thread-1] root: process completed
+2014-09-17 07:45:26,793 INFO  [main] root: processing is start
+2014-09-17 07:45:26,794 INFO  [main] root: start main method :1410920126793
+2014-09-17 07:45:26,802 INFO  [main] root: start main method :1410920126802
+2014-09-17 07:45:26,804 INFO  [Thread-0] root: GeoLocation class run method start :1410920126804
+2014-09-17 07:45:26,804 INFO  [Thread-0] root: GeoLocation class run method start :1410920126804
+2014-09-17 07:45:26,806 INFO  [Thread-1] root: most influencers start :1410920126805
+2014-09-17 07:45:26,806 INFO  [Thread-1] root: most influencers start :1410920126805
+2014-09-17 07:45:26,806 INFO  [Thread-1] root: most influencers start :1410920126805
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: GeoLocation class run method end :1410920145398
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: GeoLocation class run method end :1410920145398
+2014-09-17 07:45:45,398 INFO  [Thread-0] root: GeoLocation class run method end :1410920145398
+2014-09-17 07:46:29,992 INFO  [Thread-1] root: most influencers end :1410920189992
+2014-09-17 07:46:29,992 INFO  [Thread-1] root: most influencers end :1410920189992
+2014-09-17 07:46:29,992 INFO  [Thread-1] root: most influencers end :1410920189992
+2014-09-17 07:46:29,992 INFO  [Thread-1] root: process completed
+2014-09-17 07:46:29,992 INFO  [Thread-1] root: process completed
+2014-09-17 07:46:29,992 INFO  [Thread-1] root: process completed
+2014-09-17 07:52:20,178 INFO  [main] root: processing is start
+2014-09-17 07:52:20,179 INFO  [main] root: start main method :1410920540179
+2014-09-17 07:52:20,187 INFO  [main] root: start main method :1410920540187
+2014-09-17 07:52:20,191 INFO  [Thread-1] root: most influencers start :1410920540191
+2014-09-17 07:52:20,191 INFO  [Thread-1] root: most influencers start :1410920540191
+2014-09-17 07:52:20,193 INFO  [Thread-0] root: GeoLocation class run method start :1410920540193
+2014-09-17 07:52:20,193 INFO  [Thread-0] root: GeoLocation class run method start :1410920540193
+2014-09-17 07:52:20,193 INFO  [Thread-0] root: GeoLocation class run method start :1410920540193
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: GeoLocation class run method end :1410920559920
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: GeoLocation class run method end :1410920559920
+2014-09-17 07:52:39,920 INFO  [Thread-0] root: GeoLocation class run method end :1410920559920
+2014-09-17 07:53:22,199 INFO  [Thread-1] root: most influencers end :1410920602199
+2014-09-17 07:53:22,199 INFO  [Thread-1] root: most influencers end :1410920602199
+2014-09-17 07:53:22,199 INFO  [Thread-1] root: most influencers end :1410920602199
+2014-09-17 07:53:22,199 INFO  [Thread-1] root: process completed
+2014-09-17 07:53:22,199 INFO  [Thread-1] root: process completed
+2014-09-17 07:53:22,199 INFO  [Thread-1] root: process completed
+2014-09-17 07:54:57,184 INFO  [main] root: processing is start
+2014-09-17 07:54:57,185 INFO  [main] root: start main method :1410920697184
+2014-09-17 07:54:57,191 INFO  [main] root: start main method :1410920697191
+2014-09-17 07:54:57,194 INFO  [Thread-0] root: GeoLocation class run method start :1410920697194
+2014-09-17 07:54:57,194 INFO  [Thread-0] root: GeoLocation class run method start :1410920697194
+2014-09-17 07:54:57,195 INFO  [Thread-1] root: most influencers start :1410920697195
+2014-09-17 07:54:57,195 INFO  [Thread-1] root: most influencers start :1410920697195
+2014-09-17 07:54:57,195 INFO  [Thread-1] root: most influencers start :1410920697195
+2014-09-17 07:55:02,273 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:55:02,273 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:55:02,273 INFO  [Thread-0] root: user file has written completely
+2014-09-17 07:55:02,274 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:55:02,274 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:55:02,274 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 07:55:02,274 INFO  [Thread-0] root: GeoLocation class run method end :1410920702274
+2014-09-17 07:55:02,274 INFO  [Thread-0] root: GeoLocation class run method end :1410920702274
+2014-09-17 07:55:02,274 INFO  [Thread-0] root: GeoLocation class run method end :1410920702274
+2014-09-17 07:55:58,038 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:55:58,038 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:55:58,038 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:55:58,038 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:55:58,038 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:55:58,038 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:01,934 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:01,934 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:01,934 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:01,935 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:01,935 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:01,935 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,280 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,280 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,280 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,281 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,281 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,281 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,630 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,630 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,630 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,631 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,631 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,631 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,980 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,980 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,980 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:02,981 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,981 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:02,981 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,311 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,311 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,311 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,311 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,311 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,311 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,624 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,624 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,624 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,625 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,625 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,625 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,959 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,959 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,959 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:03,960 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,960 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:03,960 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,300 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,300 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,300 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,301 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,301 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,301 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,647 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,647 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,647 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,647 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,647 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,647 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,986 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,986 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,986 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:04,989 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,989 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:04,989 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:05,321 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:05,321 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:05,321 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:05,321 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:05,321 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:05,321 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:05,660 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:05,660 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:05,660 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:05,660 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:05,660 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:05,660 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,010 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,010 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,010 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,010 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,010 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,010 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,470 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,470 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,470 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,470 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,470 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,470 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,784 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,784 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,784 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:06,784 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,784 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:06,784 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,118 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,118 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,118 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,118 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,118 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,118 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,451 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,451 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,451 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,451 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,451 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,451 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,777 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,777 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,777 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:07,777 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,777 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:07,777 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,211 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,211 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,211 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,211 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,211 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,211 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,548 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,548 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,548 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,549 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,549 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,549 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,916 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,916 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,916 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:08,917 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,917 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:08,917 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,220 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,220 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,220 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,220 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,220 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,220 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,586 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,586 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,586 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,586 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,586 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,586 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,921 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,921 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,921 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:09,921 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,921 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:09,921 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:10,254 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:10,254 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:10,254 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:10,254 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:10,254 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:10,254 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:10,593 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:10,593 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:10,593 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:10,594 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:10,594 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:10,594 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,010 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,010 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,010 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,011 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,011 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,011 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,319 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,319 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,319 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,320 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,320 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,320 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,618 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,618 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,618 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,618 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,618 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,618 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,974 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,974 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,974 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:11,974 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,974 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:11,974 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,304 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,304 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,304 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,304 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,304 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,304 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,621 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,621 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,621 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,621 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,621 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,621 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,974 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,974 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,974 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:12,975 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,975 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:12,975 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,310 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,310 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,310 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,310 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,310 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,310 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,649 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,649 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,649 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,649 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,649 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,649 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,971 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,971 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,971 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:13,971 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,971 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:13,971 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,310 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,310 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,310 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,310 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,310 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,310 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,627 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,627 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,627 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,627 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,627 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,627 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,950 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,950 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,950 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:14,950 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,950 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:14,950 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:15,278 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:15,278 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:15,278 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:15,280 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:15,280 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:15,280 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:15,634 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:15,634 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:15,634 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 07:56:15,634 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:15,634 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:15,634 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 07:56:15,635 INFO  [Thread-1] root: most influencers end :1410920775635
+2014-09-17 07:56:15,635 INFO  [Thread-1] root: most influencers end :1410920775635
+2014-09-17 07:56:15,635 INFO  [Thread-1] root: most influencers end :1410920775635
+2014-09-17 07:56:15,635 INFO  [Thread-1] root: process completed
+2014-09-17 07:56:15,635 INFO  [Thread-1] root: process completed
+2014-09-17 07:56:15,635 INFO  [Thread-1] root: process completed
+2014-09-17 08:10:17,172 INFO  [main] root: processing is start
+2014-09-17 08:10:17,172 INFO  [main] root: start main method :1410921617172
+2014-09-17 08:10:17,184 INFO  [main] root: start main method :1410921617184
+2014-09-17 08:10:17,186 INFO  [Thread-0] root: GeoLocation class run method start :1410921617185
+2014-09-17 08:10:17,186 INFO  [Thread-0] root: GeoLocation class run method start :1410921617185
+2014-09-17 08:10:17,188 INFO  [Thread-1] root: most influencers start :1410921617188
+2014-09-17 08:10:17,188 INFO  [Thread-1] root: most influencers start :1410921617188
+2014-09-17 08:10:17,188 INFO  [Thread-1] root: most influencers start :1410921617188
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: GeoLocation class run method end :1410921637016
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: GeoLocation class run method end :1410921637016
+2014-09-17 08:10:37,016 INFO  [Thread-0] root: GeoLocation class run method end :1410921637016
+2014-09-17 08:11:18,579 INFO  [Thread-1] root: most influencers end :1410921678579
+2014-09-17 08:11:18,579 INFO  [Thread-1] root: most influencers end :1410921678579
+2014-09-17 08:11:18,579 INFO  [Thread-1] root: most influencers end :1410921678579
+2014-09-17 08:11:18,580 INFO  [Thread-1] root: process completed
+2014-09-17 08:11:18,580 INFO  [Thread-1] root: process completed
+2014-09-17 08:11:18,580 INFO  [Thread-1] root: process completed
+2014-09-17 08:12:42,384 INFO  [main] root: processing is start
+2014-09-17 08:12:42,385 INFO  [main] root: start main method :1410921762385
+2014-09-17 08:12:42,396 INFO  [main] root: start main method :1410921762396
+2014-09-17 08:12:42,398 INFO  [Thread-0] root: GeoLocation class run method start :1410921762398
+2014-09-17 08:12:42,398 INFO  [Thread-0] root: GeoLocation class run method start :1410921762398
+2014-09-17 08:12:42,400 INFO  [Thread-1] root: most influencers start :1410921762400
+2014-09-17 08:12:42,400 INFO  [Thread-1] root: most influencers start :1410921762400
+2014-09-17 08:12:42,400 INFO  [Thread-1] root: most influencers start :1410921762400
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: GeoLocation class run method end :1410921766080
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: GeoLocation class run method end :1410921766080
+2014-09-17 08:12:46,080 INFO  [Thread-0] root: GeoLocation class run method end :1410921766080
+2014-09-17 08:13:19,430 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 08:13:19,430 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 08:13:19,430 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 08:13:19,430 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 08:13:19,430 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 08:13:19,430 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 08:13:49,510 INFO  [Thread-1] root: most influencers end :1410921829510
+2014-09-17 08:13:49,510 INFO  [Thread-1] root: most influencers end :1410921829510
+2014-09-17 08:13:49,510 INFO  [Thread-1] root: most influencers end :1410921829510
+2014-09-17 08:13:49,511 INFO  [Thread-1] root: process completed
+2014-09-17 08:13:49,511 INFO  [Thread-1] root: process completed
+2014-09-17 08:13:49,511 INFO  [Thread-1] root: process completed
+2014-09-17 08:30:11,652 INFO  [main] root: processing is start
+2014-09-17 08:30:11,653 INFO  [main] root: start main method :1410922811653
+2014-09-17 08:30:11,663 INFO  [main] root: start main method :1410922811662
+2014-09-17 08:30:11,664 INFO  [Thread-0] root: GeoLocation class run method start :1410922811664
+2014-09-17 08:30:11,664 INFO  [Thread-0] root: GeoLocation class run method start :1410922811664
+2014-09-17 08:30:11,666 INFO  [Thread-1] root: most influencers start :1410922811666
+2014-09-17 08:30:11,666 INFO  [Thread-1] root: most influencers start :1410922811666
+2014-09-17 08:30:11,666 INFO  [Thread-1] root: most influencers start :1410922811666
+2014-09-17 08:30:27,067 WARN  [Thread-1] root: io warning 
+2014-09-17 08:30:27,067 WARN  [Thread-1] root: io warning 
+2014-09-17 08:30:27,067 WARN  [Thread-1] root: io warning 
+2014-09-17 08:30:27,067 WARN  [Thread-1] root: io exception 
+2014-09-17 08:30:27,067 WARN  [Thread-1] root: io exception 
+2014-09-17 08:30:27,067 WARN  [Thread-1] root: io exception 
+2014-09-17 08:30:27,068 WARN  [Thread-1] root: null pointer of klout id warning 
+2014-09-17 08:30:27,068 WARN  [Thread-1] root: null pointer of klout id warning 
+2014-09-17 08:30:27,068 WARN  [Thread-1] root: null pointer of klout id warning 
+2014-09-17 08:30:27,068 WARN  [Thread-1] root: null pointer of klout id exception 
+2014-09-17 08:30:27,068 WARN  [Thread-1] root: null pointer of klout id exception 
+2014-09-17 08:30:27,068 WARN  [Thread-1] root: null pointer of klout id exception 
+2014-09-17 08:30:33,076 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:30:33,076 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:30:33,076 INFO  [Thread-0] root: user file has written completely
+2014-09-17 08:30:33,076 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:30:33,076 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:30:33,076 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 08:30:33,077 INFO  [Thread-0] root: GeoLocation class run method end :1410922833077
+2014-09-17 08:30:33,077 INFO  [Thread-0] root: GeoLocation class run method end :1410922833077
+2014-09-17 08:30:33,077 INFO  [Thread-0] root: GeoLocation class run method end :1410922833077
+2014-09-17 08:30:52,036 INFO  [main] root: processing is start
+2014-09-17 08:30:52,036 INFO  [main] root: start main method :1410922852036
+2014-09-17 08:30:52,047 INFO  [Thread-0] root: GeoLocation class run method start :1410922852046
+2014-09-17 08:30:52,047 INFO  [Thread-0] root: GeoLocation class run method start :1410922852046
+2014-09-17 08:30:52,049 INFO  [main] root: start main method :1410922852049
+2014-09-17 08:30:52,049 INFO  [main] root: start main method :1410922852049
+2014-09-17 08:30:52,053 INFO  [Thread-1] root: most influencers start :1410922852053
+2014-09-17 08:30:52,053 INFO  [Thread-1] root: most influencers start :1410922852053
+2014-09-17 08:30:52,053 INFO  [Thread-1] root: most influencers start :1410922852053
+2014-09-17 08:30:55,163 WARN  [Thread-0] root: null pointer  warning
+2014-09-17 08:30:55,163 WARN  [Thread-0] root: null pointer  warning
+2014-09-17 08:30:55,163 WARN  [Thread-0] root: null pointer  warning
+2014-09-17 08:30:55,164 WARN  [Thread-0] root: null pointer exception exception
+2014-09-17 08:30:55,164 WARN  [Thread-0] root: null pointer exception exception
+2014-09-17 08:30:55,164 WARN  [Thread-0] root: null pointer exception exception
+2014-09-17 08:30:55,164 INFO  [Thread-0] root: GeoLocation class run method end :1410922855164
+2014-09-17 08:30:55,164 INFO  [Thread-0] root: GeoLocation class run method end :1410922855164
+2014-09-17 08:30:55,164 INFO  [Thread-0] root: GeoLocation class run method end :1410922855164
+2014-09-17 10:04:02,294 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,294 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,294 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,295 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,295 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,295 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,395 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,395 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,395 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,395 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,395 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,395 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,398 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,398 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,398 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,398 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,398 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,398 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,401 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,401 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,401 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,401 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,401 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,401 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,403 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,403 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,403 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,403 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,403 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,403 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,405 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,405 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,405 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,405 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,405 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,405 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,407 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,407 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,407 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,407 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,407 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,407 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,408 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,408 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,408 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,409 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,409 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,409 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,411 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,411 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,411 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,411 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,411 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,411 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,413 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,413 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,413 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,414 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,414 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,414 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,415 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,415 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,415 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,415 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,415 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,415 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,417 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,417 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,417 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,417 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,417 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,417 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,419 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,419 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,419 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,420 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,420 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,420 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,421 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,421 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,421 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,421 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,421 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,421 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,423 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,423 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,423 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,423 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,423 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,423 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,425 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,425 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,425 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,425 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,425 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,425 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,427 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,427 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,427 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,427 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,427 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,427 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,429 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,429 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,429 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,429 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,429 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,429 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,431 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,431 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,431 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,431 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,431 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,431 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,433 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,433 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,433 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,433 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,433 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,433 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,435 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,435 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,435 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,435 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,435 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,435 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,436 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,436 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,436 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,437 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,437 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,437 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,438 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,438 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,438 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,438 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,438 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,438 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,440 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,440 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,440 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,440 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,440 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,440 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,442 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,442 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,442 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,442 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,442 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,442 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,444 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,444 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,444 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,444 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,444 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,444 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,445 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,445 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,445 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,446 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,446 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,446 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,448 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,448 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,448 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,448 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,448 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,448 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,449 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,449 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,449 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,450 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,450 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,450 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,451 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,451 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,451 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,452 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,452 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,452 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,453 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,453 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,453 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,453 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,453 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,453 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,455 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,455 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,455 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,455 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,455 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,455 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,457 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,457 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,457 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,457 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,457 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,457 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,458 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,458 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,458 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,459 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,459 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,459 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,460 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,460 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,460 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,460 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,460 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,460 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,462 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,462 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,462 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,462 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,462 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,462 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,464 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,464 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,464 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,464 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,464 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,464 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,466 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,466 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,466 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,466 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,466 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,466 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,469 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,469 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,469 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,469 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,469 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,469 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,472 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,472 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,472 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,472 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,472 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,472 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,475 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,475 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,475 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,475 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,475 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,475 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,478 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,478 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,478 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,478 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,478 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,478 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,481 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,481 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,481 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,481 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,481 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,481 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,484 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,484 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,484 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,484 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,484 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,484 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,486 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,486 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,486 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,486 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,486 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,486 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,489 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,489 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,489 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,489 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,489 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,489 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,492 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,492 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,492 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,492 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,492 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,492 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,498 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,498 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,498 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,498 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,498 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,498 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,500 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,500 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,500 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,500 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,500 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,500 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,503 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,503 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,503 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,503 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,503 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,503 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,506 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,506 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,506 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,506 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,506 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,506 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,508 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,508 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,508 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,509 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,509 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,509 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,511 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,511 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,511 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,511 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,511 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,511 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,514 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,514 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,514 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,514 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,514 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,514 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,516 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,516 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,516 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,516 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,516 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,516 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,518 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,518 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,518 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,518 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,518 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,518 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,520 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,520 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,520 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,520 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,520 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,520 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,522 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,522 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,522 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,522 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,522 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,522 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,524 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,524 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,524 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,524 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,524 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,524 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,526 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,526 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,526 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,526 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,526 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,526 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,527 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,527 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,527 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,527 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,527 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,527 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,529 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,529 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,529 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,529 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,529 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,529 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,530 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,530 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,530 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,531 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,531 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,531 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,532 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,532 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,532 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,532 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,532 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,532 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,533 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,533 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,533 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,534 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,534 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,534 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,535 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,535 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,535 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,535 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,535 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,535 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,537 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,537 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,537 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,537 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,537 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,537 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,539 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,539 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,539 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,539 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,539 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,539 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,540 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,540 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,540 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,540 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,540 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,540 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,542 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,542 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,542 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,542 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,542 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,542 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,545 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,545 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,545 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,545 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,545 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,545 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,547 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,547 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,547 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,547 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,547 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,547 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,549 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,549 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,549 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,549 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,549 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,549 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,550 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,550 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,550 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,550 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,550 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,550 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,552 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,552 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,552 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,552 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,552 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,552 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,555 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,555 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,555 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,555 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,555 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,555 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,557 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,557 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,557 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,557 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,557 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,557 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,559 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,559 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,559 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,560 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,560 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,560 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,562 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,562 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,562 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,562 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,562 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,562 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,564 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,564 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,564 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,564 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,564 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,564 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,566 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,566 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,566 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,566 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,566 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,566 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,568 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,568 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,568 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,568 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,568 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,568 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,569 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,569 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,569 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,569 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,569 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,569 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,571 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,571 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,571 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,571 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,571 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,571 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,573 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,573 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,573 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,573 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,573 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,573 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,574 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,574 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,574 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,574 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,574 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,574 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,576 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,576 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,576 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,576 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,576 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,576 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,577 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,577 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,577 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,577 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,577 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,577 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,579 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,579 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,579 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,579 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,579 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,579 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,580 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,580 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,580 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,580 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,580 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,580 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,582 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,582 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,582 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,582 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,582 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,582 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,584 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,584 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,584 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,584 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,584 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,584 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,591 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,591 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,591 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,592 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,592 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,592 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,596 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,596 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,596 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,596 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,596 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,596 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,598 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,598 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,598 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,598 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,598 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,598 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,600 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,600 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,600 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,600 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,600 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,600 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,602 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,602 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,602 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,602 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,602 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,602 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,604 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,604 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,604 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,604 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,604 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,604 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,605 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,605 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,605 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,605 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,605 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,605 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,607 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,607 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,607 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,607 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,607 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,607 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,608 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,608 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,608 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,609 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,609 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,609 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,610 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,610 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,610 WARN  [Thread-1] root: Twitter warning 
+2014-09-17 10:04:02,610 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,610 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,610 WARN  [Thread-1] root: Twitter exception 
+2014-09-17 10:04:02,611 INFO  [Thread-1] root: most influencers end :1410928442611
+2014-09-17 10:04:02,611 INFO  [Thread-1] root: most influencers end :1410928442611
+2014-09-17 10:04:02,611 INFO  [Thread-1] root: most influencers end :1410928442611
+2014-09-17 10:04:02,611 INFO  [Thread-1] root: process completed
+2014-09-17 10:04:02,611 INFO  [Thread-1] root: process completed
+2014-09-17 10:04:02,611 INFO  [Thread-1] root: process completed
+2014-09-17 10:07:03,014 INFO  [main] root: processing is start
+2014-09-17 10:07:03,015 INFO  [main] root: start main method :1410928623014
+2014-09-17 10:07:03,025 INFO  [main] root: start main method :1410928623024
+2014-09-17 10:07:03,027 INFO  [Thread-1] root: most influencers start :1410928623027
+2014-09-17 10:07:03,027 INFO  [Thread-1] root: most influencers start :1410928623027
+2014-09-17 10:07:03,028 INFO  [Thread-0] root: GeoLocation class run method start :1410928623027
+2014-09-17 10:07:03,028 INFO  [Thread-0] root: GeoLocation class run method start :1410928623027
+2014-09-17 10:07:03,028 INFO  [Thread-0] root: GeoLocation class run method start :1410928623027
+2014-09-17 10:07:03,761 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 10:07:03,761 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 10:07:03,761 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 10:07:03,761 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 10:07:03,761 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 10:07:03,761 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 10:07:03,762 INFO  [Thread-1] root: most influencers end :1410928623762
+2014-09-17 10:07:03,762 INFO  [Thread-1] root: most influencers end :1410928623762
+2014-09-17 10:07:03,762 INFO  [Thread-1] root: most influencers end :1410928623762
+2014-09-17 10:07:03,762 INFO  [Thread-1] root: process completed
+2014-09-17 10:07:03,762 INFO  [Thread-1] root: process completed
+2014-09-17 10:07:03,762 INFO  [Thread-1] root: process completed
+2014-09-17 10:07:03,764 WARN  [Thread-0] root: Twitter warning
+2014-09-17 10:07:03,764 WARN  [Thread-0] root: Twitter warning
+2014-09-17 10:07:03,764 WARN  [Thread-0] root: Twitter warning
+2014-09-17 10:07:03,765 WARN  [Thread-0] root: Twitter exception
+2014-09-17 10:07:03,765 WARN  [Thread-0] root: Twitter exception
+2014-09-17 10:07:03,765 WARN  [Thread-0] root: Twitter exception
+2014-09-17 10:07:03,765 INFO  [Thread-0] root: GeoLocation class run method end :1410928623765
+2014-09-17 10:07:03,765 INFO  [Thread-0] root: GeoLocation class run method end :1410928623765
+2014-09-17 10:07:03,765 INFO  [Thread-0] root: GeoLocation class run method end :1410928623765
+2014-09-17 10:09:02,924 INFO  [main] root: processing is start
+2014-09-17 10:09:02,924 INFO  [main] root: start main method :1410928742924
+2014-09-17 10:09:02,937 INFO  [main] root: start main method :1410928742936
+2014-09-17 10:09:02,937 INFO  [Thread-0] root: GeoLocation class run method start :1410928742937
+2014-09-17 10:09:02,937 INFO  [Thread-0] root: GeoLocation class run method start :1410928742937
+2014-09-17 10:09:02,939 INFO  [Thread-1] root: most influencers start :1410928742939
+2014-09-17 10:09:02,939 INFO  [Thread-1] root: most influencers start :1410928742939
+2014-09-17 10:09:02,939 INFO  [Thread-1] root: most influencers start :1410928742939
+2014-09-17 10:09:03,681 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 10:09:03,681 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 10:09:03,681 WARN  [Thread-1] root: Twitter of search warning 
+2014-09-17 10:09:03,681 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 10:09:03,681 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 10:09:03,681 WARN  [Thread-1] root: Twitter of search exception 
+2014-09-17 10:09:03,682 INFO  [Thread-1] root: most influencers end :1410928743682
+2014-09-17 10:09:03,682 INFO  [Thread-1] root: most influencers end :1410928743682
+2014-09-17 10:09:03,682 INFO  [Thread-1] root: most influencers end :1410928743682
+2014-09-17 10:09:03,682 INFO  [Thread-1] root: process completed
+2014-09-17 10:09:03,682 INFO  [Thread-1] root: process completed
+2014-09-17 10:09:03,682 INFO  [Thread-1] root: process completed
+2014-09-17 10:09:03,682 WARN  [Thread-0] root: Twitter warning
+2014-09-17 10:09:03,682 WARN  [Thread-0] root: Twitter warning
+2014-09-17 10:09:03,682 WARN  [Thread-0] root: Twitter warning
+2014-09-17 10:09:03,682 WARN  [Thread-0] root: Twitter exception
+2014-09-17 10:09:03,682 WARN  [Thread-0] root: Twitter exception
+2014-09-17 10:09:03,682 WARN  [Thread-0] root: Twitter exception
+2014-09-17 10:09:03,683 INFO  [Thread-0] root: GeoLocation class run method end :1410928743683
+2014-09-17 10:09:03,683 INFO  [Thread-0] root: GeoLocation class run method end :1410928743683
+2014-09-17 10:09:03,683 INFO  [Thread-0] root: GeoLocation class run method end :1410928743683
+2014-09-17 10:18:36,577 WARN  [Thread-1] root: klout file info warning 
+2014-09-17 10:18:36,577 WARN  [Thread-1] root: klout file info warning 
+2014-09-17 10:18:36,577 WARN  [Thread-1] root: klout file info warning 
+2014-09-17 10:18:36,578 WARN  [Thread-1] root: klout file info exception 
+2014-09-17 10:18:36,578 WARN  [Thread-1] root: klout file info exception 
+2014-09-17 10:18:36,578 WARN  [Thread-1] root: klout file info exception 
+2014-09-17 11:14:23,915 INFO  [main] root: processing is start
+2014-09-17 11:14:23,942 INFO  [main] root: start main method :1410932663941
+2014-09-17 11:14:24,002 INFO  [main] root: start main method :1410932664002
+2014-09-17 11:14:24,005 INFO  [Thread-0] root: GeoLocation class run method start :1410932664004
+2014-09-17 11:14:24,005 INFO  [Thread-0] root: GeoLocation class run method start :1410932664004
+2014-09-17 11:14:24,006 INFO  [Thread-1] root: most influencers start :1410932664006
+2014-09-17 11:14:24,006 INFO  [Thread-1] root: most influencers start :1410932664006
+2014-09-17 11:14:24,006 INFO  [Thread-1] root: most influencers start :1410932664006
+2014-09-17 11:15:06,270 INFO  [main] root: processing is start
+2014-09-17 11:15:06,270 INFO  [main] root: start main method :1410932706270
+2014-09-17 11:15:06,340 INFO  [main] root: start main method :1410932706340
+2014-09-17 11:15:06,341 INFO  [Thread-0] root: GeoLocation class run method start :1410932706341
+2014-09-17 11:15:06,341 INFO  [Thread-0] root: GeoLocation class run method start :1410932706341
+2014-09-17 11:15:06,343 INFO  [Thread-1] root: most influencers start :1410932706342
+2014-09-17 11:15:06,343 INFO  [Thread-1] root: most influencers start :1410932706342
+2014-09-17 11:15:06,343 INFO  [Thread-1] root: most influencers start :1410932706342
+2014-09-17 11:15:21,155 WARN  [Thread-1] root: io warning 
+2014-09-17 11:15:21,155 WARN  [Thread-1] root: io warning 
+2014-09-17 11:15:21,155 WARN  [Thread-1] root: io warning 
+2014-09-17 11:15:21,155 WARN  [Thread-1] root: io exception 
+2014-09-17 11:15:21,155 WARN  [Thread-1] root: io exception 
+2014-09-17 11:15:21,155 WARN  [Thread-1] root: io exception 
+2014-09-17 11:15:21,156 WARN  [Thread-1] root: null pointer of klout id warning 
+2014-09-17 11:15:21,156 WARN  [Thread-1] root: null pointer of klout id warning 
+2014-09-17 11:15:21,156 WARN  [Thread-1] root: null pointer of klout id warning 
+2014-09-17 11:15:21,156 WARN  [Thread-1] root: null pointer of klout id exception 
+2014-09-17 11:15:21,156 WARN  [Thread-1] root: null pointer of klout id exception 
+2014-09-17 11:15:21,156 WARN  [Thread-1] root: null pointer of klout id exception 
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: user file has written completely
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: user file has written completely
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: user file has written completely
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: geoLocation file has written completely
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: GeoLocation class run method end :1410932723044
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: GeoLocation class run method end :1410932723044
+2014-09-17 11:15:23,044 INFO  [Thread-0] root: GeoLocation class run method end :1410932723044
+2014-09-17 11:16:24,006 INFO  [Thread-1] root: most influencers end :1410932784006
+2014-09-17 11:16:24,006 INFO  [Thread-1] root: most influencers end :1410932784006
+2014-09-17 11:16:24,006 INFO  [Thread-1] root: most influencers end :1410932784006
+2014-09-17 11:16:24,006 INFO  [Thread-1] root: process completed
+2014-09-17 11:16:24,006 INFO  [Thread-1] root: process completed
+2014-09-17 11:16:24,006 INFO  [Thread-1] root: process completed
