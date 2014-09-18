@@ -1,3 +1,0 @@
-logistic <- function(r){
-  r
-}

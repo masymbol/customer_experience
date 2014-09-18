@@ -1,6 +1,0 @@
-library(randomForestSRC)
-data(veteran)
-veteran.out <- rfsrc(Surv(time, status)~., data = veteran, ntree = 5, forest = TRUE)
-p<-pmml(veteran.out)
-xmlFile <- file.path(getwd(),"pmml.xml")
-saveXML(p,xmlFile)

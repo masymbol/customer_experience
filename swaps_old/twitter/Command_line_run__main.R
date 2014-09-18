@@ -1,5 +1,0 @@
-setwd("/home/purva/Desktop/twitter")
-args <-commandArgs(TRUE)
-r <- as.character(args[1])
-source("coomand_line_run.R")
-logistic(r)
