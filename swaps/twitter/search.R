@@ -34,7 +34,7 @@ logistic <- function(ans,str)
 {
 setwd(str)
 parent <- str
-folders <- c("post","sentiment_graphs","most_pos_neg","Some_pos_neg","wordcloud_img")
+folders <- c("post","sentiment_graphs","most_pos_neg","Some_pos_neg","wordcloud_img","Timeframe")
 
 for (i in 1:length(folders))  
 {
@@ -50,6 +50,28 @@ Tweets.text = laply(tweets,function(t)t$getText())
 combined_text <- bigdata.df["text"]
 combined_text["Source"] <- "Twitter"
 
+#filter Twiter
+  tweet_col <-bigdata.df$text
+  char <-as.character(tweet_col)
+  res_replc <- sub("\\n"," ",char)
+  res_replc1 <- sub("\\n"," ",res_replc)
+  res_replc2 <- sub("\\n"," ",res_replc1)
+  res_replc3 <- sub("\\n"," ",res_replc2)
+  res_replc4 <- sub("\\n"," ",res_replc3)
+  res_replc5 <- sub("\\n"," ",res_replc4)
+  res_replc6 <- sub("\\n"," ",res_replc5)
+  filtered_text <- gsub(","," ",res_replc6)
+  twitter_post <-cbind(filtered_text,bigdata.df$screenName)
+  
+  ########## Timeframe ######
+  print("entered timeframe")
+  library(rJava)
+  date <- as.Date(bigdata.df$created)
+  swaps <- data.frame(date)
+  dates_with_count_of_repeatation <-ddply(swaps,~date,summarise,number_of_distinct_orders=length(duplicated(date)))
+  write.csv(dates_with_count_of_repeatation,"Timeframe/timeframedata.csv")
+  write("Write_success","Timeframe/_success.txt")
+
 ##### g+ #####
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 setAPIkey('AIzaSyDmaKUqQNBbFjSjlut-q9dTWR7RY_juWQk')
@@ -62,6 +84,7 @@ combined_text <- rbind(combined_text, gp_text)
 
 write.csv(combined_text,"post/post.csv")
 write.csv(bigdata.df,"post/Twitter_post.csv")
+write.csv(bigdata.df$screenName,"post/screen_name.csv")
 write.csv(ppostt,"post/Gp_post.csv")
 write("Write_success","post/_success.txt")
 
@@ -110,7 +133,7 @@ txt <-data.frame(analysis$text)
 scr <-data.frame(analysis$score)
 res <- cbind(scr,txt)
 
-######### sentiment score
+######### sentiment score ####
 colnames(res) <- c("analysis_score","analysis_text")
 write.csv(res,"sentiment_graphs/score_analysis.csv")
 #jpeg('sentiment_graphs/sentiment_score.jpg')  
@@ -120,7 +143,7 @@ write("Write_success","sentiment_graphs/_success.txt")
 #View(analysis)
 
 ########## Timeframe graph ##########
-print("timeframe entered")
+print("Entered_for score_analysis")
 write.csv(res,"post/score_and_text.csv")
 
 ############################## most +ve and _ve tweets ############################
@@ -219,9 +242,9 @@ dev.off()
 write("Write_success","wordcloud_img/_success.txt")
 
 ########### time frame ###########
-print("timeframe re-entered")
+print("Score and text analysis re-entered")
 read <- read.csv("post/score_and_text.csv")
-jpeg('post/timeframe.jpg')
+jpeg('post/score_per_text.jpg')
 plot(read$analysis_score,read$analysis_text)
 dev.off()
 
