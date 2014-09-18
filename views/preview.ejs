@@ -45,6 +45,7 @@
 		<!-- Load d3.js and c3.js -->
 		<script src="javascripts/d3.min.js"></script>
 		<script src="javascripts/c3.min.js"></script>
+		<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
 		<style>
 			#recent_users img, #most_influencers img{
 				border: 2px solid black;
@@ -65,9 +66,18 @@
 			  display: table-cell;
 			  vertical-align: top;
 			}
-			span.top-post-source{
+			span.top-post-source, span.social-icons{
 				padding-right: 10px;
 			}
+
+			/*styles for social icons colors */
+			span.new-social-google-plus{
+				color:red;
+			}
+			span.new-social-twitter{
+				color: #4D94FF;
+			}
+
 		</style>
     </head>
     <body>
@@ -128,7 +138,7 @@
 									<div class="row">										
 										<div class="col-md-12">
 											<div id="flot_browsers" class="chart" style="width:100%">
-											<div id="donutchart"></div>												
+											<div id="donutchart"></div>
 											</div>
 										</div>
 									</div>
@@ -156,31 +166,27 @@
 													</div>
 													<script>
 														var allTextLines;
-														var images = '';
+														var images = '';														
 														$.ajax({
 													    url: "<%= disp_data.post_csv %>",
 													    aync: false,
 													    success: function (csvd) {
-													      console.log(csvd.length);
-													      allTextLines = csvd.split(/\r\n|\n/);
+													    	var data = $.csv.toObjects(csvd);
+													    	console.log(data);
+													    	data.map(function(d)
+													    	{
+													    		var source_image;
+													    		if(d["Source"] == "Twitter"){
+													    			source_image = "<span class='ion-social-twitter social-icons new-social-twitter'></span>";
+													    		}else if(d["Source"] == "G+"){
+													    			source_image = "<span class='ion-icon-social-google-plus social-icons new-social-google-plus'></span>";
+													    		} else{
+													    			source_image = "<span class='ion-image social-icons'></span>"
+													    		}
 
-																if(allTextLines.length > 20){
-																	for(i = 1; i < 10; i++){
-																		if(allTextLines[i].split(",")[2] && allTextLines[i].split(",")[1]){
-																		$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source">'+allTextLines[i].split(",")[2]+'</span><span class="top-post-text">'+allTextLines[i].split(",")[1]+'</span></span>');
-																		}
-																	}
-																}
-																if(allTextLines.length <= 20){
-																	jQuery.each(allTextLines, function(i, val) {
-													      		console.log("i: "+i+" => Value: "+val);
-													      		if(val){
-													      			if(allTextLines[i].split(",")[2] && allTextLines[i].split(",")[1]){
-													      				$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source>'+val.split(",")[2]+'</span><span class="top-post-text">'+val.split(",")[1]+'</span></span>');
-													      			}
-													    			}
-													    		});
-																}
+													    		$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item">'+source_image+'<span class="top-post-text">'+d["text"]+'</span></span>');
+																		
+													    	});
 													    },
 													    dataType: "text"
 														});
