@@ -97,9 +97,11 @@ router.get('/preview', function(req, res) {
     	var influencers_csv = '/users_data/'+login_user+'/influencers/'+userdata+'influencers'+'.csv';
     	var post_csv = '/users_data/'+login_user+'/post/post.csv';
     	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
-    	var sentiment_graph = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
+    	var most_positive_csv = '/users_data/'+login_user+'/most_pos_neg/most_pos.csv';
+    	var most_negative_csv = '/users_data/'+login_user+'/most_pos_neg/most_neg.csv';
 
-    	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph};
+    	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, most_positive_csv: most_positive_csv, most_negative_csv: most_negative_csv};
     	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });
     });             
   }else{

@@ -51,7 +51,7 @@
 				border: 2px solid black;
 				margin: 2px;
 			}
-			#posts-list-group{
+			#posts-list-group, #most_negatives-list-group, #most-pos-list-group{
 				max-height: 322px;
 				overflow: scroll;
 			}
@@ -197,17 +197,18 @@
 													    	console.log(data);
 													    	data.map(function(d)
 													    	{
-													    		var source_image;
-													    		if(d["Source"] == "Twitter"){
-													    			source_image = "<span class='ion-social-twitter social-icons new-social-twitter'></span>";
-													    		}else if(d["Source"] == "G+"){
-													    			source_image = "<span class='ion-icon-social-google-plus social-icons new-social-google-plus'></span>";
-													    		} else{
-													    			source_image = "<span class='ion-image social-icons'></span>"
-													    		}
+													    		if(d["text"]){
+														    		var source_image;
+														    		if(d["Source"] == "Twitter"){
+														    			source_image = "<span class='ion-social-twitter social-icons new-social-twitter'></span>";
+														    		}else if(d["Source"] == "G+"){
+														    			source_image = "<span class='ion-icon-social-google-plus social-icons new-social-google-plus'></span>";
+														    		} else{
+														    			source_image = "<span class='ion-image social-icons'></span>"
+														    		}
 
-													    		$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item">'+source_image+'<span class="top-post-text">'+d["text"]+'</span></span>');
-																		
+														    		$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item">'+source_image+'<span class="top-post-text">'+d["text"]+'</span></span>');
+																	}
 													    	});
 													    },
 													    dataType: "text"
@@ -223,48 +224,34 @@
 
 					</div>
 
-					<!--<div class="row">
+					<div class="row">
 						<div class="col-md-6">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<div class="heading_b">Most Positive</div>
+									<div class="heading_b">Most Positives</div>
 									<div class="row">
 											<div class="col-md-12">
 												<div id="flot_social_most_pos" class="chart" style="width:100%">		
 													<div id="most_pos">
 														<span class="single-row-fixed">
 																<a href="#" class="list-group-item">
-																	<span class="top-post-source"><b>Score</b></span>
-																	<span class="top-post-text"><b>Text</b></span>
+																	<span class="top-post-source"><b>Most Positive Comments</b></span>
 																</a>
 															</span>
-														<div class="list-group" id="most-pos-list-group">
-															
-    												</div>
+														<div class="list-group" id="most-pos-list-group"></div>
 													</div>
 													<script>
-														var allTextLines;
-														var images = '';
 														$.ajax({
-													    url: "most_pos.csv",
+													    url: "<%= disp_data.most_positive_csv %>",
 													    aync: false,
 													    success: function (csvd) {
-													      console.log(csvd.length);
-													      allTextLines = csvd.split(/\r\n|\n/);
-
-																if(allTextLines.length > 20){
-																	for(i = 1; i < 10; i++){
-																		$('#most-pos-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source">'+allTextLines[i].split(",")[0]+'</span><span class="top-post-text">'+allTextLines[i].split(",")[1]+'</span></span>');
-																	}
-																}
-																if(allTextLines.length <= 20){
-																	jQuery.each(allTextLines, function(i, val) {
-													      		console.log("i: "+i+" => Value: "+val);
-													      		if(val){
-													      			$('#most-pos-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source>'+val.split(",")[0]+'</span><span class="top-post-text">'+val.split(",")[1]+'</span></span>');
-													    			}
-													    		});
-																}
+																var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["x"]){
+													    			$('#most-pos-list-group').append("<span class='single-row'><a href='#'class='list-group-item'><span class='top-post-text'>"+d["x"]+"</span></a></span>");				
+													    		}														
+													    	});
 													    },
 													    dataType: "text"
 														});
@@ -287,112 +274,36 @@
 													<div id="most_negatives">
 														<span class="single-row-fixed">
 																<a href="#" class="list-group-item">
-																	<span class="top-post-source"><b>Score</b></span>
-																	<span class="top-post-text"><b>Text</b></span>
+																	<span class="top-post-source"><b>Most Negative Comments</b></span>
 																</a>
 															</span>
-														<div class="list-group" id="most_negatives-list-group">
-															
-    												</div>
+														<div class="list-group" id="most_negatives-list-group"></div>
 													</div>
 													<script>
-														var allTextLines;
-														var images = '';
 														$.ajax({
-													    url: "most_neg.csv",
+													    url: "<%= disp_data.most_negative_csv %>",
 													    aync: false,
 													    success: function (csvd) {
-													      console.log(csvd.length);
-													      allTextLines = csvd.split(/\r\n|\n/);
-
-																if(allTextLines.length > 20){
-																	for(i = 1; i < 10; i++){
-																		$('#most_negatives-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source">'+allTextLines[i].split(",")[0]+'</span><span class="top-post-text">'+allTextLines[i].split(",")[1]+'</span></span>');
-																	}
-																}
-																if(allTextLines.length <= 20){
-																	jQuery.each(allTextLines, function(i, val) {
-													      		console.log("i: "+i+" => Value: "+val);
-													      		if(val){
-													      			$('#most_negatives-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source>'+val.split(",")[0]+'</span><span class="top-post-text">'+val.split(",")[1]+'</span></span>');
-													    			}
-													    		});
-																}
+																var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["x"]){
+													    			$('#most_negatives-list-group').append("<span class='single-row'><a href='#'class='list-group-item'><span class='top-post-text'>"+d["x"]+"</span></a></span>");	
+													    		}																	
+													    	});
 													    },
 													    dataType: "text"
 														});
 
-													</script>											
+													</script>	
+
 												</div>
 											</div>
 										</div>
 								</div>
 							</div>
 						</div>
-
-					</div>-->
-
-					<!--<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-body">
-									<div class="heading_b">Total Data</div>
-									<div class="row">
-											<div class="col-md-12">
-												<div id="flot_social_total_data" class="chart" style="width:100%">		
-													<div id="total_data">
-														<!--<span class="single-row-fixed1">-->
-																<!--<a href="#" class="list-group-item1">-->
-																<!--<table>
-																	<span class="top-post-source"><b>ScreenName</b></span>
-																	<span class="top-post-source"><b>Twitter Text</b></span>
-																	<span class="top-post-source"><b>Followers</b></span>
-																	<span class="top-post-source"><b>Retweet Count</b></span>
-																	<span class="top-post-source"><b>Long</b></span>
-																	<span class="top-post-text"><b>Lat</b></span>
-																<!--</a>-->
-															<!--</span>-->
-														<!--<div class="list-group" id="total_data-list-group">
-															
-    												</div>
-													</div>
-													<script>
-														var allTextLines;
-														var images = '';
-														$.ajax({
-													    url: "pawankalyan.csv",
-													    aync: false,
-													    success: function (csvd) {
-													      console.log(csvd.length);
-													      allTextLines = csvd.split(/\r\n|\n/);
-
-																/*if(allTextLines.length > 20){
-																	for(i = 1; i < 10; i++){
-																		$('#total_data-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source">'+allTextLines[i].split(",")[3]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[0]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[5]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[7]+'</span><span class="top-post-source">'+allTextLines[i].split(",")[8]+'</span><span class="top-post-text">'+allTextLines[i].split(",")[9]+'</span></span>');
-																	}
-																}*/
-																//if(allTextLines.length <= 20){
-																	jQuery.each(allTextLines, function(i, val) {
-													      		console.log("i: "+i+" => Value: "+val);
-													      		//if(val){
-													      			//$('#total_data-list-group').append('<span class="single-row"><a href="#" class="list-group-item"><span class="top-post-source>'+val.toString().split(",")[0]+'</span><span class="top-post-text">'+val.toString().split(",")[1]+'</span></span>');
-													      			$('#total_data-list-group').append("<span class='single-row'><a href='#' class='list-group-item'><span class='top-post-source'>"+i+"==> "+val.split(",")[3]+"</span><span class='top-post-source'>"+val.split(",")[0]+"</span><span class='top-post-source'>"+val.split(",")[5]+"</span><span class='top-post-source'>"+val.split(",")[7]+"</span><span class='top-post-source'>"+val.split(",")[8]+"</span><span class='top-post-text'>"+val.split(",")[9]+"</span></span>");
-													    			//}
-													    		});
-																//}
-													    },
-													    dataType: "text"
-														});
-
-													</script>											
-												</div>
-											</div>
-										</div>
-								</div>
-							</div>
-						</div>					
-
-					</div>-->
+					</div>
 
 					<div class="row">
 						<div class="col-md-6">
@@ -401,7 +312,7 @@
 									<div class="heading_b">Word Cloud</div>
 									<div class="row">
 										<div class="col-md-12">
-											<div id="flot_social__wordcloud" class="chart" style="width:100%; height: 321px;">		
+											<div id="flot_social__wordcloud" class="chart" style="width:100%; height: 321px;">	
     										<img src="<%= disp_data.wordcloud_image %>" alt="wordcloud" style="width:100%; height: 330px;"/>
 											</div>
 										</div>
@@ -488,15 +399,15 @@
 													      allTextLines = csvd.split(/\r\n|\n/);
 													      console.log(allTextLines[3].toString().split(",")[2]);
 															if(allTextLines.length > 30){
-															for(i = 0; i < 30; i++){
-																$('#recent_users').append('<div class="col-md-2"><a href='+allTextLines[i].toString().split(",")[2]+'><img src='+allTextLines[i].toString().split(",")[1]+' alt='+allTextLines[i].toString().split(",")[0]+'></img></a></div>')
-															}
+																for(i = 0; i < 30; i++){
+																	$('#recent_users').append('<div class="col-md-2"><a href='+allTextLines[i].toString().split(",")[2]+'><img src='+allTextLines[i].toString().split(",")[1]+' alt='+allTextLines[i].toString().split(",")[0]+'></img></a></div>')
+																}
 													    }
 													     if(allTextLines.length <= 30){
 													    	jQuery.each(allTextLines, function(i, val) {
 													      console.log("i: "+i+" => Value: "+val);
 													      if(val){
-													      $('#recent_users').append('<div class="col-md-2"><a href='+val.toString().split(",")[2]+'><img src='+val.toString().split(",")[1]+' alt='+val.toString().split(",")[0]+'></img></a></div>')
+													      	$('#recent_users').append('<div class="col-md-2"><a href='+val.toString().split(",")[2]+'><img src='+val.toString().split(",")[1]+' alt='+val.toString().split(",")[0]+'></img></a></div>')
 													    }
 													    });
 													    }										    
@@ -555,11 +466,7 @@
 									</div>
 								</div>
 							</div>
-
-					</div>
-
-					
-
+					</div>		
 				</div>
 			</div>		
 		</div>
@@ -573,7 +480,6 @@
 			</ul>
 		</nav>
 
-		
 		<!-- easing -->
 		<script src="assets/js/jquery.easing.1.3.min.js"></script>
 		<!-- bootstrap js plugins -->
@@ -588,24 +494,6 @@
 		
 		<!-- style switcher -->
 		<script src="assets/js/tisa_style_switcher.js"></script>
-		
-	<!-- page specific plugins -->
-
-		<!-- nvd3 charts -->
-		<script src="assets/lib/d3/d3.min.js"></script>
-		<script src="assets/lib/novus-nvd3/nv.d3.min.js"></script>
-		<!-- flot charts-->
-		<script src="assets/lib/flot/jquery.flot.min.js"></script>
-		<script src="assets/lib/flot/jquery.flot.pie.min.js"></script>
-		<script src="assets/lib/flot/jquery.flot.resize.min.js"></script>
-		<script src="assets/lib/flot/jquery.flot.tooltip.min.js"></script>
-		<!-- clndr -->
-		<script src="assets/lib/underscore-js/underscore-min.js"></script>
-		<script src="assets/lib/CLNDR/src/clndr.js"></script>
-		<!-- easy pie chart -->
-		<script src="assets/lib/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-		<!-- owl carousel -->
-		<script src="assets/lib/owl-carousel/owl.carousel.min.js"></script>
 		
     </body>
 </html>
