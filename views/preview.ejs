@@ -172,7 +172,7 @@
 									<div class="heading_b">Timeline</div>
 									<div class="row">										
 										<div class="col-md-12">
-											<div id="flot_browsers" class="chart" style="width:100%">
+											<div id="flot_browsers" class="" style="width:100%">
 												<div id="timeline"></div>
 												<script>
 
@@ -272,7 +272,15 @@
 												    svg.append("g")
 												        .attr("class", "x axis")
 												        .attr("transform", "translate(0," + height + ")")
-												        .call(xAxis);
+												        .call(xAxis)
+												        .selectAll("text")	
+										            .style("text-anchor", "end")
+										            .attr("dx", "-.8em")
+										            .attr("dy", ".15em")
+										            .attr("transform", function(d) {
+										                return "rotate(-65)" 
+										                });
+
 
 												    // Add the Y Axis
 												    svg.append("g")
@@ -284,6 +292,8 @@
 												        .attr("transform",
 												              "translate(" + (width/2) + " ," + 
 												                             (height+margin.bottom) + ")")
+												        .attr("x", -15)
+												        .attr("y", 10)
 												        .style("text-anchor", "middle")
 												        .text("Date");
 
