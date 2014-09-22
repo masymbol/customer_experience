@@ -51,7 +51,7 @@
 				border: 2px solid black;
 				margin: 2px;
 			}
-			#posts-list-group, #most_negatives-list-group, #most-pos-list-group{
+			#posts-list-group, #some_negatives-list-group, #some-pos-list-group{
 				max-height: 322px;
 				overflow: scroll;
 			}
@@ -307,28 +307,28 @@
 						<div class="col-md-6">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<div class="heading_b">Most Positives</div>
+									<div class="heading_b">Some Positives</div>
 									<div class="row">
 											<div class="col-md-12">
-												<div id="flot_social_most_pos" class="chart" style="width:100%">		
-													<div id="most_pos">
+												<div id="flot_social_some_pos" class="chart" style="width:100%">		
+													<div id="some_pos">
 														<span class="single-row-fixed">
 																<a href="#" class="list-group-item">
-																	<span class="top-post-source"><b>Most Positive Comments</b></span>
+																	<span class="top-post-source"><b>Some Positive Comments</b></span>
 																</a>
 															</span>
-														<div class="list-group" id="most-pos-list-group"></div>
+														<div class="list-group" id="some-pos-list-group"></div>
 													</div>
 													<script>
 														$.ajax({
-													    url: "<%= disp_data.most_positive_csv %>",
+													    url: "<%= disp_data.some_positive_csv %>",
 													    aync: false,
 													    success: function (csvd) {
 																var data = $.csv.toObjects(csvd);
 													    	data.map(function(d)
 													    	{
 													    		if(d["x"]){
-													    			$('#most-pos-list-group').append("<span class='single-row'><a href='#'class='list-group-item'><span class='top-post-text'>"+d["x"]+"</span></a></span>");				
+													    			$('#some-pos-list-group').append("<span class='single-row'><a href='#'class='list-group-item'><span class='top-post-text'>"+d["x"]+"</span></a></span>");				
 													    		}														
 													    	});
 													    },
@@ -346,28 +346,28 @@
 						<div class="col-md-6">
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<div class="heading_b">Most Negatives</div>
+									<div class="heading_b">Some Negatives</div>
 									<div class="row">
 											<div class="col-md-12">
-												<div id="flot_social_most_negatives" class="chart" style="width:100%">		
-													<div id="most_negatives">
+												<div id="flot_social_some_negatives" class="chart" style="width:100%">		
+													<div id="some_negatives">
 														<span class="single-row-fixed">
 																<a href="#" class="list-group-item">
-																	<span class="top-post-source"><b>Most Negative Comments</b></span>
+																	<span class="top-post-source"><b>Some Negative Comments</b></span>
 																</a>
 															</span>
-														<div class="list-group" id="most_negatives-list-group"></div>
+														<div class="list-group" id="some_negatives-list-group"></div>
 													</div>
 													<script>
 														$.ajax({
-													    url: "<%= disp_data.most_negative_csv %>",
+													    url: "<%= disp_data.some_negative_csv %>",
 													    aync: false,
 													    success: function (csvd) {
 																var data = $.csv.toObjects(csvd);
 													    	data.map(function(d)
 													    	{
 													    		if(d["x"]){
-													    			$('#most_negatives-list-group').append("<span class='single-row'><a href='#'class='list-group-item'><span class='top-post-text'>"+d["x"]+"</span></a></span>");	
+													    			$('#some_negatives-list-group').append("<span class='single-row'><a href='#'class='list-group-item'><span class='top-post-text'>"+d["x"]+"</span></a></span>");	
 													    		}																	
 													    	});
 													    },

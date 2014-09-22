@@ -94,18 +94,18 @@ router.get('/preview', function(req, res) {
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
     	var working_directory = process.env.PWD;
-    	var users_csv = '/users_data2/'+login_user+'/users/'+userdata+'users'+'.csv';
-    	var geoLocation_csv ='/users_data2/'+login_user+'/geoLocation/'+userdata+'geoLocation'+'.csv';
-    	var influencers_csv = '/users_data2/'+login_user+'/influencers/'+userdata+'influencers'+'.csv';
-    	var post_csv = '/users_data2/'+login_user+'/post/post.csv';
-    	var wordcloud_image = '/users_data2/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
-    	var sentiment_graph_csv = '/users_data2/'+login_user+'/sentiment_graphs/score_analysis.csv';
-    	var most_positive_csv = '/users_data2/'+login_user+'/most_pos_neg/most_pos.csv';
-    	var most_negative_csv = '/users_data2/'+login_user+'/most_pos_neg/most_neg.csv';
-    	var geo_location_csv = '/users_data2/'+login_user+'/Geolocation/locations_And_Name.csv';
-    	var timeframe_csv = '/users_data2/'+login_user+'/Timeframe/timeframedata.csv';
+    	var users_csv = '/users_data/'+login_user+'/users/'+userdata+'users'+'.csv';
+    	var geoLocation_csv ='/users_data/'+login_user+'/geoLocation/'+userdata+'geoLocation'+'.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/influencers/'+userdata+'influencers'+'.csv';
+    	var post_csv = '/users_data/'+login_user+'/post/post.csv';
+    	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
+    	var geo_location_csv = '/users_data/'+login_user+'/Geolocation/locations_And_Name.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/Timeframe/timeframedata.csv';
 
-    	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, most_positive_csv: most_positive_csv, most_negative_csv: most_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv};
+    	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv};
     	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });
     });             
   }else{
@@ -116,7 +116,7 @@ router.get('/preview', function(req, res) {
 router.post('/google_search', function(req, res){
 	var working_dir = process.env.PWD;
 	var user_name = req.session.username;
-	exec("rm -rf "+working_dir+"/public/users_data2/"+user_name+"/*",function(err, data){			
+	exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
 				if (err){
 					console.log("Error when old files deleted : "+err); 
 
@@ -132,7 +132,7 @@ router.post('/google_search', function(req, res){
 		
 		var java_script_file_path = working_dir+"/java_Twitter_project/twitter_script.sh";
 		var rscript_script_path = working_dir+"/swaps/R_program_script.sh";
-		var java_files_path = working_dir+"/public/users_data2/"+user_name+"/";
+		var java_files_path = working_dir+"/public/users_data/"+user_name+"/";
 		var log_file_path = working_dir+"/Logs/";
 		var rscript_file = working_dir+"/swaps/twitter/search.R"
 		
