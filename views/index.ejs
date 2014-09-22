@@ -31,12 +31,19 @@
 		
 		<!-- Load c3.css -->
 		<link href="stylesheets/c3.css" rel="stylesheet" type="text/css">
+
+		<!-- Load style.css -->
+		<link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 		
 		<!-- google webfonts -->
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
 		
 		<!-- moment.js (date library) -->
 		<script src="assets/lib/moment-js/moment.min.js"></script>
+
+		<!-- jQuery -->
+		<script src="assets/js/jquery.min.js"></script>	
+		<script type="text/javascript" src="javascripts/script.js"></script>
 
     </head>
     <body>
@@ -64,10 +71,9 @@
 				</ul>
 			</div>
 			<div class="messages main_wrapper">
-				<% if (message && message.length > 1) { %>
+				<% if (message && message.length > 0) { %>
   					<div class="alerterror"><%= message %></div>
   				<% } %>
-  				<div class="alerterror"><%= message %></div>
 			</div>
 		</header>
 		
@@ -78,11 +84,11 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel panel-default">
-								<div class="panel-body">
-									<h2>Dashboard</h2> 								
-									<form method="POST" action="/google_search"> 
-										<input type="text" name="search"> 
-										<input type="submit" value="Search">
+								<div class="panel-body search-container">
+                 					<h2>Dashboard</h2>
+                 					<form method="POST" action="/google_search"> 
+										<input type="text" name="search" id="search-text"> 
+										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
 									</form>
 								</div>
 							</div>

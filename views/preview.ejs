@@ -31,10 +31,12 @@
 		
 		<!-- Load c3.css -->
 		<link href="stylesheets/c3.css" rel="stylesheet" type="text/css">
+
+		<!-- Load style.css -->
+		<link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 		
 		<!-- google webfonts -->
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
-		
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>		
 
 		<!-- jQuery -->
 		<script src="assets/js/jquery.min.js"></script>
@@ -46,80 +48,7 @@
 		<script src="javascripts/d3.min.js"></script>
 		<script src="javascripts/c3.min.js"></script>
 		<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
-		<style>
-			#recent_users img, #most_influencers img{
-				border: 2px solid black;
-				margin: 2px;
-			}
-			#posts-list-group, #some_negatives-list-group, #some-pos-list-group{
-				max-height: 322px;
-				overflow: scroll;
-			}
-
-			/* Styles for Posts */
-			span.single-row {
-    		display: table;
-    		width: 100%;
-			}
-			span.single-row span {
-			  float: none;
-			  display: table-cell;
-			  vertical-align: top;
-			}
-			span.top-post-source, span.social-icons{
-				padding-right: 10px;
-			}
-
-			/*styles for social icons colors */
-			span.new-social-google-plus{
-				color:red;
-			}
-			span.new-social-twitter{
-				color: #4D94FF;
-			}
-
-			/* Timeline css */
-			text.shadow {
-			  stroke: #fff;
-			  stroke-width: 2.5px;
-			  opacity: 0.9;
-			}
-
-			path { 
-			    stroke: steelblue;
-			    stroke-width: 2;
-			    fill: none;
-			}
-
-			.axis path,
-			.axis line {
-			    fill: none;
-			    stroke: grey;
-			    stroke-width: 1;
-			    shape-rendering: crispEdges;
-			}
-
-			.grid .tick {
-			    stroke: lightgrey;
-			    stroke-opacity: 0.7;
-			    shape-rendering: crispEdges;
-			}
-			.grid path {
-			          stroke-width: 0;
-			}
-
-			.area {
-			    fill: lightsteelblue;
-			      stroke-width: 0;
-			}
-
-			#world_map path {
-  			stroke: white;
-  			stroke-width: 0.25px;
-  			fill: grey;
-			}
-
-		</style>
+		<script type="text/javascript" src="javascripts/script.js"></script>
     </head>
     <body>
 		<!-- top bar -->
@@ -159,12 +88,12 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel panel-default">
-								<div class="panel-body">
-                 	<h2>Dashboard</h2>
-                 	<form method="POST" action="/google_search"> 
-										<input type="text" name="search"> 
-										<input type="submit" value="Search">
-									</form> 
+								<div class="panel-body search-container">
+                 					<h2>Dashboard</h2>
+                 					<form method="POST" action="/google_search"> 
+										<input type="text" name="search" id="search-text"> 
+										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
+									</form>
 								</div>
 							</div>
 						</div>
