@@ -14,7 +14,7 @@
 												  width=300
 												  height=300
 
-												var parseDate = d3.time.format("%d-%b-%y").parse;
+												var parseDate = d3.time.format("%Y-%m-%d").parse;
 
 												var x = d3.time.scale().range([0, width]);
 												var y = d3.scale.linear().range([height, 0]);
@@ -32,11 +32,11 @@
 												var area = d3.svg.area()
 												    .x(function(d) { return x(d.date); })
 												    .y0(height)
-												    .y1(function(d) { return y(d.close); });
+												    .y1(function(d) { return y(d.number_of_distinct_orders); });
 
 												var valueline = d3.svg.line()
 												    .x(function(d) { return x(d.date); })
-												    .y(function(d) { return y(d.close); });
+												    .y(function(d) { return y(d.number_of_distinct_orders); });
 												    
 												var svg = d3.select("#timeline")
 												    .append("svg")
@@ -63,15 +63,16 @@
 												}
 
 												// Get the data
-												d3.csv("sample_timeline_data.csv", function(error, data) {
+												d3.csv("<%= disp_data.timeframe_csv %>", function(error, data)
+												 {
 												    data.forEach(function(d) {
 												        d.date = parseDate(d.date);
-												        d.close = +d.close;
+												        d.close = +d.number_of_distinct_orders;
 												    });
 
 												    // Scale the range of the data
 												    x.domain(d3.extent(data, function(d) { return d.date; }));
-												    y.domain([0, d3.max(data, function(d) { return d.close; })]);
+												    y.domain([0, d3.max(data, function(d) { return d.number_of_distinct_orders; })]);
 
 												    // Add the filled area
 												    svg.append("path")
@@ -146,7 +147,7 @@
 												        .attr("x", margin.top - (height / 2))
 												        .attr("dy", ".71em")
 												        .style("text-anchor", "end")
-												        .text("Price");
+												        .text("No of distint orders");
 
 												    // Add the title
 												    /*svg.append("text")
