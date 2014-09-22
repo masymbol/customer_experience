@@ -228,7 +228,80 @@
 							</div>
 						</div>
 					</div>
-					
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b">Word Cloud</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div id="flot_social__wordcloud" class="chart" style="width:100%; height: 321px;">	
+    										<img src="<%= disp_data.wordcloud_image %>" alt="wordcloud" style="width:100%; height: 330px;"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b">Sentiment Graphs</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div id="flot_social_sentiment">											
+    										
+											</div>
+											<script type="text/javascript">
+												var positive = [];
+												var negative = [];
+												var neutral = [];
+												d3.csv("<%= disp_data.sentiment_graph %>", function(tests)
+												{
+													data = tests.map(function(d)
+													{
+														if (d.analysis_score == 0){
+															neutral.push(d.analysis_score);
+														}else if (d.analysis_score>=1){
+															positive.push(d.analysis_score);
+														}else if (d.analysis_score<0){
+															negative.push(d.analysis_score);
+														}
+													})
+													var pos = ['Positive', positive.length];
+													var neg = ['Negative', negative.length];
+													var neu = ['Neutral', neutral.length];
+													console.log("pos"+pos+"neg"+neg+"neu"+neu);
+													var chart = c3.generate({
+	    											bindto: '#flot_social_sentiment',
+	    											data: {
+	      												columns: [
+	            											pos,
+	            											neg,
+	            											neu,
+	        											],
+	        											type : 'donut',
+	        											onclick: function (d, i) { console.log("onclick", d, i); },
+	        											onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+	        											onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+	    											},
+														legend: {
+    														position: 'right'
+														},
+	    											donut: {
+	    												title: "Sentiment Score"
+	    											}
+													});
+												})  	
+  	
+  										</script>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
 
 					<div class="row">
 						<div class="col-md-6">
@@ -309,81 +382,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-6">
-							<div class="panel panel-default">
-								<div class="panel-body">
-									<div class="heading_b">Word Cloud</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div id="flot_social__wordcloud" class="chart" style="width:100%; height: 321px;">	
-    										<img src="<%= disp_data.wordcloud_image %>" alt="wordcloud" style="width:100%; height: 330px;"/>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="panel panel-default">
-								<div class="panel-body">
-									<div class="heading_b">Sentiment Graphs</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div id="flot_social_sentiment">											
-    										
-											</div>
-											<script type="text/javascript">
-												var positive = [];
-												var negative = [];
-												var neutral = [];
-												d3.csv("<%= disp_data.sentiment_graph %>", function(tests)
-												{
-													data = tests.map(function(d)
-													{
-														if (d.analysis_score == 0){
-															neutral.push(d.analysis_score);
-														}else if (d.analysis_score>=1){
-															positive.push(d.analysis_score);
-														}else if (d.analysis_score<0){
-															negative.push(d.analysis_score);
-														}
-													})
-													var pos = ['Positive', positive.length];
-													var neg = ['Negative', negative.length];
-													var neu = ['Neutral', neutral.length];
-													console.log("pos"+pos+"neg"+neg+"neu"+neu);
-													var chart = c3.generate({
-	    											bindto: '#flot_social_sentiment',
-	    											data: {
-	      												columns: [
-	            											pos,
-	            											neg,
-	            											neu,
-	        											],
-	        											type : 'donut',
-	        											onclick: function (d, i) { console.log("onclick", d, i); },
-	        											onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-	        											onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-	    											},
-														legend: {
-    														position: 'right'
-														},
-	    											donut: {
-	    												title: "Sentiment Score"
-	    											}
-													});
-												})  	
-  	
-  										</script>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					</div>					
 
 					<div class="row">
 						<div class="col-md-6">
@@ -550,7 +549,7 @@
 						</div>
 
 					</div>
-							
+
 				</div>
 			</div>		
 		</div>
