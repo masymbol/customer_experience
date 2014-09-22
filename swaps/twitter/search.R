@@ -34,15 +34,20 @@ logistic <- function(ans,str)
 {
 setwd(str)
 parent <- str
-folders <- c("post","sentiment_graphs","most_pos_neg","Some_pos_neg","wordcloud_img","Timeframe")
+folders <- c("post","sentiment_graphs","most_pos_neg","Some_pos_neg","wordcloud_img","Timeframe","Geolocation")
 
 for (i in 1:length(folders))  
 {
   dir.create(paste(parent,folders[i], sep="/"))
 }
 
-tweets <- searchTwitter(ans,n=25,lang="en")
-print("search completed...")
+ sys_date <- as.Date(as.POSIXlt(Sys.time()))
+  #class(sys_date)
+  sys_date_char <- as.character(sys_date)
+  past_five <- sys_date-5
+  past_five_char <- as.character(past_five)
+ tweets <- searchTwitter(ans,n=500,since=past_five_char,until=sys_date_char,lang="en")
+ print("search completed...")
 
 bigdata.df <- do.call (rbind,lapply(tweets,as.data.frame))                        
 Tweets.text = laply(tweets,function(t)t$getText())
@@ -69,7 +74,7 @@ combined_text["Source"] <- "Twitter"
   date <- as.Date(bigdata.df$created)
   swaps <- data.frame(date)
   dates_with_count_of_repeatation <-ddply(swaps,~date,summarise,number_of_distinct_orders=length(duplicated(date)))
-  write.csv(dates_with_count_of_repeatation,"Timeframe/timeframedata.csv")
+  write.csv(dates_with_count_of_repeatation,"Timeframe/timeframedata.csv",quote = FALSE)
   write("Write_success","Timeframe/_success.txt")
 
 ##### g+ #####
@@ -84,7 +89,13 @@ combined_text <- rbind(combined_text, gp_text)
 
 write.csv(combined_text,"post/post.csv")
 write.csv(bigdata.df,"post/Twitter_post.csv")
-write.csv(bigdata.df$screenName,"post/screen_name.csv")
+# change for java
+g1<-bigdata.df$screenName
+g2<-bigdata.df$retweetCount
+g3<-bigdata.df$id
+java_pass1<- cbind(g1,g2,g3)
+write.csv(java_pass1,"post/screenname_retweet_id.csv")
+##
 write.csv(ppostt,"post/Gp_post.csv")
 write("Write_success","post/_success.txt")
 
@@ -141,6 +152,21 @@ write("Write_success","sentiment_graphs/_success.txt")
 #hist(analysis$score)   
 #dev.off()
 #View(analysis)
+
+########## geolocation ############
+print("geolocation entered")
+library(XML)
+library(sp)
+library(raster)
+library(dismo)
+library(maps)
+library(ggplot2)
+tweetFrame <- twListToDF(tweets) # Convert to a nice dF
+userInfo <- lookupUsers(tweetFrame$screenName) # Batch lookup of user info
+userFrame <- twListToDF(userInfo) # Convert to a nice dF
+locations <- geocode(userFrame$location)
+locations_And_Name <- cbind(locations$latitude,locations$longitude)
+write.csv(locations_And_Name,"Geolocation/locations_And_Name.csv",quote = FALSE)
 
 ########## Timeframe graph ##########
 print("Entered_for score_analysis")
