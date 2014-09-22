@@ -116,7 +116,7 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
     sentence = gsub('[[:cntrl:]]', '', sentence)
     
     sentence = gsub('\\d+', '', sentence)
-    sentence = tolower(sentence)
+    #sentence = tolower(sentence)
     word.list = str_split(sentence, '\\s+')
     words = unlist(word.list)
     pos.matches = match(words, pos.words)
