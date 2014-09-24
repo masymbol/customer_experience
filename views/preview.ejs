@@ -89,14 +89,20 @@
 						<div class="col-md-12">
 							<div class="panel panel-default">
 								<div class="panel-body search-container">
-                 					<h2>Dashboard</h2>
-                 					<form method="POST" action="/google_search"> 
+									<h2>Dashboard</h2>
+									<form method="POST" action="/google_search"> 
 										<input type="text" name="search" id="search-text" placeholder = "Enter a search text"> 
 										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
 									</form>
+									<div>
+									<% if (req.session.userdata.length > 0) { %>
+									<b> You are Searching.. <%= req.session.userdata %> </b>
+									<% } %>
+									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>				
 
 					<div class="row">
