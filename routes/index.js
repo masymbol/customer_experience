@@ -97,12 +97,12 @@ router.get('/preview', function(req, res) {
     	var users_csv = '/users_data/'+login_user+'/users/'+userdata+'users.csv';
     	var influencers_csv = '/users_data/'+login_user+'/influencers/'+userdata+'influencers.csv';    	
     	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/'+userdata+'geoLocations.csv';
-    	var post_csv = '/users_data/'+login_user+'/post/post.csv';
+    	var post_csv = '/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv';
     	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
     	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
     	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
     	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
-    	var timeframe_csv = '/users_data/'+login_user+'/Timeframe/Timeframe.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
 
     	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv};
     	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });
@@ -133,7 +133,10 @@ router.post('/google_search', function(req, res){
 		var rscript_script_path = working_dir+"/swaps/R_program_script.sh";
 		var java_files_path = working_dir+"/public/users_data/"+user_name+"/";
 		var log_file_path = working_dir+"/Logs/";
-		var rscript_file = working_dir+"/swaps/twitter/search.R"
+		var rscript_file = working_dir+"/swaps/twitter/search.R";
+		var timeline_script = working_dir+"/java_Twitter_project/timeline_script.sh";
+		var dates_file = working_dir+"/public/users_data/"+user_name+"/post/only_dates.csv";
+		var timeline_output = working_dir+"/public/users_data/"+user_name;
 		
 		function puts(error, stdout, stderr) { sys.puts(stdout) }
 
@@ -146,17 +149,29 @@ router.post('/google_search', function(req, res){
 		});
 		
 			//exec("sudo Rscript "+rscript_file+" "+searchQuery+" "+java_files_path, function(err, data){
-			exec("bash "+rscript_script_path+" "+searchQuery+" "+java_files_path, function(err, data){			
+		exec("bash "+rscript_script_path+" "+searchQuery+" "+java_files_path, function(err, data){			
 				if (err){
 					console.log("Error in Rscript : "+err); 
 					req.flash('info', "Error in Rscript : "+err);
 					res.redirect("/");
 
 				}else{
+					timeline();
 					console.log("Rscript file running.........");
 					res.redirect("/preview");
 				}
 		});
+function timeline(){
+		exec("bash "+timeline_script+" "+dates_file+" "+timeline_output+" "+log_file_path, function(err, data){			
+				if (err){
+					console.log("Timeline Script : "+err); 
+					//req.flash('info', "Timeline Script: "+err);
+
+				}else{
+					console.log("Timeline File.........");
+				}
+		});
+	}
 
 	}, 1000);
 

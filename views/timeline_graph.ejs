@@ -14,7 +14,7 @@
 												  width=300
 												  height=320
 
-												var parseDate = d3.time.format("%H:%M").parse;
+												var parseDate = d3.time.format("%Y-%m-%d %H").parse;
 
 												var x = d3.time.scale().range([0, width]);
 												var y = d3.scale.linear().range([height, 0]);
@@ -30,13 +30,13 @@
 												    .ticks(5);
 
 												var area = d3.svg.area()
-												    .x(function(d) { return x(d.Time_HrMin); })
+												    .x(function(d) { return x(d.time); })
 												    .y0(height)
-												    .y1(function(d) { return y(d.number_of_distinct_orders); });
+												    .y1(function(d) { return y(d.no_of_posts); });
 
 												var valueline = d3.svg.line()
-												    .x(function(d) { return x(d.Time_HrMin); })
-												    .y(function(d) { return y(d.number_of_distinct_orders); });
+												    .x(function(d) { return x(d.time); })
+												    .y(function(d) { return y(d.no_of_posts); });
 												    
 												var svg = d3.select("#timeline")
 												    .append("svg")
@@ -65,14 +65,16 @@
 												// Get the data
 												d3.csv("<%= disp_data.timeframe_csv %>", function(error, data)
 												 {
+												 console.log("===================")
+												 console.log(data);
 												    data.forEach(function(d) {
-												        d.Time_HrMin = parseDate(d.Time_HrMin);
-												        d.close = +d.number_of_distinct_orders;
+												        d.time = parseDate(d.time);
+												        d.close = +d.no_of_posts;
 												    });
 
 												    // Scale the range of the data
-												    x.domain(d3.extent(data, function(d) { return d.Time_HrMin; }));
-												    y.domain([0, d3.max(data, function(d) { return d.number_of_distinct_orders; })]);
+												    x.domain(d3.extent(data, function(d) { return d.time; }));
+												    y.domain([0, d3.max(data, function(d) { return d.no_of_posts; })]);
 
 												    // Add the filled area
 												    svg.append("path")

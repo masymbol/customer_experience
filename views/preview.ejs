@@ -146,7 +146,7 @@
 														    			source_image = "<span class='ion-image social-icons'></span>"
 														    		}
 
-														    		$('#posts-list-group').append('<span class="single-row"><a href="#" class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["text"]+'</span></span>');
+														    		$('#posts-list-group').append('<span class="single-row"><a href='+d["mix"]+' class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["text"]+'</span><span class="retweet_count">'+d["count_n_share"]+'</span></span>');
 																	}
 													    	});
 													    },
