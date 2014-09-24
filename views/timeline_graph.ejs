@@ -12,9 +12,9 @@
 												  //width = 600 - margin.left - margin.right,
 												  //height = 400 - margin.top - margin.bottom;
 												  width=300
-												  height=300
+												  height=320
 
-												var parseDate = d3.time.format("%Y-%m-%d").parse;
+												var parseDate = d3.time.format("%H:%M").parse;
 
 												var x = d3.time.scale().range([0, width]);
 												var y = d3.scale.linear().range([height, 0]);
@@ -22,7 +22,7 @@
 												var xAxis = d3.svg.axis()
 												    .scale(x)
 												    .orient("bottom")
-												    .ticks(5);
+												    .ticks(15);
 
 												var yAxis = d3.svg.axis()
 												    .scale(y)
@@ -30,18 +30,18 @@
 												    .ticks(5);
 
 												var area = d3.svg.area()
-												    .x(function(d) { return x(d.date); })
+												    .x(function(d) { return x(d.Time_HrMin); })
 												    .y0(height)
 												    .y1(function(d) { return y(d.number_of_distinct_orders); });
 
 												var valueline = d3.svg.line()
-												    .x(function(d) { return x(d.date); })
+												    .x(function(d) { return x(d.Time_HrMin); })
 												    .y(function(d) { return y(d.number_of_distinct_orders); });
 												    
 												var svg = d3.select("#timeline")
 												    .append("svg")
 												        .attr("width", width + margin.left + margin.right)
-												        .attr("height", 275)
+												        .attr("height", 300)
 												    .append("g")
 												        .attr("transform", 
 												              "translate(" + margin.left + "," + margin.top + ")");
@@ -66,12 +66,12 @@
 												d3.csv("<%= disp_data.timeframe_csv %>", function(error, data)
 												 {
 												    data.forEach(function(d) {
-												        d.date = parseDate(d.date);
+												        d.Time_HrMin = parseDate(d.Time_HrMin);
 												        d.close = +d.number_of_distinct_orders;
 												    });
 
 												    // Scale the range of the data
-												    x.domain(d3.extent(data, function(d) { return d.date; }));
+												    x.domain(d3.extent(data, function(d) { return d.Time_HrMin; }));
 												    y.domain([0, d3.max(data, function(d) { return d.number_of_distinct_orders; })]);
 
 												    // Add the filled area
@@ -128,7 +128,7 @@
 												        .attr("x", -15)
 												        .attr("y", 10)
 												        .style("text-anchor", "middle")
-												        .text("Date");
+												        .text("Time_HrMin");
 
 												    // Add the white background to the y axis label for legibility
 												    /*svg.append("text")
