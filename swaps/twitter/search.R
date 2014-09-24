@@ -72,28 +72,53 @@ combined_text["Source"] <- "Twitter"
   ########## Timeframe ######
   print("entered timeframe")
   library(rJava)
-  dd <- as.POSIXlt(bigdata.df$created)
-
-  Time_HrMin <- format(dd,"%H:%M")
-  date_col <- bigdata.df$created
-  join <- cbind(date_col,Time_HrMin)
-  new1 <- data.frame(join)
-  dates_with_count_of_repeatation <- ddply(new1,~Time_HrMin,summarise,number_of_distinct_orders=length(duplicated(Time_HrMin)))
-  write.csv(dates_with_count_of_repeatation,"Timeframe/Timeframe.csv")
-
-
+    
+ ######### Link for tweets ###########
+tweeter_str <- "https://twitter.com/"
+Link_for_tweets <- bigdata.df$screenName
+rhs <- paste0(tweeter_str,Link_for_tweets)
+print("pass tweets")
+retweets <-bigdata.df$retweetCount
+dateonly <- data.frame(bigdata.df$created)
 ##### g+ #####
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
 setAPIkey('AIzaSyDmaKUqQNBbFjSjlut-q9dTWR7RY_juWQk')
-ppostt <- searchPost(ans,results = 30)
+ppostt <- searchPost(ans)
 gp_text <- ppostt["msg"]
 q <- ppostt["msg"]
 gp_text["Source"] <- "G+"
 colnames(gp_text) <- c("text","Source")
-combined_text <- rbind(combined_text, gp_text)
 
+### Links for G+ ####
+GPlus_str <- "https://plus.google.com/"
+Link_for_GP <- ppostt$au
+lhs <- paste0(GPlus_str,Link_for_GP)
+print("pass GP")
+reshare <- ppostt$nR
+
+#### concat links ######
+lhs_df <- data.frame(lhs)
+rhs_df <- data.frame(rhs)
+colnames(lhs_df) <- c("mix")
+colnames(rhs_df) <- c("mix")
+Linked_lhs_rhs <- rbind(rhs_df,lhs_df)
+
+retweets_df <- data.frame(retweets)
+reshare_df <- data.frame(reshare)
+colnames(reshare_df) <- c("count_n_share")
+colnames(retweets_df) <- c("count_n_share")
+reshare_retweets <- rbind(reshare_df,retweets_df)
+
+print("not solved")
+combined_text <- rbind(combined_text, gp_text)
+combined_text_with_Links <- cbind(combined_text,Linked_lhs_rhs,reshare_retweets)
+print("solved")
+
+write.csv(combined_text_with_Links,"post/post_with_links_retweets_reshares.csv")
 write.csv(combined_text,"post/post.csv")
 write.csv(bigdata.df,"post/Twitter_post.csv")
+write.csv(dateonly,"post/only_dates.csv")
+
 # change for java
 g1<-bigdata.df$screenName
 g2<-bigdata.df$retweetCount
