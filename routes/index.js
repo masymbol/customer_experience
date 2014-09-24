@@ -102,8 +102,8 @@ router.get('/preview', function(req, res) {
     	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
     	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
     	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
-    	var geo_location_csv = '/users_data/'+login_user+'/Geolocation/locations_And_Name.csv';
-    	var timeframe_csv = '/users_data/'+login_user+'/Timeframe/timeframedata.csv';
+    	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/'+userdata+'geoLocations.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/Timeframe/Timeframe.csv';
 
     	var disp_data = {users_csv: users_csv, geoLocation_csv: geoLocation_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv};
     	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });

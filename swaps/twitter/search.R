@@ -47,7 +47,7 @@ for (i in 1:length(folders))
   sys_date_char <- as.character(sys_date)
   past_five <- sys_date-5
   past_five_char <- as.character(past_five)
- tweets <- searchTwitter(ans,n=100,since=past_five_char,until=sys_date_char,lang="en")
+ tweets <- searchTwitter(ans,n=300,since=past_five_char,until=sys_date_char,lang="en")
  print("search completed...")
 
 bigdata.df <- do.call (rbind,lapply(tweets,as.data.frame))                        
@@ -72,11 +72,15 @@ combined_text["Source"] <- "Twitter"
   ########## Timeframe ######
   print("entered timeframe")
   library(rJava)
-  date <- as.Date(bigdata.df$created)
-  swaps <- data.frame(date,use="complte.obs")
-  dates_with_count_of_repeatation <-ddply(swaps,~date,summarise,number_of_distinct_orders=length(duplicated(date)))
-  write.csv(dates_with_count_of_repeatation,"Timeframe/timeframedata.csv",quote = FALSE)
-  write("Write_success","Timeframe/_success.txt")
+  dd <- as.POSIXlt(bigdata.df$created)
+
+  Time_HrMin <- format(dd,"%H:%M")
+  date_col <- bigdata.df$created
+  join <- cbind(date_col,Time_HrMin)
+  new1 <- data.frame(join)
+  dates_with_count_of_repeatation <- ddply(new1,~Time_HrMin,summarise,number_of_distinct_orders=length(duplicated(Time_HrMin)))
+  write.csv(dates_with_count_of_repeatation,"Timeframe/Timeframe.csv")
+
 
 ##### g+ #####
 options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
@@ -117,8 +121,8 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
     sentence = gsub('[[:cntrl:]]', '', sentence)
     
     sentence = gsub('\\d+', '', sentence)
-    sentence = gsub('/b', '',sentence)
-    sentence = tolower(sentence)
+    #sentence = gsub('/b', '',sentence)
+    #sentence = tolower(sentence)
     word.list = str_split(sentence, '\\s+')
     words = unlist(word.list)
     pos.matches = match(words, pos.words)
@@ -156,19 +160,7 @@ write("Write_success","sentiment_graphs/_success.txt")
 #View(analysis)
 
 ########## geolocation ############
-print("geolocation entered")
-library(XML)
-library(sp)
-library(raster)
-library(dismo)
-library(maps)
-library(ggplot2)
-tweetFrame <- twListToDF(tweets) # Convert to a nice dF
-userInfo <- lookupUsers(tweetFrame$screenName) # Batch lookup of user info
-userFrame <- twListToDF(userInfo) # Convert to a nice dF
-locations <- geocode(userFrame$location)
-locations_And_Name <- cbind(locations$latitude,locations$longitude)
-write.csv(locations_And_Name,"Geolocation/locations_And_Name.csv",quote = FALSE)
+print("removed geolocation csv")
 
 ########## Timeframe graph ##########
 print("Entered_for score_analysis")
@@ -201,7 +193,7 @@ df2 <- analysis[which(analysis$score==3 | analysis$score==2 | analysis$score==1)
 p21<-data.frame(df2$score)
 p22<-data.frame(df2$text)
 p23<-cbind(p21,p22)
-write.csv(p23,"Some_pos_neg/some_pos.csv")
+write.csv(df2$text,"Some_pos_neg/some_pos.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
 print("some -ve tweets :-")
@@ -210,7 +202,7 @@ p31<-data.frame(df3$score)
 p32<-data.frame(df3$text)
 p33<-cbind(p31,p32)
 
-write.csv(p33,"Some_pos_neg/some_neg.csv")
+write.csv(df3$text,"Some_pos_neg/some_neg.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
 tweets.text <- sapply(tweets, function(x) x$getText())
