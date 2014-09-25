@@ -11,6 +11,12 @@ jQuery(function(){
           $("form").after('<span class="error">Enter valid text.</span>');
           hasError = true;
       }
-      if(hasError == true) {return false;}
+      if(hasError == true){
+        return false;
+      }else{
+        $('div.row:not(:first)').hide();
+        return true;
+      }
     });
+
 });
