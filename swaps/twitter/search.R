@@ -1,3 +1,4 @@
+
 library(bitops)
 library(methods)
 library(digest)
@@ -15,7 +16,6 @@ library(devtools)
 library(plyr)
 library(lubridate)
 library(twitteR)
-
 library(plusser)
 
 tweets <- "new_character"
@@ -34,8 +34,12 @@ str <- as.character(args[2])
 logistic <- function(ans,str)
 {
 setwd(str)
+
+msg <- file("logs.txt", open="wt")  #log file generated
+sink(msg, type="message")
+
 parent <- str
-folders <- c("post","sentiment_graphs","most_pos_neg","Some_pos_neg","wordcloud_img","Timeframe","Geolocation")
+folders <- c("post","sentiment_graphs","most_pos_neg","Some_pos_neg","wordcloud_img")
 
 for (i in 1:length(folders))  
 {
@@ -43,20 +47,19 @@ for (i in 1:length(folders))
 }
 
  sys_date <- as.Date(as.POSIXlt(Sys.time()))
-  #class(sys_date)
-  sys_date_char <- as.character(sys_date)
-  past_five <- sys_date-5
-  past_five_char <- as.character(past_five)
+ sys_date_char <- as.character(sys_date)
+ past_five <- sys_date-5
+ past_five_char <- as.character(past_five)
  tweets <- searchTwitter(ans,n=300,since=past_five_char,until=sys_date_char,lang="en")
  print("search completed...")
 
-bigdata.df <- do.call (rbind,lapply(tweets,as.data.frame))                        
-Tweets.text = laply(tweets,function(t)t$getText())
+ bigdata.df <- do.call (rbind,lapply(tweets,as.data.frame))                        
+ Tweets.text = laply(tweets,function(t)t$getText())
 
-combined_text <- bigdata.df["text"]
-combined_text["Source"] <- "Twitter"
+ combined_text <- bigdata.df["text"]
+ combined_text["Source"] <- "Twitter"
 
-#filter Twiter
+  #filter Twiter
   tweet_col <-bigdata.df$text
   char <-as.character(tweet_col)
   res_replc <- sub("\\n"," ",char)
@@ -68,69 +71,50 @@ combined_text["Source"] <- "Twitter"
   res_replc6 <- sub("\\n"," ",res_replc5)
   filtered_text <- gsub(","," ",res_replc6)
   twitter_post <-cbind(filtered_text,bigdata.df$screenName)
-  
-  ########## Timeframe ######
-  print("entered timeframe")
-  library(rJava)
-    
- ######### Link for tweets ###########
-tweeter_str <- "https://twitter.com/"
-Link_for_tweets <- bigdata.df$screenName
-rhs <- paste0(tweeter_str,Link_for_tweets)
-print("pass tweets")
-retweets <-bigdata.df$retweetCount
-dateonly <- data.frame(bigdata.df$created)
-##### g+ #####
-options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
-setAPIkey('AIzaSyDmaKUqQNBbFjSjlut-q9dTWR7RY_juWQk')
-ppostt <- searchPost(ans)
-gp_text <- ppostt["msg"]
-q <- ppostt["msg"]
-gp_text["Source"] <- "G+"
-colnames(gp_text) <- c("text","Source")
+   
+ ##### g+ #####
+ options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+ setAPIkey('AIzaSyDmaKUqQNBbFjSjlut-q9dTWR7RY_juWQk')
+ ppostt <- searchPost(ans)
+ gp_text <- ppostt["msg"]
+ q <- ppostt["msg"]
+ gp_text["Source"] <- "G+"
+ colnames(gp_text) <- c("text","Source") 
+ 
+ ######### Link for tweets and G+ ###########
+ tweeter_str <- "https://twitter.com/"
+ Link_for_tweets <- bigdata.df$screenName
+ rhs <- paste0(tweeter_str,Link_for_tweets)
+ print("pass tweets")
+ retweets <-bigdata.df$retweetCount
+ dateonly <- data.frame(bigdata.df$created)
+ GPlus_str <- "https://plus.google.com/"
+ Link_for_GP <- ppostt$au
+ lhs <- paste0(GPlus_str,Link_for_GP)
+ print("pass GP")
+ reshare <- ppostt$nR 
 
-### Links for G+ ####
-GPlus_str <- "https://plus.google.com/"
-Link_for_GP <- ppostt$au
-lhs <- paste0(GPlus_str,Link_for_GP)
-print("pass GP")
-reshare <- ppostt$nR
+ #### concat links ######
+ lhs_df <- data.frame(lhs)
+ rhs_df <- data.frame(rhs)
+ colnames(lhs_df) <- c("mix")
+ colnames(rhs_df) <- c("mix")
+ Linked_lhs_rhs <- rbind(rhs_df,lhs_df) 
 
-#### concat links ######
-lhs_df <- data.frame(lhs)
-rhs_df <- data.frame(rhs)
-colnames(lhs_df) <- c("mix")
-colnames(rhs_df) <- c("mix")
-Linked_lhs_rhs <- rbind(rhs_df,lhs_df)
+ retweets_df <- data.frame(retweets)
+ reshare_df <- data.frame(reshare)
+ colnames(reshare_df) <- c("count_n_share")
+ colnames(retweets_df) <- c("count_n_share")
+ reshare_retweets <- rbind(reshare_df,retweets_df) 
 
-retweets_df <- data.frame(retweets)
-reshare_df <- data.frame(reshare)
-colnames(reshare_df) <- c("count_n_share")
-colnames(retweets_df) <- c("count_n_share")
-reshare_retweets <- rbind(reshare_df,retweets_df)
-
-print("not solved")
-combined_text <- rbind(combined_text, gp_text)
-combined_text_with_Links <- cbind(combined_text,Linked_lhs_rhs,reshare_retweets)
-print("solved")
-
+ combined_text <- rbind(combined_text, gp_text)
+ combined_text_with_Links <- cbind(combined_text,Linked_lhs_rhs,reshare_retweets)
+ 
 write.csv(combined_text_with_Links,"post/post_with_links_retweets_reshares.csv")
-write.csv(combined_text,"post/post.csv")
-write.csv(bigdata.df,"post/Twitter_post.csv")
 write.csv(dateonly,"post/only_dates.csv")
 
-# change for java
-g1<-bigdata.df$screenName
-g2<-bigdata.df$retweetCount
-g3<-bigdata.df$id
-java_pass1<- cbind(g1,g2,g3)
-write.csv(java_pass1,"post/screenname_retweet_id.csv")
-##
-write.csv(ppostt,"post/Gp_post.csv")
-write("Write_success","post/_success.txt")
-
-pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
-neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
+ pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
+ neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
 
 #pos = scan('/home/purva/Desktop/project/positive-words.txt', what='character', comment.char=';')
 #neg = scan('/home/purva/Desktop/project/negative-words.txt', what='character', comment.char=';')
@@ -149,10 +133,11 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
     sentence = gsub('[[:cntrl:]]', '', sentence)
     
     sentence = gsub('\\d+', '', sentence)
-    #sentence = gsub('/b', '',sentence)
-    #sentence = tolower(sentence)
+    
     word.list = str_split(sentence, '\\s+')
+    
     words = unlist(word.list)
+    
     pos.matches = match(words, pos.words)
     
     neg.matches = match(words, neg.words)
@@ -181,18 +166,7 @@ res <- cbind(scr,txt)
 ######### sentiment score ####
 colnames(res) <- c("analysis_score","analysis_text")
 write.csv(res,"sentiment_graphs/score_analysis.csv")
-#jpeg('sentiment_graphs/sentiment_score.jpg')  
 write("Write_success","sentiment_graphs/_success.txt") 
-#hist(analysis$score)   
-#dev.off()
-#View(analysis)
-
-########## geolocation ############
-print("removed geolocation csv")
-
-########## Timeframe graph ##########
-print("Entered_for score_analysis")
-write.csv(res,"post/score_and_text.csv")
 
 ############################## most +ve and _ve tweets ############################
 a <- grep(3, analysis$score) #find 3 of score
@@ -237,6 +211,7 @@ p33<-cbind(p31,p32)
 write.csv(df3,"Some_pos_neg/some_neg.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
+############ Wordcloud #######################
 tweets.text <- sapply(tweets, function(x) x$getText())
 
 clean.text <- function(some_txt)
@@ -292,14 +267,7 @@ jpeg('wordcloud_img/wordcloud.jpg')
 wordcloud(dm$word, dm$freq, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
 dev.off()
 write("Write_success","wordcloud_img/_success.txt")
-
-########### time frame ###########
-print("Score and text analysis re-entered")
-read <- read.csv("post/score_and_text.csv")
-jpeg('post/score_per_text.jpg')
-plot(read$analysis_score,read$analysis_text)
-dev.off()
-
+print("execution succes")
 }
 
 logistic(ans,str)
