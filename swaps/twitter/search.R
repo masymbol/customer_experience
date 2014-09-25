@@ -132,6 +132,9 @@ write("Write_success","post/_success.txt")
 pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
 neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
 
+#pos = scan('/home/purva/Desktop/project/positive-words.txt', what='character', comment.char=';')
+#neg = scan('/home/purva/Desktop/project/negative-words.txt', what='character', comment.char=';')
+
 score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
   
 {
@@ -212,22 +215,26 @@ write("Write_success","most_pos_neg/_success.txt")
 write.csv(dfng1$text,"most_pos_neg/most_neg.csv")
 write("Write_success","most_pos_neg/_success.txt")
 
+#### Links with some posN neg ####
+print("here err :-")
+links <- data.frame(rhs)
+analysis_new <- cbind(analysis,links)
 
 print("some +ve tweets :-")
-df2 <- analysis[which(analysis$score==3 | analysis$score==2 | analysis$score==1),]
+df2 <- analysis_new[which(analysis_new$score==3 | analysis_new$score==2 | analysis_new$score==1),]
 p21<-data.frame(df2$score)
 p22<-data.frame(df2$text)
 p23<-cbind(p21,p22)
-write.csv(df2$text,"Some_pos_neg/some_pos.csv")
+write.csv(df2,"Some_pos_neg/some_pos.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
 print("some -ve tweets :-")
-df3 <- analysis[which(analysis$score==-3 | analysis$score==-2 | analysis$score==-1),]
+df3 <- analysis_new[which(analysis_new$score==-3 | analysis_new$score==-2 | analysis_new$score==-1),]
 p31<-data.frame(df3$score)
 p32<-data.frame(df3$text)
 p33<-cbind(p31,p32)
 
-write.csv(df3$text,"Some_pos_neg/some_neg.csv")
+write.csv(df3,"Some_pos_neg/some_neg.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
 tweets.text <- sapply(tweets, function(x) x$getText())
