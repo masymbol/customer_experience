@@ -52,8 +52,13 @@ a {
 	border: 2px solid black;
 	margin: 2px;
 }
-#posts-list-group, #some_negatives-list-group, #some-pos-list-group{
-	max-height: 355px;
+#some_negatives-list-group, #some-pos-list-group{
+	max-height:322px;
+	overflow: scroll;
+}
+
+#posts-list-group{
+	max-height:260px;
 	overflow: scroll;
 }
 
@@ -62,11 +67,24 @@ span.single-row {
 display: table;
 width: 100%;
 }
-span.single-row span {
-  float: none;
-  display: table-cell;
-  vertical-align: top;
+
+span.single-row span.new-social-google-plus, span.single-row span.new-social-twitter{
+	display: table-cell;
+	width:10%;
 }
+
+span.single-row span.top-post-text{
+	display: table-cell;
+	width:50%;
+
+}
+
+span.single-row span.retweet_count{
+	display: table-cell;
+	width:4%;
+
+}
+
 span.top-post-source, span.social-icons{
 	padding-right: 10px;
 }
@@ -106,12 +124,12 @@ path {
     shape-rendering: crispEdges;
 }
 .grid path {
-          stroke-width: 0;
+  stroke-width: 0;
 }
 
 .area {
-    fill: lightsteelblue;
-      stroke-width: 0;
+  fill: lightsteelblue;
+  stroke-width: 0;
 }
 
 #world_map path {
@@ -128,4 +146,20 @@ path {
 	font-size: 20px;
 	font-weight: bold;
 	font-style: italic;
+}
+
+span.retweet_count strong{
+  background-color: #999;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 10px;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+
 }
