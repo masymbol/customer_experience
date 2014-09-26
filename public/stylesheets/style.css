@@ -163,3 +163,15 @@ span.retweet_count strong{
   white-space: nowrap;
 
 }
+
+/* Ajax Loader styles */
+#wait{
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background-color: silver;
+	background: rgba( 255, 255, 255, .3 ) url('/images/loading.gif') 50% 50% no-repeat;
+}

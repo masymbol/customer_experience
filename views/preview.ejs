@@ -85,6 +85,7 @@
 		<div id="main_wrapper">
 			<div class="page_content">
 				<div class="container-fluid">
+					<div id="wait" style="display: none;" ></div>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel panel-default">
@@ -94,10 +95,10 @@
 										<input type="text" name="search" id="search-text" placeholder = "Enter a search text"> 
 										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
 									</form>
-									<div>
-									<% if (req.session.userdata.length > 0) { %>
-									<b> Search Results for <%= req.session.userdata %> .. </b>
-									<% } %>
+									<div id="searching_info">										
+										<% if (req.session.userdata.length > 0) { %>
+										<b> Search Results for <%= req.session.userdata %> .. </b>
+										<% } %>
 									</div>
 								</div>
 							</div>
@@ -401,8 +402,8 @@
 							<div class="panel panel-default">
 								<div class="panel-body">
                  	<div class="heading_b topics_heading">Geo Location</div>
-                 	<script src="http://d3js.org/d3.v3.min.js"></script>
-									<script src="http://d3js.org/topojson.v0.min.js"></script>
+                 	<script src="javascripts/d3.min.js"></script>
+									<script src="javascripts/topojson.v0.min.js"></script>
 									<div id="world_map" style="border: 1px solid black;"></div>
 									<script>
 									var width = 960,

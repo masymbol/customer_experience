@@ -1,5 +1,6 @@
 jQuery(function(){
   $("#btn_search_submit").click(function(){
+    $("#searching_info").hide();
     $(".error").hide();
       var hasError = false;
       var searchReg = /^[a-zA-Z0-9-]+$/;
@@ -14,6 +15,7 @@ jQuery(function(){
       if(hasError == true){
         return false;
       }else{
+        $("#wait").show()
         $('div.row:not(:first)').hide();
         return true;
       }
