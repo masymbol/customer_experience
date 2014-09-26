@@ -115,15 +115,19 @@ router.get('/preview', function(req, res) {
 router.post('/google_search', function(req, res){
 	var working_dir = process.env.PWD;
 	var user_name = req.session.username;
-	exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
-				if (err){
-					console.log("Error when old files deleted : "+err); 
+	var success_script = 0;
+	var page_redirect = true;
+	var redirectProcess_timer = 10000;
+	var errors_array = [];
 
-				}else{
-					console.log("old files deleted .........");
-					//res.redirect("/preview");
-				}
-		});
+	exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
+		if (err){
+			console.log("Error when old files deleted : "+err); 
+		}else{
+			console.log("old files deleted .........");
+		}
+	});
+
 	setTimeout(function(){
 		var searchQuery = req.body.search;
 		console.log("searchQuery: "+searchQuery);
@@ -142,41 +146,57 @@ router.post('/google_search', function(req, res){
 
 		exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
 				if (err){
-					console.log("Error while running jar file: "+err); 
+					console.log("Error while running jar file: "+err);
+					errors_array.push("Error while running jar ");
 				}else{
-					console.log("jar jar file running.........");				
+					console.log("jar file running.........");
+					success_script +=1 ;				
 				}
 		});
 		
-			//exec("sudo Rscript "+rscript_file+" "+searchQuery+" "+java_files_path, function(err, data){
 		exec("bash "+rscript_script_path+" "+searchQuery+" "+java_files_path, function(err, data){			
 				if (err){
 					console.log("Error in Rscript : "+err); 
-					req.flash('info', "Error in Rscript : "+err);
-					res.redirect("/");
-
+					errors_array.push("Error while running Rscript ");
 				}else{
 					timeline();
 					console.log("Rscript file running.........");
-					res.redirect("/preview");
+					success_script +=1 ;
+					redirectProcess_timer = 5000;
 				}
 		});
-function timeline(){
-		exec("bash "+timeline_script+" "+dates_file+" "+timeline_output+" "+log_file_path, function(err, data){			
+
+		function timeline(){
+			exec("bash "+timeline_script+" "+dates_file+" "+timeline_output+" "+log_file_path, function(err, data){			
 				if (err){
 					console.log("Timeline Script : "+err); 
-					//req.flash('info', "Timeline Script: "+err);
-
+					//errors_array.push("Error while running Timeline Script ");
 				}else{
 					console.log("Timeline File.........");
+					success_script +=1 ;
+					redirectProcess_timer = 5000;
 				}
-		});
-	}
+			});
+		}
+
+		if(page_redirect){
+			var redirectProcess = setInterval(function(){
+				if(success_script == 2 && page_redirect){
+					clearInterval(redirectProcess);
+					page_redirect = false;
+					res.redirect("/preview");
+				}
+				if(errors_array.length >= 1){
+					clearInterval(redirectProcess);
+					req.flash('info', errors_array.join());
+					res.redirect("/");
+				}
+			}, redirectProcess_timer);
+		}	
 
 	}, 1000);
 
 });
-
 
 
 router.post('/login', function (req, res) { 
