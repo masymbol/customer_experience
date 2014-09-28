@@ -175,3 +175,24 @@ span.retweet_count strong{
 	background-color: silver;
 	background: rgba( 255, 255, 255, .3 ) url('/images/loading.gif') 50% 50% no-repeat;
 }
+
+#most_influencers img#loading_image{
+	border:none;
+}
+
+/* File exist search css */
+#loaderDiv {
+	float: right;
+	height: 100%;
+	left: 50%;
+	right: 0;
+	top: 50%;
+	width: 100%;
+}
+
+#loaderDiv img{	
+	left: 14%;
+	position: relative;
+	right: 0;
+	top: 50%;
+}

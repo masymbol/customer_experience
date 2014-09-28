@@ -50,7 +50,7 @@
 		<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
 		<script type="text/javascript" src="javascripts/script.js"></script>
     </head>
-    <body>
+    <body onload="showLoader()">
 		<!-- top bar -->
 		<header class="navbar navbar-fixed-top" role="banner">
 			<div class="container-fluid">
@@ -361,6 +361,54 @@
 												<div id="flot_social_most_influencers" class="chart" style="width:100%">		
 													<div id="most_influencers"></div>
 													<script>
+														var ajaxRequestIntervalMs = 1000;
+														var ajaxRequestUrl = "<%= disp_data.influencers_success %>";
+														var loaderImageUrl = '/images/ajax-process.gif';
+														var loaderDivName = 'loaderDiv';
+													 
+														var isLoading=new Boolean(); 
+														isLoading=false;
+													 
+														var panelData = setInterval(
+														    function(){                      
+														        $.ajax({
+														            url: ajaxRequestUrl,
+														            type: "GET",
+														            cache: false,                                  
+														            statusCode: {
+														                // HTTP-Code "Page not found"
+														                404: function() {
+														                    if (isLoading===false){
+														                        showLoader();
+														                    }
+														                },
+														                // HTTP-Code "Success"
+														                200: function() {
+														                    if (isLoading===true){
+														                        hideLoader();
+														                    }
+														                }    
+														            }
+														        });     
+														    },
+														    ajaxRequestIntervalMs
+														);
+
+														// ------------ show- and hide-functions for the overlay -----------------
+														function showLoader(){
+														    $("#most_influencers").html("<div id='" + loaderDivName + "'><img id='loading_image' src='"+loaderImageUrl+"' /></div>");
+														    isLoading=true;
+														};
+														  
+														function hideLoader(){
+														    $("#" + loaderDivName).remove();
+														    isLoading=false;
+														    influencersData();
+														};
+													</script>
+													<script>
+													function influencersData(){														
+
 														var allTextLines;
 														var images = '';
 														$.ajax({
@@ -369,7 +417,6 @@
 													    success: function (csvd) {
 													      console.log(csvd.length);
 													      allTextLines = csvd.split(/\r\n|\n/);
-
 																if(allTextLines.length > 30){
 																	for(i = 0; i < 30; i++){
 																		$('#most_influencers').append('<div class="col-md-2"><a href='+allTextLines[i].toString().split(",")[2]+' target="_blank"><img src='+allTextLines[i].toString().split(",")[0]+' alt='+allTextLines[i].toString().split(",")[1]+'></img></a></div>');
@@ -383,10 +430,11 @@
 													    			}
 													    		});
 																}
+																clearInterval(panelData);
 													    },
 													    dataType: "text"
 														});
-
+													}
 													</script>											
 												</div>
 											</div>

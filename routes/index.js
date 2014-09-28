@@ -103,8 +103,9 @@ router.get('/preview', function(req, res) {
     	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
     	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
     	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
 
-    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv};
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success};
     	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });
     });             
   }else{
@@ -181,7 +182,7 @@ router.post('/google_search', function(req, res){
 
 		if(page_redirect){
 			var redirectProcess = setInterval(function(){
-				if(success_script == 2 && page_redirect){
+				if(success_script >= 2 && page_redirect){
 					clearInterval(redirectProcess);
 					page_redirect = false;
 					res.redirect("/preview");
