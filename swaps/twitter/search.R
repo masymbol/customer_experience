@@ -75,7 +75,9 @@ for (i in 1:length(folders))
  ##### g+ #####
  options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
  setAPIkey('AIzaSyDmaKUqQNBbFjSjlut-q9dTWR7RY_juWQk')
- ppostt <- searchPost(ans)
+ ans_gp <- paste0("#",ans)
+ #ppostt <- searchPost(ans,ret = "data.frame", language = NULL)
+ ppostt <- searchPost(ans_gp,ret = "data.frame", language = NULL)
  gp_text <- ppostt["msg"]
  q <- ppostt["msg"]
  gp_text["Source"] <- "G+"
