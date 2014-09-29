@@ -94,9 +94,9 @@ router.get('/preview', function(req, res) {
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
     	var working_directory = process.env.PWD;
-    	var users_csv = '/users_data/'+login_user+'/users/'+userdata+'users.csv';
-    	var influencers_csv = '/users_data/'+login_user+'/influencers/'+userdata+'influencers.csv';    	
-    	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/'+userdata+'geoLocations.csv';
+    	var users_csv = '/users_data/'+login_user+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/geoLocations.csv';
     	var post_csv = '/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv';
     	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
     	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
