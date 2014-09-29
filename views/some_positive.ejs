@@ -1,0 +1,31 @@
+<div class="col-md-6">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="heading_b topics_heading">Some Positives</div>
+			<div class="row">
+					<div class="col-md-12">
+						<div id="flot_social_some_pos" class="chart" style="width:100%">		
+							<div id="some_pos"><div class="list-group" id="some-pos-list-group"></div></div>
+							<script>
+								$.ajax({
+							    url: "<%= disp_data.some_positive_csv %>",
+							    aync: false,
+							    success: function (csvd) {
+										var data = $.csv.toObjects(csvd);
+							    	data.map(function(d)
+							    	{
+							    		if(d["text"]){
+							    			$('#some-pos-list-group').append("<span class='single-row'><a href="+d["rhs"]+" class='list-group-item' target='_blank'><span class='top-post-text'>"+d["text"]+"</span></a></span>");				
+							    		}														
+							    	});
+							    },
+							    dataType: "text"
+								});
+
+							</script>											
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
