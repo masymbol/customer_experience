@@ -18,6 +18,8 @@ userSchema = new mongoose.Schema({
     username:{ type: String, required: true, unique: true },
     password:{ type: String, required: true },
     email:{ type: String, required: true, unique: true },
+    user_search:{ type: String},
+    previous_data:{ type: Boolean, default: false},
     created_at:{type: Date, default: Date.now}
 });
 
@@ -66,15 +68,10 @@ userSchema.pre('save', function(next) {
 router.get('/', function(req, res) {
   if(req.session.loggedIn){
     console.log("username: "+req.session.username );
-    var login_user = req.session.username;
-    User.findOne({ username: login_user }, function (err, user) {
-    	var message = req.flash('info');
-    	console.log("message: "+message);
-      res.render('index', { title: 'Dashboard Page', req:req, message: message });
-    });             
+    var message = req.flash('info');
+    res.render('index', { title: 'Dashboard Page', req:req, message: message });            
   }else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
-    //res.render('login', { title: 'Login', req:req, flash: req.flash('info') });
   }
 });
 
@@ -106,7 +103,13 @@ router.get('/preview', function(req, res) {
     	var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
 
     	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success};
-    	res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data });
+    	console.log("user.user_search: "+user.user_search);
+    	if (user.previous_data){
+				res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
+			} else{
+				res.redirect('/');
+			}
+    	
     });             
   }else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
@@ -185,7 +188,17 @@ router.post('/google_search', function(req, res){
 				if(success_script >= 2 && page_redirect){
 					clearInterval(redirectProcess);
 					page_redirect = false;
-					res.redirect("/preview");
+					var login_user = req.session.username;
+    			User.findOne({ username: login_user }, function (err, user) {
+    				user.user_search = searchQuery;
+    				user.previous_data = true;
+    				user.save();
+    			});
+
+    			setTimeout(function(){
+						res.redirect("/preview");
+					}, 2000);
+
 				}
 				if(errors_array.length >= 1){
 					clearInterval(redirectProcess);
@@ -214,7 +227,11 @@ router.post('/login', function (req, res) {
 				if (isMatch) {
 					req.session.loggedIn = true;
 					req.session.username = req.body.username;
-					res.redirect('/')
+					if (user.previous_data){
+						res.redirect('/preview');
+					} else{
+						res.redirect('/');
+					}
 				} else {
 					console.log('ERROR: Incorrect Password');
 					res.render('login', {
