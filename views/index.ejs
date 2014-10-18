@@ -19,10 +19,16 @@
 							<div class="panel panel-default">
 								<div class="panel-body search-container">
          					<h2>Search </h2>
-         					<form method="POST" action="/google_search"> 
-										<input type="text" name="search" id="search-text"  placeholder = "Enter a search text"> 
-										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
-									</form>
+									<div class="form-group col-md-3">
+										<form method="POST" action="/google_search">
+											<div class="input-group search-container">
+												<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
+												<span class="input-group-btn">
+													<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
+												</span>
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
