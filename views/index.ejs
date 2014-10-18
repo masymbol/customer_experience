@@ -18,9 +18,9 @@
 						<div class="col-md-12">
 							<div class="panel panel-default">
 								<div class="panel-body search-container">
-                 					<h2>Dashboard</h2>
-                 					<form method="POST" action="/google_search"> 
-										<input type="text" name="search" id="search-text"> 
+         					<h2>Search </h2>
+         					<form method="POST" action="/google_search"> 
+										<input type="text" name="search" id="search-text"  placeholder = "Enter a search text"> 
 										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
 									</form>
 								</div>
@@ -36,7 +36,10 @@
 		<nav id="side_nav">
 			<ul>
 				<li>
-					<a href="/"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard</span></a>
+					<a href="/preview"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard</span></a>
+				</li>		
+				<li>
+					<a href="/"><span class="glyphicon glyphicon-search"></span> <span class="nav_title">Search</span></a>
 				</li>				
 			</ul>
 		</nav>

@@ -34,8 +34,8 @@
 										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
 									</form>
 									<div id="searching_info">										
-										<% if (req.session.userdata.length > 0) { %>
-										<b> Search Results for <%= req.session.userdata %> .. </b>
+										<% if (search_query != undefined) { %>
+										<b> Search Results for <%= search_query %> .. </b>
 										<% } %>
 									</div>
 								</div>
@@ -89,8 +89,11 @@
 		<nav id="side_nav">
 			<ul>
 				<li>
-					<a href="/"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard</span></a>
-				</li>				
+					<a href="/preview"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard</span></a>
+				</li>		
+				<li>
+					<a href="/"><span class="glyphicon glyphicon-search"></span> <span class="nav_title">Search</span></a>
+				</li>			
 			</ul>
 		</nav>
 
