@@ -71,7 +71,7 @@ router.get('/', function(req, res) {
     var message = req.flash('info');
     res.render('index', { title: 'Dashboard Page', req:req, message: message });            
   }else{
-		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+		res.render('login', { title: 'Login', req:req, message: '' });
   }
 });
 

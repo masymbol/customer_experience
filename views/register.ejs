@@ -14,14 +14,25 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
 
+		<style type="text/css">
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+			.alerterror, .alertsuccess, .alertinfo {
+				background-color: #c0392b;
+				margin: -40px 0 10px;
+			}
+		</style>
+
   </head>
   <body>
 	
 		<div class="messages main_wrapper">
 			<% if (message && message.length > 1) { %>
-					<div class="alerterror"><%= message %></div>
-				<% } %>
+				<div class="alerterror"><%= message %></div>
+			<% } %>			
 		</div>
+		<button class="close">&times</button>
 
 		<div class="login_container">
 		  <form id="register_form" action="/register" method="POST">
