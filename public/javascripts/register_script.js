@@ -88,17 +88,23 @@ $('button#register').bind('click', function(evt) {
 	
 		if(!username){
 			$('.messages').removeClass('alertsucess');
-			$('.messages').addClass('alerterror');
+			$('.messages').addClass('alerterror');			
+			$('.messages').show();
+			$('.close').show();
 			$('div.alerterror').text('Please, enter your username.. ');
 			return false;
 		}else if(!password){
 			$('.messages').removeClass('alertsucess');
 			$('.messages').addClass('alerterror');
+			$('.messages').show();
+			$('.close').show();
 			$('div.alerterror').text('Please, enter your password.. ');
 			return false;
 		}else{
 			$('.messages').removeClass('alerterror');
 			$('.messages').addClass('alertsuccess');
+			$('.messages').show();
+			$('.close').show();
 			$('div.alertsuccess').text('Your login details taken ..');
 			return true;	
 		}		

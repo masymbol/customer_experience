@@ -10,13 +10,25 @@
 
 		<!-- google webfonts -->
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400&amp;subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+
+
+		<!-- Login stylesheet -->
+		<link href="stylesheets/login.css" rel="stylesheet" media="screen">
 				
 		<!-- main stylesheet -->
 		<link href="assets/css/style.css" rel="stylesheet" media="screen">
-		
-		<!-- Login stylesheet -->
-		<link href="stylesheets/login.css" rel="stylesheet" media="screen">
-
+		<style type="text/css">
+			.alerterror, .alertsuccess, .alertinfo {
+				width: auto;
+				padding: 10px 10px;
+				text-align: center;
+				background-color: #c0392b;
+				margin: -40px 0 10px;
+			}
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+		</style>			
     </head>
     <body>
 
@@ -25,7 +37,8 @@
 						<div class="alerterror"><%= message %></div>
 					<% } %>
 			</div>
-				
+			<button class="close">&times</button>
+			
 			<div class="login_container">
 				<form id="login_form" action="/login" method="POST">
 					<h1 class="login_heading">Login<span>/<a href="/register" class="open_register_form">Register</a></span></h1>
@@ -47,6 +60,9 @@
 					
 			<!-- jQuery -->
 			<script src="assets/js/jquery.min.js"></script>
+
+			<!-- Register -->
+			<script src="/javascripts/register_script.js"></script>
 			<!-- bootstrap js plugins -->
 			<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 		
