@@ -4,13 +4,42 @@
 		<meta charset="UTF-8">
 		<title>Masymbol</title>
 		<% include head %>
+		<style type="text/css">
+			.alerterror, .alertsuccess, .alertinfo {
+				width: auto;
+				padding: 10px 10px;
+				text-align: center;
+				background-color: #c0392b;
+				margin: 5px 0 10px;
+			}
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+			.error{
+				color:red;
+			}
+			
+			.vertical-center {
+				min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+				min-height: 100vh; /* These two lines are counted as one :-)       */
+
+				display: flex;
+				align-items: center;
+			}
+		</style>
     </head>
     <body>
 		<!-- top bar -->
 		<% include header_content %>
-		
+		<div class="messages main_wrapper">
+				<% if (message.length > 0) { %>
+					<div class="alerterror"><%= message %></div>
+					<button class="close">&times</button>
+				<% } %>
+			</div>
 		<!-- main content -->
-		<div id="main_wrapper">
+
+		<div id="main_wrapper" class="vertical-center">
 			<div class="page_content">
 				<div class="container-fluid">
 					<div id="wait" style="display: none;" ></div>
@@ -19,7 +48,7 @@
 							<div class="panel panel-default">
 								<div class="panel-body search-container">
          					<h2>Search </h2>
-									<div class="form-group col-md-3">
+									<div class="form-group col-md-12">
 										<form method="POST" action="/google_search">
 											<div class="input-group search-container">
 												<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
@@ -48,6 +77,15 @@
 	
 		<!-- style switcher -->
 		<script src="assets/js/tisa_style_switcher.js"></script>
+
+		<script type="text/javascript">
+		$(function() {
+			$('button.close').on("click", function(){
+				$(this).hide();
+		    $('div.alerterror').hide();
+		  });
+		})
+		</script>
 		
     </body>
 </html>

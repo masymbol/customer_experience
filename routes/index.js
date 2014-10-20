@@ -6,7 +6,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var bcrypt = require('bcrypt-nodejs');
 var apptitle = "Masymbol";
 
-//var flash = require('./flash');
+var flash = require('./flash');
 
 var exec = require('child_process').exec;
 
