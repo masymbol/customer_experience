@@ -19,27 +19,29 @@
 				    		var chart = c3.generate({
 							    bindto: '#timeline',
 							    data: {
-							    		x: 'Time',
-							      	columns: [
-							      		time,
-							            no_of_posts,
-							        ],
-							        types: {
-				            			'No Of Posts': 'area-spline'
-							        }
+						    		x: 'Time',
+						      	columns: [
+						      		time,
+						            no_of_posts,
+						        ],
+						        types: {
+			            			'No Of Posts': 'area-spline'
+						        }
 						    	},
+						    	color: 'silver',
 							    axis: {
 						        x: {
 					            type: 'timeseries',
 					            tick: {
-				                format: '%d-%m %H',
+				                format: '%d %b %I%p',
 				                margin: { top: 200, bottom: 0 },
-				                rotate: 75
+				                rotate: 80
 			          			},
 			          			label: {
               					text: 'Time',
+              					position: 'outer-center'
               				},
-			          			height: 60
+			          			height: 100
 						        },
 						        y: {
 							        label: {
@@ -47,7 +49,7 @@
 						            position: 'outer-middle'
 						          }
 						        }
-							    },													  
+							    },												  
 									legend: {
 				       			show: false
 				    			}
