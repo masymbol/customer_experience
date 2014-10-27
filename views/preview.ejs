@@ -13,8 +13,33 @@
 			<script src="javascripts/c3.min.js"></script>
 			<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<style type="text/css">
+			.alerterror, .alertsuccess, .alertinfo {
+				width: auto;
+				padding: 10px 10px;
+				text-align: center;
+				background-color: #c0392b;
+				margin: 5px 0 10px;
+			}
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+
+			.error{
+				color:red;
+			}
+			
+		</style>
 
     </head>
+    <div class="messages main_wrapper">
+				<% if (message.length > 1) { %>
+						<div class="alerterror"><%= message %></div>
+						<button class="close">&times</button>
+					<% } %>
+			</div>
+			
+
     <body onload="showLoader()">
 		<!-- top bar -->
 		<% include header_content %>
@@ -25,32 +50,64 @@
 				<div class="container-fluid">
 					<div id="wait" style="display: none;" ></div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-lg-3 col-md-6">
 							<div class="panel panel-default">
-								<div class="panel-body search-container">
-									<h2>Dashboard</h2>
-									<div class="col-md-3 col-md-offset-9">
-										<div class="form-group">
-											<form method="POST" action="/google_search">
-												<div class="input-group search-container">
-													<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
-													<span class="input-group-btn">
-														<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
-													</span>
-												</div>
-											</form>
-											<div id="searching_info">										
-												<% if (search_query != undefined) { %>
-												<b> Search Results for <%= search_query %> .. </b>
-												<% } %>
-											</div>
-										</div>
-									</div> <!-- /col-md-3 col-md-offset-9 -->									
+								<div class="stat_box stat_up">
+									<div class="stat_ico color_f"><i class="ion-ios7-chatboxes-outline"></i></div>
+									<div class="stat_content">
+										<span class="stat_count">300</span>
+										<span class="stat_name">Comments</span>
+									</div>
 								</div>
 							</div>
 						</div>
 
-					</div>				
+						<div class="col-lg-3 col-md-6">
+							<div class="panel panel-default">
+								<div class="stat_box stat_up">
+									<div class="stat_ico color_g"><i class="ion-ios7-cart-outline"></i></div>
+									<div class="stat_content">
+										<span class="stat_count">$81 483.00</span>
+										<span class="stat_name">Sale (last month)</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<div class="panel panel-default">
+								<div class="stat_box stat_down">
+									<div class="stat_ico color_a"><i class="ion-clipboard"></i></div>
+									<div class="stat_content">
+										<span class="stat_count">637</span>
+										<span class="stat_name">Tasks</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<div class="panel panel-default">
+								<div class="stat_content">
+									<div class="stat_box">
+										<form method="POST" action="/google_search">
+											<div class="input-group search-container">
+												<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
+												<span class="input-group-btn">
+													<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
+												</span>
+											</div>
+										</form>
+										<div id="searching_info">										
+											<% if (search_query != undefined) { %>
+											<b> Search Results for <%= search_query %> .. </b>
+											<% } %>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
 					<div class="row">
 
@@ -103,6 +160,15 @@
 	
 		<!-- style switcher -->
 		<script src="assets/js/tisa_style_switcher.js"></script>
+
+		<script type="text/javascript">
+		$(function() {
+			$('button.close').on("click", function(){
+				$(this).hide();
+		    $('div.alerterror').hide();
+		  });
+		})
+		</script>
 		
     </body>
 </html>
