@@ -52,12 +52,12 @@ a {
 	border: 2px solid black;
 	margin: 2px;
 }
-#some_negatives-list-group, #some-pos-list-group{
+#some_negatives-list-group, #some-pos-list-group, #some_negatives-list-group2, #some-pos-list-group2, #some_negatives-list-group3, #some-pos-list-group3, #some_negatives-list-group4, #some-pos-list-group4{
 	max-height:322px;
 	overflow: scroll;
 }
 
-#posts-list-group{
+#posts-list-group, #posts-list-group2, #posts-list-group3, #posts-list-group4, #gp_posts-list-group, #gp_posts-list-group2, #gp_posts-list-group3, #gp_posts-list-group4{
 	max-height:260px;
 	overflow: scroll;
 }

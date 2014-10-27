@@ -75,6 +75,148 @@ router.get('/', function(req, res) {
   }
 });
 
+router.get('/competitive_search', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+    var message = req.flash('info');
+    res.render('competitive_analysis_search', { title: 'Competitive Search', req:req, message: message });            
+  }else{
+		res.render('login', { title: 'Login', req:req, message: '' });
+  }
+})
+
+
+router.get('/competitive_preview', function(req, res) {
+	console.log("competitive_preview page...")
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var searchDataArray = user.user_search.split(',');
+    	var userdata = req.session.userdata;
+    	var working_directory = process.env.PWD;
+    	console.log("user.user_search: "+user.user_search);
+
+    	if(searchDataArray.length == 2){
+    		var output = twoOutputPaths(login_user, searchDataArray)
+    		if (user.previous_data){
+				res.render('competitive_analysis2', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: output, search_query:user.user_search });
+				} else{
+					res.redirect('/competitive_search');
+				}
+    	}else if(searchDataArray.length == 3){
+    		var output = threeOutputPaths(login_user, searchDataArray)
+    		if (user.previous_data){
+				res.render('competitive_analysis3', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: output, search_query:user.user_search });
+				} else{
+					res.redirect('/competitive_search');
+				}
+    	}else if(searchDataArray.length == 4){
+    		var output = fourOutputPaths(login_user, searchDataArray)
+    		if (user.previous_data){
+				res.render('competitive_analysis4', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: output, search_query:user.user_search });
+				} else{
+					res.redirect('/competitive_search');
+				}
+    	}else{
+    		if (user.previous_data){
+				res.render('competitive_analysis', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: output, search_query:user.user_search });
+				} else{
+					res.redirect('/competitive_search');
+				}
+
+    	}
+    	
+    	//console.log("user.user_search: "+user.user_search);
+    	/*if (user.previous_data){
+				res.render('competitive_analysis', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: output, search_query:user.user_search });
+			} else{
+				res.redirect('/');
+			}*/
+    	
+    });             
+  }else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+})
+
+function twoOutputPaths(login_user, searchDataArray){
+			console.log("twoOutputPaths fn");
+			var influencers_csv1 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[0]+'.csv'; 
+    	var influencers_csv2 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[1]+'.csv';  
+    	var post_csv1 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[0]+'.csv';
+    	var post_csv2 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[1]+'.csv';
+    	var gp_post_csv1 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[0]+'_gp_post.csv';
+    	var gp_post_csv2 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[1]+'_gp_post.csv';
+    	var wordcloud_image = '/users_data/'+login_user+'/competitive/wordcloud/word_cloud.jpg'; 
+    	var some_positive_csv1 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[0]+'some_pos.csv';
+    	var some_positive_csv2 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[1]+'some_pos.csv';
+    	var some_negative_csv1 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[0]+'some_neg.csv';
+    	var some_negative_csv2 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[1]+'some_neg.csv';
+    	//var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
+    	//var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
+
+    	var disp_data = { influencers_csv1: influencers_csv1, influencers_csv2: influencers_csv2, post_csv1: post_csv1, post_csv2: post_csv2, gp_post_csv1: gp_post_csv1, gp_post_csv2: gp_post_csv2, wordcloud_image: wordcloud_image, some_positive_csv1: some_positive_csv1, some_positive_csv2: some_positive_csv2, some_negative_csv1: some_negative_csv1, some_negative_csv2: some_negative_csv2, searchDataArray: searchDataArray}
+    return disp_data;
+}
+
+function threeOutputPaths(login_user, searchDataArray){
+			console.log("threeOutputPaths fn");
+			//var users_csv = '/users_data/'+login_user+'/competitive/users/users.csv';
+    	var influencers_csv1 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[0]+'.csv'; 
+    	var influencers_csv2 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[1]+'.csv'; 
+    	var influencers_csv3 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[2]+'.csv';  
+    	var post_csv1 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[0]+'.csv';
+    	var post_csv2 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[1]+'.csv';
+    	var post_csv3 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[2]+'.csv';
+    	var gp_post_csv1 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[0]+'_gp_post.csv';
+    	var gp_post_csv2 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[1]+'_gp_post.csv';
+    	var gp_post_csv3 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[2]+'_gp_post.csv';
+    	var wordcloud_image = '/users_data/'+login_user+'/competitive/wordcloud/word_cloud.jpg'; 
+    	var some_positive_csv1 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[0]+'some_pos.csv';
+    	var some_positive_csv2 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[1]+'some_pos.csv';
+    	var some_positive_csv3 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[2]+'some_pos.csv';
+    	var some_negative_csv1 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[0]+'some_neg.csv';
+    	var some_negative_csv2 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[1]+'some_neg.csv';
+    	var some_negative_csv3 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[2]+'some_neg.csv';
+    	//var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
+    	//var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
+
+    	var disp_data = { influencers_csv1: influencers_csv1, influencers_csv2: influencers_csv2, influencers_csv3: influencers_csv3, post_csv1: post_csv1, post_csv2: post_csv2, post_csv3: post_csv3, gp_post_csv1: gp_post_csv1, gp_post_csv2: gp_post_csv2, gp_post_csv3: gp_post_csv3, wordcloud_image: wordcloud_image, some_positive_csv1: some_positive_csv1, some_positive_csv2: some_positive_csv2, some_positive_csv3: some_positive_csv3, some_negative_csv1: some_negative_csv1, some_negative_csv2: some_negative_csv2, some_negative_csv3: some_negative_csv3, searchDataArray: searchDataArray};
+    return disp_data;
+}
+
+function fourOutputPaths(login_user, searchDataArray){
+			console.log("fourOutputPaths fn");
+			//var users_csv = '/users_data/'+login_user+'/competitive/users/users.csv';
+    	var influencers_csv1 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[0]+'.csv'; 
+    	var influencers_csv2 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[1]+'.csv'; 
+    	var influencers_csv3 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[2]+'.csv'; 
+    	var influencers_csv4 = '/users_data/'+login_user+'/competitive/influencers/'+searchDataArray[3]+'.csv';  
+    	var post_csv1 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[0]+'.csv';
+    	var post_csv2 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[1]+'.csv';
+    	var post_csv3 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[2]+'.csv';
+    	var post_csv4 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[3]+'.csv';
+    	var gp_post_csv1 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[0]+'_gp_post.csv';
+    	var gp_post_csv2 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[1]+'_gp_post.csv';
+    	var gp_post_csv3 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[2]+'_gp_post.csv';
+    	var gp_post_csv4 = '/users_data/'+login_user+'/competitive/Tweets/'+searchDataArray[3]+'_gp_post.csv';
+    	var wordcloud_image = '/users_data/'+login_user+'/competitive/wordcloud/word_cloud.jpg'; 
+    	var some_positive_csv1 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[0]+'some_pos.csv';
+    	var some_positive_csv2 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[1]+'some_pos.csv';
+    	var some_positive_csv3 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[2]+'some_pos.csv';
+    	var some_positive_csv4 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[3]+'some_pos.csv';
+    	var some_negative_csv1 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[0]+'some_neg.csv';
+    	var some_negative_csv2 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[1]+'some_neg.csv';
+    	var some_negative_csv3 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[2]+'some_neg.csv';
+    	var some_negative_csv4 = '/users_data/'+login_user+'/competitive/pos_neg/'+searchDataArray[3]+'some_neg.csv';
+    	//var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
+    	//var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
+
+    	var disp_data = { influencers_csv1: influencers_csv1, influencers_csv2: influencers_csv2, influencers_csv3: influencers_csv3, influencers_csv4: influencers_csv4, post_csv1: post_csv1, post_csv2: post_csv2, post_csv3: post_csv3, post_csv4: post_csv4, gp_post_csv1: gp_post_csv1, gp_post_csv2: gp_post_csv2, gp_post_csv3: gp_post_csv3, gp_post_csv4: gp_post_csv4, wordcloud_image: wordcloud_image, some_positive_csv1: some_positive_csv1, some_positive_csv2: some_positive_csv2, some_positive_csv3: some_positive_csv3, some_positive_csv4: some_positive_csv4, some_negative_csv1: some_negative_csv1, some_negative_csv2: some_negative_csv2, some_negative_csv3: some_negative_csv3, some_negative_csv4: some_negative_csv4, searchDataArray:searchDataArray};
+    return disp_data;
+}
+
 router.get('/register', function(req, res) {
     res.render("register", {title:apptitle, req:req, message: ""});
 });
@@ -211,6 +353,120 @@ router.post('/google_search', function(req, res){
 	}, 1000);
 
 });
+
+router.post('/competitive_search', function(req, res) {
+
+	var working_dir = process.env.PWD;
+	var user_name = req.session.username;
+	var success_script = 0;
+	var page_redirect = true;
+	var redirectProcess_timer = 10000;
+	var errors_array = [];
+
+	exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
+		if (err){
+			console.log("Error when old files deleted : "+err); 
+		}else{
+			console.log("old files deleted .........");
+		}
+	});
+
+	exec("mkdir "+working_dir+"/public/users_data/"+user_name+"/competitive/",function(err, data){			
+		if (err){
+			//console.log("Error when competitive folder creating.. : "+err); 
+		}else{
+			console.log("competitive folder creating .........");
+		}
+	});
+
+	setTimeout(function(){
+		var searchQuery = req.body.search;
+		console.log("searchQuery: "+searchQuery);
+		req.session.userdata = searchQuery;
+		
+		var java_script_file_path = working_dir+"/java_Twitter_project/compative_project/comparitive_influencers.sh";
+		var rscript_script_path = working_dir+"/swaps/comp_ana.sh";
+		var output_files_path = working_dir+"/public/users_data/"+user_name+"/competitive";
+		var log_file_path = working_dir+"/Logs/";
+		var rscript_file = working_dir+"/swaps/twitter/search.R";
+		var timeline_script = working_dir+"/java_Twitter_project/compative_project/comparitive_timeDates.sh";
+		var dates_file = working_dir+"/public/users_data/"+user_name+"/post/only_dates.csv";
+		var timeline_output = working_dir+"/public/users_data/"+user_name;
+		var java_files_input_path = working_dir+"/public/users_data/raghu/competitive/Most_inflencer";
+		
+		function puts(error, stdout, stderr) { sys.puts(stdout) }
+
+		function javaScriptFunction(){
+			console.log("javaScriptFunction")
+			exec("bash "+java_script_file_path+" "+java_files_input_path+" "+output_files_path+" "+log_file_path, function(err, data){
+				if (err){
+					console.log("Error while running jar file: "+err);
+					errors_array.push("Error while running jar ");
+				}else{
+					console.log("jar file running.........");
+					success_script +=1 ;				
+				}
+			});
+		}
+		//bash /home/raghuvarma/Documents/nodejs_examples/social_media/swaps/comp_ana.sh /home/raghuvarma/Documents/nodejs_examples/social_media/swaps/wf java,ruby
+		exec("bash "+rscript_script_path+" "+output_files_path+" "+searchQuery, function(err, data){			
+				if (err){
+					console.log("Error in Rscript : "+err); 
+					errors_array.push("Error while running Rscript ");
+				}else{
+					javaScriptFunction();
+					//timeline();
+					console.log("Rscript file running.........");
+					//res.redirect("/competitive_preview");
+					success_script +=1 ;
+					redirectProcess_timer = 5000;
+				}
+		});
+
+		function timeline(){
+			exec("bash "+timeline_script+" "+dates_file+" "+timeline_output+" "+log_file_path, function(err, data){			
+				if (err){
+					console.log("Timeline Script : "+err); 
+					//errors_array.push("Error while running Timeline Script ");
+				}else{
+					console.log("Timeline File.........");
+					success_script +=1 ;
+					redirectProcess_timer = 5000;
+				}
+			});
+		}
+
+		if(page_redirect){
+			var redirectProcess = setInterval(function(){
+				if(success_script >= 2 && page_redirect){
+				//if(success_script >= 1 && page_redirect){
+					clearInterval(redirectProcess);
+					page_redirect = false;
+					var login_user = req.session.username;
+    			User.findOne({ username: login_user }, function (err, user) {
+    				user.user_search = searchQuery;
+    				user.previous_data = true;
+    				user.save();
+    			});
+
+    			setTimeout(function(){
+						res.redirect("/competitive_preview");
+					}, 2000);
+
+				}
+				if(errors_array.length >= 1){
+					clearInterval(redirectProcess);
+					req.flash('info', errors_array.join());
+					res.redirect("/");
+				}
+			}, redirectProcess_timer);
+		}	
+
+	}, 1000);
+
+
+	
+})
 
 
 router.post('/login', function (req, res) { 

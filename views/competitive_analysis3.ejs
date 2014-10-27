@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+    <head>
+			<meta charset="UTF-8">
+			<title>Masymbol</title>
+			<% include head %>
+
+			<!-- Load c3.css -->
+			<link href="stylesheets/c3.css" rel="stylesheet" type="text/css">
+
+			<!-- Load d3.js and c3.js -->
+			<script src="javascripts/d3.min.js"></script>
+			<script src="javascripts/c3.min.js"></script>
+			<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<style type="text/css">
+			.alerterror, .alertsuccess, .alertinfo {
+				width: auto;
+				padding: 10px 10px;
+				text-align: center;
+				background-color: #c0392b;
+				margin: 5px 0 10px;
+			}
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+
+			.error{
+				color:red;
+			}
+
+			div.heading_b.topics_heading {
+			  text-transform:capitalize;
+			}
+			
+		</style>
+
+    </head>
+    <div class="messages main_wrapper">
+				<% if (message.length > 1) { %>
+						<div class="alerterror"><%= message %></div>
+						<button class="close">&times</button>
+					<% } %>
+			</div>			
+
+    <body>
+		<!-- top bar -->
+		<% include header_content %>
+		
+		<!-- main content -->
+		<div id="main_wrapper">
+			<div class="page_content">
+				<div class="container-fluid">
+					<div id="wait" style="display: none;" ></div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-body search-container">
+									<h2>Dashboard</h2>
+									<div class="col-md-3 col-md-offset-9">
+										<div class="form-group">
+											<form method="POST" action="/competitive_search">
+											<div class="input-group search-container">
+												<input class="form-control" name="search" type="text" placeholder = "Enter a search text">
+												<span class="input-group-btn">
+													<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
+												</span>
+											</div>
+											</form>
+											<div id="searching_info">										
+												<% if (search_query != undefined) { %>
+												<b> Search Results for <%= search_query %> .. </b>
+												<% } %>
+											</div>
+										</div>
+									</div> <!-- /col-md-3 col-md-offset-9 -->				
+
+								</div>
+							</div>
+						</div>
+					</div>	
+
+					
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<% var var1 =  disp_data.searchDataArray[0] %>
+									<% var var2 =  disp_data.searchDataArray[1] %>
+									<% var var3 =  disp_data.searchDataArray[2] %>
+									<div class="heading_b topics_heading"><%= var1 %> Tweets</div>
+									<div class="row">
+											<div class="col-md-12" style="height: 318px;">
+												<div id="flot_social_top_posts" class="chart" style="width:100%">		
+													<div id="posts">
+														<span class="single-row-fixed">
+																<a class="list-group-item">
+																	<span class="top-post-text"><b>Text</b></span>
+																	<span class="top-post-retweet-count" ><b style="float: right; margin-right: 10px;">Retweet-Count</b></span>
+																</a>
+														</span>
+														<div class="list-group" id="posts-list-group"></div>
+													</div>
+													<script>			
+														$.ajax({
+													    url: "<%= disp_data.post_csv1 %>",
+													    aync: false,
+													    success: function (csvd) {
+													    	var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["text"]){
+														    		var source_image = "<span class='ion-social-twitter social-icons new-social-twitter col-md-2'></span>";
+
+														    		$('#posts-list-group').append('<span class="single-row"><a href=https://twitter.com/'+d["screenName"]+' class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["text"]+'</span><span class="retweet_count "><strong>'+d["retweetCount"]+'</strong></span></span>');
+																	}
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div><!-- /col-md-6 -->
+						</div><!-- /row -->
+
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b topics_heading"><%= var2 %> Tweets</div>
+									<div class="row">
+											<div class="col-md-12" style="height: 318px;">
+												<div id="flot_social_top_posts2" class="chart" style="width:100%">		
+													<div id="posts2">
+														<span class="single-row-fixed">
+																<a class="list-group-item">
+																	<span class="top-post-text"><b>Text</b></span>
+																	<span class="top-post-retweet-count" ><b style="float: right; margin-right: 10px;">Retweet-Count</b></span>
+																</a>
+														</span>
+														<div class="list-group" id="posts-list-group2"></div>
+													</div>
+													<script>			
+														$.ajax({
+													    url: "<%= disp_data.post_csv2 %>",
+													    aync: false,
+													    success: function (csvd) {
+													    	var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["text"]){
+																		var source_image = "<span class='ion-social-twitter social-icons new-social-twitter col-md-2'></span>";
+
+														    		$('#posts-list-group2').append('<span class="single-row"><a href=https://twitter.com/'+d["screenName"]+' class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["text"]+'</span><span class="retweet_count "><strong>'+d["retweetCount"]+'</strong></span></span>');
+																	}
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- /row -->
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b topics_heading"><%= var3 %> Tweets</div>
+									<div class="row">
+											<div class="col-md-12" style="height: 318px;">
+												<div id="flot_social_top_posts3" class="chart" style="width:100%">		
+													<div id="posts3">
+														<span class="single-row-fixed">
+																<a class="list-group-item">
+																	<span class="top-post-text"><b>Text</b></span>
+																	<span class="top-post-retweet-count" ><b style="float: right; margin-right: 10px;">Retweet-Count</b></span>
+																</a>
+														</span>
+														<div class="list-group" id="posts-list-group3"></div>
+													</div>
+													<script>			
+														$.ajax({
+													    url: "<%= disp_data.post_csv3 %>",
+													    aync: false,
+													    success: function (csvd) {
+													    	var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["text"]){
+																		var source_image = "<span class='ion-social-twitter social-icons new-social-twitter col-md-2'></span>";
+
+														    		$('#posts-list-group3').append('<span class="single-row"><a href=https://twitter.com/'+d["screenName"]+' class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["text"]+'</span><span class="retweet_count "><strong>'+d["retweetCount"]+'</strong></span></span>');
+																	}
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div> <!-- /col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									
+									<div class="heading_b topics_heading"><%= var1 %> Google+ Posts</div>
+									<div class="row">
+											<div class="col-md-12" style="height: 318px;">
+												<div id="flot_social_gp_top_posts" class="chart" style="width:100%">		
+													<div id="gp_posts">
+														<span class="single-row-fixed">
+																<a class="list-group-item">
+																	<span class="top-gp_post-text"><b>Text</b></span>
+																	<span class="top-gp_post-retweet-count" ><b style="float: right; margin-right: 10px;">Retweet-Count</b></span>
+																</a>
+														</span>
+														<div class="list-group" id="gp_posts-list-group"></div>
+													</div>
+													<script>			
+														$.ajax({
+													    url: "<%= disp_data.gp_post_csv1 %>",
+													    aync: false,
+													    success: function (csvd) {
+													    	var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		console.log("data1: ", d);
+													    		if(d["msg"]){
+														    		var source_image = "<span class='ion-icon-social-google-plus social-icons new-social-google-plus col-md-2'></span>";
+
+														    		$('#gp_posts-list-group').append('<span class="single-row"><a href=https://plus.google.com/u/0/'+d["au"]+' class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["msg"]+'</span><span class="retweet_count "><strong>'+d["nR"]+'</strong></span></span>');
+																	}
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div> <!-- /col-md-6 -->			
+					</div> <!-- /row -->
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b topics_heading"><%= var2 %> Google+ Posts</div>
+									<div class="row">
+											<div class="col-md-12" style="height: 318px;">
+												<div id="flot_social_gp_top_posts2" class="chart" style="width:100%">		
+													<div id="gp_posts2">
+														<span class="single-row-fixed">
+																<a class="list-group-item">
+																	<span class="top-post-text"><b>Text</b></span>
+																	<span class="top-post-retweet-count" ><b style="float: right; margin-right: 10px;">Retweet-Count</b></span>
+																</a>
+														</span>
+														<div class="list-group" id="gp_posts-list-group2"></div>
+													</div>
+													<script>			
+														$.ajax({
+													    url: "<%= disp_data.gp_post_csv2 %>",
+													    aync: false,
+													    success: function (csvd) {
+													    	var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		console.log("data2: ", d);
+													    		if(d["msg"]){
+																		var source_image = "<span class='ion-icon-social-google-plus social-icons new-social-google-plus col-md-2'></span>";
+
+														    		$('#gp_posts-list-group2').append('<span class="single-row"><a href=https://plus.google.com/u/0/'+d["au"]+' class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["msg"]+'</span><span class="retweet_count "><strong>'+d["nR"]+'</strong></span></span>');
+																	}
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div><!-- /col-md-6 -->
+
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b topics_heading"><%= var3 %> Google+ Posts</div>
+									<div class="row">
+											<div class="col-md-12" style="height: 318px;">
+												<div id="flot_social_gp_top_posts3" class="chart" style="width:100%">		
+													<div id="gp_posts3">
+														<span class="single-row-fixed">
+																<a class="list-group-item">
+																	<span class="top-post-text"><b>Text</b></span>
+																	<span class="top-post-retweet-count" ><b style="float: right; margin-right: 10px;">Retweet-Count</b></span>
+																</a>
+														</span>
+														<div class="list-group" id="gp_posts-list-group3"></div>
+													</div>
+													<script>			
+														$.ajax({
+													    url: "<%= disp_data.gp_post_csv3 %>",
+													    aync: false,
+													    success: function (csvd) {
+													    	var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		console.log("data2: ", d);
+													    		if(d["msg"]){
+																		var source_image = "<span class='ion-icon-social-google-plus social-icons new-social-google-plus col-md-2'></span>";
+
+														    		$('#gp_posts-list-group3').append('<span class="single-row"><a href=https://plus.google.com/u/0/'+d["au"]+' class="list-group-item" target="_blank">'+source_image+'<span class="top-post-text">'+d["msg"]+'</span><span class="retweet_count "><strong>'+d["nR"]+'</strong></span></span>');
+																	}
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div> <!-- /col-md-6 -->
+					</div><!-- /row -->
+
+					<div class="row">							
+						<div class="col-md-6">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div class="heading_b topics_heading"><%= var1 %> Positive Tweets</div>
+									<div class="row">
+											<div class="col-md-12">
+												<div id="flot_social_some_pos" class="chart" style="width:100%">		
+													<div id="some_pos"><div class="list-group" id="some-pos-list-group"></div></div>
+													<script>
+														$.ajax({
+													    url: "<%= disp_data.some_positive_csv1 %>",
+													    aync: false,
+													    success: function (csvd) {
+																var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["text"]){
+													    			$('#some-pos-list-group').append("<span class='single-row'><a href=# class='list-group-item'><span class='top-post-text'>"+d["text"]+"</span></a></span>");				
+													    		}														
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>											
+												</div>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div> <!-- /col-md-6 -->
+
+						<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="heading_b topics_heading"><%= var2 %> Positive Tweets</div>
+										<div class="row">
+												<div class="col-md-12">
+													<div id="flot_social_some_pos2" class="chart" style="width:100%">		
+														<div id="some_pos2"><div class="list-group" id="some-pos-list-group2"></div></div>
+														<script>
+															$.ajax({
+														    url: "<%= disp_data.some_positive_csv2 %>",
+														    aync: false,
+														    success: function (csvd) {
+																	var data = $.csv.toObjects(csvd);
+														    	data.map(function(d)
+														    	{
+														    		if(d["text"]){
+														    			$('#some-pos-list-group2').append("<span class='single-row'><a href=# class='list-group-item'><span class='top-post-text'>"+d["text"]+"</span></a></span>");				
+														    		}														
+														    	});
+														    },
+														    dataType: "text"
+															});
+														</script>											
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div><!-- /col-md-6 -->
+						</div><!-- /row -->
+
+						<div class="row">
+
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="heading_b topics_heading"><%= var3 %> Positive Tweets</div>
+										<div class="row">
+												<div class="col-md-12">
+													<div id="flot_social_some_pos3" class="chart" style="width:100%">		
+														<div id="some_pos3"><div class="list-group" id="some-pos-list-group3"></div></div>
+														<script>
+															$.ajax({
+														    url: "<%= disp_data.some_positive_csv3 %>",
+														    aync: false,
+														    success: function (csvd) {
+																	var data = $.csv.toObjects(csvd);
+														    	data.map(function(d)
+														    	{
+														    		if(d["text"]){
+														    			$('#some-pos-list-group3').append("<span class='single-row'><a href=# class='list-group-item'><span class='top-post-text'>"+d["text"]+"</span></a></span>");				
+														    		}														
+														    	});
+														    },
+														    dataType: "text"
+															});
+														</script>											
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div><!-- /col-md-6 -->
+
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="heading_b topics_heading"><%= var1 %> Negatives Tweets</div>
+										<div class="row">
+												<div class="col-md-12">
+													<div id="flot_social_some_negatives" class="chart" style="width:100%">		
+														<div id="some_negatives">
+															<div class="list-group" id="some_negatives-list-group"></div>
+														</div>
+														<script>
+															$.ajax({
+														    url: "<%= disp_data.some_negative_csv1 %>",
+														    aync: false,
+														    success: function (csvd) {
+																	var data = $.csv.toObjects(csvd);
+														    	data.map(function(d)
+														    	{
+														    		if(d["text"]){
+														    			$('#some_negatives-list-group').append("<span class='single-row'><a href="+d["rhs"]+" class='list-group-item' target='_blank'><span class='top-post-text'>"+d["text"]+"</span></a></span>");	
+														    		}																	
+														    	});
+														    },
+														    dataType: "text"
+															});
+														</script>	
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div>
+
+						</div> <!-- /row -->
+
+						<div class="row">		
+							
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="heading_b topics_heading"><%= var2 %> Negatives Tweets</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div id="flot_social_some_negatives2" class="chart" style="width:100%">		
+													<div id="some_negatives2">
+														<div class="list-group2" id="some_negatives-list-group2"></div>
+													</div>
+													<script>
+														$.ajax({
+													    url: "<%= disp_data.some_negative_csv2 %>",
+													    aync: false,
+													    success: function (csvd) {
+																var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["text"]){
+													    			$('#some_negatives-list-group2').append("<span class='single-row'><a href="+d["rhs"]+" class='list-group-item' target='_blank'><span class='top-post-text'>"+d["text"]+"</span></a></span>");	
+													    		}																	
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>	
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!-- /col-md-6 -->
+
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<div class="heading_b topics_heading"><%= var3 %> Negatives Tweets</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div id="flot_social_some_negatives3" class="chart" style="width:100%">		
+													<div id="some_negatives3">
+														<div class="list-group3" id="some_negatives-list-group3"></div>
+													</div>
+													<script>
+														$.ajax({
+													    url: "<%= disp_data.some_negative_csv3 %>",
+													    aync: false,
+													    success: function (csvd) {
+																var data = $.csv.toObjects(csvd);
+													    	data.map(function(d)
+													    	{
+													    		if(d["text"]){
+													    			$('#some_negatives-list-group3').append("<span class='single-row'><a href="+d["rhs"]+" class='list-group-item' target='_blank'><span class='top-post-text'>"+d["text"]+"</span></a></span>");	
+													    		}																	
+													    	});
+													    },
+													    dataType: "text"
+														});
+													</script>	
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><!-- /col-md-6 -->
+
+						</div> <!-- /row -->
+
+						<div class="row">					
+							<% include word_cloud %>	
+						</div>
+					
+				</div>
+			</div>		
+		</div>
+
+		<!-- side navigation -->
+		<% include side_navigation %>
+
+		<!-- bootstrap js plugins -->
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<!-- top dropdown navigation -->
+		<script src="assets/js/tinynav.js"></script>
+		<!-- style switcher -->
+		<script src="assets/js/tisa_style_switcher.js"></script>
+		<script type="text/javascript">
+		$(function() {
+			$('button.close').on("click", function(){
+				$(this).hide();
+		    $('div.alerterror').hide();
+		  });
+		})
+		</script>		
+    </body>
+</html>
