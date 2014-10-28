@@ -26,7 +26,11 @@
 				display: flex;
 				align-items: center;
 			}
+
+
 		</style>
+		<!-- Login stylesheet -->
+		<link href="stylesheets/login.css" rel="stylesheet" media="screen">
     </head>
     <body>
 		<!-- top bar -->
@@ -39,32 +43,24 @@
 			</div>
 		<!-- main content -->
 
-		<div id="main_wrapper" class="vertical-center">
-			<div class="page_content">
-				<div class="container-fluid">
-					<div id="wait" style="display: none;" ></div>
-					<div class="row">
+			<div class="login_container">
+				<div class="panel panel-default">
+					<div class="panel-body search-container">
 						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-body search-container">
-									<div class="col-md-12">
-										<form method="POST" action="/google_search">
-											<div class="input-group search-container">
-												<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
-												<span class="input-group-btn">
-													<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
-												</span>
-											</div>
-										</form>
-									</div>
+							<h3>Analysis Query</h3>
+							<p><b>Desription:</b> Description for analysis query</p>
+							<form method="POST" action="/google_search">
+								<div class="input-group search-container">
+									<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
+									<span class="input-group-btn">
+										<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
+									</span>
 								</div>
-							</div>
+							</form>
 						</div>
-					</div>						
-
+					</div>
 				</div>
-			</div>		
-		</div>
+			</div>
 
 		<!-- side navigation -->
 		<% include side_navigation %>
