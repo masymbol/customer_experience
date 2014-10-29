@@ -1,43 +1,43 @@
 <div class="col-md-6">
-							<div class="panel panel-default">
-								<div class="panel-body">
-									<div class="heading_b topics_heading">Recently Tweeted Users</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div id="flot_social_recent_user" class="chart" style="width:100%">		
-												<div id="recent_users"></div>
-												<script>
-													var allTextLines;
-													var images = '';
-													$.ajax({
-													    url: "<%= disp_data.users_csv %>",
-													    aync: false,
-													    success: function (csvd) {
-													      console.log(csvd.length);
-													      allTextLines = csvd.split(/\r\n|\n/);
-													      console.log(allTextLines[3].toString().split(",")[2]);
-															if(allTextLines.length > 30){
-																for(i = 0; i < 30; i++){
-																	$('#recent_users').append('<div class="col-md-2"><a href='+allTextLines[i].toString().split(",")[2]+' target="_blank"><img src='+allTextLines[i].toString().split(",")[1]+' alt='+allTextLines[i].toString().split(",")[0]+'></img></a></div>')
-																}
-													    }
-													     if(allTextLines.length <= 30){
-													    	jQuery.each(allTextLines, function(i, val) {
-													      console.log("i: "+i+" => Value: "+val);
-													      if(val){
-													      	$('#recent_users').append('<div class="col-md-2"><a href='+val.toString().split(",")[2]+' target="_blank"><img src='+val.toString().split(",")[1]+' alt='+val.toString().split(",")[0]+'></img></a></div>')
-													    }
-													    });
-													    }										    
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="heading_b topics_heading">Recently Tweeted Users</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div id="flot_social_recent_user" class="chart" style="width:100%">		
+						<div id="recent_users"></div>
+						<script>
+							var allTextLines;
+							var images = '';
+							$.ajax({
+							    url: "<%= disp_data.users_csv %>",
+							    aync: false,
+							    success: function (csvd) {
+							      console.log(csvd.length);
+							      allTextLines = csvd.split(/\r\n|\n/);
+							      console.log(allTextLines[3].toString().split(",")[2]);
+									if(allTextLines.length > 30){
+										for(i = 0; i < 30; i++){
+											$('#recent_users').append('<div class="col-md-2 col-sm-2"><a href='+allTextLines[i].toString().split(",")[2]+' target="_blank"><img src='+allTextLines[i].toString().split(",")[1]+' alt='+allTextLines[i].toString().split(",")[0]+'></img></a></div>')
+										}
+							    }
+							     if(allTextLines.length <= 30){
+							    	jQuery.each(allTextLines, function(i, val) {
+							      console.log("i: "+i+" => Value: "+val);
+							      if(val){
+							      	$('#recent_users').append('<div class="col-md-2 col-sm-2"><a href='+val.toString().split(",")[2]+' target="_blank"><img src='+val.toString().split(",")[1]+' alt='+val.toString().split(",")[0]+'></img></a></div>')
+							    }
+							    });
+							    }										    
 
-													    },
-													    dataType: "text"
-													});
+							    },
+							    dataType: "text"
+							});
 
-												</script>											
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						</script>											
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
