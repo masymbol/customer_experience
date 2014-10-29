@@ -70,7 +70,11 @@ router.get('/', function(req, res) {
   if(req.session.loggedIn){
     console.log("username: "+req.session.username );
     var message = req.flash('info');
-    res.render('index', { title: 'Dashboard Page', req:req, message: message });            
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+		  res.render('index', { title: 'Dashboard Page', req:req, message: message, search_query:user.user_search });
+
+		});
   }else{
 		res.render('login', { title: 'Login', req:req, message: '' });
   }
@@ -274,7 +278,6 @@ router.post('/google_search', function(req, res){
 			setTimeout(function(){
 				res.redirect("/dashboard1");
 			}, 2000);
-			
 		}
 
 		/*setTimeout(function(){		
