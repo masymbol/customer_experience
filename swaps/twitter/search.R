@@ -114,6 +114,7 @@ for (i in 1:length(folders))
  
 write.csv(combined_text_with_Links,"post/post_with_links_retweets_reshares.csv")
 write.csv(dateonly,"post/only_dates.csv")
+write("Write_success","post/_success.txt") 
 
  pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
  neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
@@ -214,7 +215,7 @@ write.csv(df3,"Some_pos_neg/some_neg.csv")
 write("Write_success","Some_pos_neg/_success.txt")
 
 ############ Wordcloud #######################
-tweets.text <- sapply(tweets, function(x) x$getText())
+tweets.text <<- sapply(tweets, function(x) x$getText())
 
 clean.text <- function(some_txt)
   
@@ -264,7 +265,6 @@ m = as.matrix(tdm) #we define tdm as matrix
 word_freqs = sort(rowSums(m), decreasing=TRUE)   #now we get the word orders in decreasing order
 
 dm = data.frame(word=names(word_freqs), freq=word_freqs)    #we create our data set
-wordcloud(dm$word, dm$freq, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
 jpeg('wordcloud_img/wordcloud.jpg')
 wordcloud(dm$word, dm$freq, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
 dev.off()
