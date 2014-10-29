@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 
 var mongoose = require('mongoose');
@@ -233,6 +234,7 @@ router.post('/google_search', function(req, res){
 		});
 		
 		exec("bash "+rscript_script_path+" "+searchQuery+" "+java_files_path, function(err, data){			
+			checkPostSuccess();
 				if (err){
 					console.log("Error in Rscript : "+err); 
 					errors_array.push("Error while running Rscript ");
@@ -257,7 +259,10 @@ router.post('/google_search', function(req, res){
 			});
 		}
 
-		setTimeout(function(){
+		function checkPostSuccess(){
+			var login_user = req.session.username;
+			var post_success= fs.existsSync(process.env.PWD+'/public/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv');
+			console.log("post_success: "+post_success);
 
 			var login_user = req.session.username;
 			User.findOne({ username: login_user }, function (err, user) {
@@ -269,7 +274,23 @@ router.post('/google_search', function(req, res){
 			setTimeout(function(){
 				res.redirect("/dashboard1");
 			}, 2000);
-		}, 45000);
+			
+		}
+
+		/*setTimeout(function(){		
+
+
+			var login_user = req.session.username;
+			User.findOne({ username: login_user }, function (err, user) {
+				user.user_search = searchQuery;
+				user.previous_data = true;
+				user.save();
+			});
+
+			setTimeout(function(){
+				res.redirect("/dashboard1");
+			}, 2000);
+		}, 45000);*/
 
 		/*if(page_redirect){
 			var redirectProcess = setInterval(function(){
