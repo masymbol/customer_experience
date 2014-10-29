@@ -231,6 +231,7 @@ router.post('/google_search', function(req, res){
 				if (err){
 					console.log("Error while running jar file: "+err);
 					errors_array.push("Error while running jar ");
+
 				}else{
 					console.log("jar file running.........");
 					success_script +=1 ;				
@@ -242,6 +243,7 @@ router.post('/google_search', function(req, res){
 				if (err){
 					console.log("Error in Rscript : "+err); 
 					errors_array.push("Error while running Rscript ");
+					console.log("errors_array in rcode error: "+errors_array);
 				}else{
 					timeline();
 					console.log("Rscript file running.........");
@@ -275,9 +277,23 @@ router.post('/google_search', function(req, res){
 				user.save();
 			});
 
+			
+			console.log("errors_array: ", errors_array);
+
 			setTimeout(function(){
-				res.redirect("/dashboard1");
-			}, 2000);
+				if(errors_array.length >= 1 || post_success == false){
+						//clearInterval(redirectProcess);
+						console.log("errors_array in if condition: ", errors_array);
+						req.flash('info', errors_array.join());
+						res.redirect("/");
+					}else{
+						setTimeout(function(){
+							res.redirect("/dashboard1");
+						}, 2000);
+					}
+				}, 2000);
+
+			
 		}
 
 		/*setTimeout(function(){		
