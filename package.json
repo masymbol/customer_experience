@@ -1,6 +1,6 @@
 {
   "name": "social-media",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -12,6 +12,10 @@
     "morgan": "~1.2.3",
     "serve-favicon": "~2.0.1",
     "debug": "~1.0.4",
-    "jade": "~1.5.0"
+    "jade": "~1.5.0",
+    "mongoose":"~3.8.12",
+    "mongoose-unique-validator":"~0.3.0",
+    "bcrypt-nodejs": "~0.0.3"
+
   }
 }
