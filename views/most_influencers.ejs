@@ -7,14 +7,13 @@
 					<div id="flot_social_most_influencers" class="chart" style="width:100%">		
 						<div id="most_influencers"></div>
 						<script>
-							var ajaxRequestIntervalMs = 5000;
+							/*var ajaxRequestIntervalMs = 5000;
 							var ajaxRequestUrl = "<%= disp_data.influencers_success %>";
 							var loaderImageUrl = '/images/ajax-process.gif';
 							var loaderDivName = 'loaderDiv';
 						 
 							var isLoading=new Boolean(); 
 							isLoading=false;
-						 5
 							var panelData = setInterval(
 							    function(){                      
 							        $.ajax({
@@ -50,10 +49,10 @@
 							    $("#" + loaderDivName).remove();
 							    isLoading=false;
 							    influencersData();
-							};
+							};*/
 						</script>
 						<script>
-						function influencersData(){														
+						//function influencersData(){														
 
 							var allTextLines;
 							var images = '';
@@ -80,7 +79,7 @@
 						    },
 						    dataType: "text"
 							});
-						}
+						//}
 						</script>											
 					</div>
 				</div>
