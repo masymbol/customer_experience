@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+			<meta charset="UTF-8">
+			<title>Masymbol</title>
+			<% include head %>
+
+			<!-- Load c3.css -->
+			<link href="stylesheets/c3.css" rel="stylesheet" type="text/css">
+
+			<!-- Load d3.js and c3.js -->
+			<script src="javascripts/d3.min.js"></script>
+			<script src="javascripts/c3.min.js"></script>
+			<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<style type="text/css">
+			.alerterror, .alertsuccess, .alertinfo {
+				width: auto;
+				padding: 10px 10px;
+				text-align: center;
+				background-color: #c0392b;
+				margin: 5px 0 10px;
+			}
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+
+			.error{
+				color:red;
+			}
+			
+		</style>
+
+    </head>
+    <div class="messages main_wrapper">
+				<% if (message.length > 1) { %>
+						<div class="alerterror"><%= message %></div>
+						<button class="close">&times</button>
+					<% } %>
+			</div>
+			
+
+    <body>
+		<!-- top bar -->
+		<% include header_content %>
+		
+		<!-- main content -->
+		<div id="main_wrapper">
+			<div class="page_content">
+				<div class="container-fluid">
+					<div id="wait" style="display: none;" ></div>
+					<div class="row">
+						<div class="col-lg-3 col-md-6">
+							<div class="panel panel-default">
+								<div class="stat_box stat_up">
+									<div class="stat_ico color_f"><i class="ion-ios7-chatboxes-outline"></i></div>
+									<div class="stat_content">
+										<span class="stat_count">300</span>
+										<span class="stat_name">No of Records</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<div class="panel panel-default" style="min-height: 88px;">
+								<div class="stat_box stat_up">
+									<div class="stat_ico color_g"><i class="ion-android-social"></i></div>
+									<div class="stat_content">
+										<i class="fa fa-twitter"></i> &nbsp;<i class="fa fa-google-plus"></i>
+										<span class="stat_name">Sources of Result</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<div class="panel panel-default">
+								<div class="stat_box stat_up">
+									<div class="stat_ico color_a"><i class="ion-android-search"></i></div>
+									<div class="stat_content">
+										<span class="stat_count">
+											<% if (search_query != undefined) { %>
+												<%= search_query %>
+											<% } %>
+										</span>
+										<span class="stat_name">Analysis Query</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<div class="panel panel-default" style="min-height: 88px;">
+								<div class="stat_content">
+									<div class="stat_box">
+										<form method="POST" action="/google_search">
+											<div class="input-group search-container">
+												<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
+												<span class="input-group-btn">
+													<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
+												</span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+					
+						
+
+					</div>
+
+				</div>
+			</div>		
+		</div>
+
+		<!-- side navigation -->
+		<% include side_navigation %>
+
+		<!-- bootstrap js plugins -->
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<!-- top dropdown navigation -->
+		<script src="assets/js/tinynav.js"></script>		
+	
+		<!-- style switcher -->
+		<script src="assets/js/tisa_style_switcher.js"></script>
+
+		<script type="text/javascript">
+		$(function() {
+			$('button.close').on("click", function(){
+				$(this).hide();
+		    $('div.alerterror').hide();
+		  });
+		})
+		</script>
+		
+    </body>
+</html>

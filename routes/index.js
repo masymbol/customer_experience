@@ -116,6 +116,80 @@ router.get('/preview', function(req, res) {
   }
 });
 
+router.get('/dashboard1', function(req, res) {
+  if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var userdata = req.session.userdata;
+    	var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/users/users.csv';
+    	var post_csv = '/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv';
+    	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
+    	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
+
+    	var disp_data = {users_csv: users_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, timeframe_csv: timeframe_csv};
+    	console.log("user.user_search: "+user.user_search);
+    	if (user.previous_data){
+				res.render('dashboard1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
+			} else{
+				res.redirect('/');
+			}
+    	
+    });             
+  }else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+});
+
+router.get('/dashboard2', function(req, res) {
+  if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var userdata = req.session.userdata;
+    	var working_directory = process.env.PWD;
+    	var influencers_csv = '/users_data/'+login_user+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/geoLocations.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
+    	var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
+
+    	var disp_data = { influencers_csv: influencers_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, influencers_success: influencers_success, geo_location_csv: geo_location_csv };
+    	console.log("user.user_search: "+user.user_search);
+    	if (user.previous_data){
+				res.render('dashboard2', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
+			} else{
+				res.redirect('/');
+			}
+    	
+    });             
+  }else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+});
+
+router.get('/dashboard3', function(req, res) {
+  if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var userdata = req.session.userdata;
+    	var working_directory = process.env.PWD;
+
+    	if (user.previous_data){
+				res.render('dashboard3', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, search_query:user.user_search });
+			} else{
+				res.redirect('/');
+			}
+    	
+    });             
+  }else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+});
+
 router.post('/google_search', function(req, res){
 	var working_dir = process.env.PWD;
 	var user_name = req.session.username;
@@ -183,7 +257,21 @@ router.post('/google_search', function(req, res){
 			});
 		}
 
-		if(page_redirect){
+		setTimeout(function(){
+
+			var login_user = req.session.username;
+			User.findOne({ username: login_user }, function (err, user) {
+				user.user_search = searchQuery;
+				user.previous_data = true;
+				user.save();
+			});
+
+			setTimeout(function(){
+				res.redirect("/dashboard1");
+			}, 2000);
+		}, 45000);
+
+		/*if(page_redirect){
 			var redirectProcess = setInterval(function(){
 				if(success_script >= 2 && page_redirect){
 					clearInterval(redirectProcess);
@@ -206,7 +294,7 @@ router.post('/google_search', function(req, res){
 					res.redirect("/");
 				}
 			}, redirectProcess_timer);
-		}	
+		}	*/
 
 	}, 1000);
 
