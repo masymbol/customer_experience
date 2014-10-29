@@ -1,5 +1,6 @@
 <nav id="side_nav">
 	<ul>	
+	<% if (search_query != undefined) { %>
 		<li>
 			<a href="/dashboard1"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard1</span></a>
 		</li>
@@ -9,6 +10,7 @@
 		<li>
 			<a href="/dashboard3"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard3</span></a>
 		</li>			
+		<% } %>
 		<li>
 			<a href="/"><span class="glyphicon glyphicon-search"></span> <span class="nav_title">Search</span></a>
 		</li>		
