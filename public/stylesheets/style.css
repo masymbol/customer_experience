@@ -196,3 +196,8 @@ span.retweet_count strong{
 	right: 0;
 	top: 50%;
 }
+
+#recent_users img, #most_influencers img{
+	height: 75px;
+	width: 76px;
+}
