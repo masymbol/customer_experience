@@ -64,14 +64,14 @@
 						      allTextLines = csvd.split(/\r\n|\n/);
 									if(allTextLines.length > 30){
 										for(i = 0; i < 30; i++){
-											$('#most_influencers').append('<div class="col-md-2 col-sm-2"><a href='+allTextLines[i].toString().split(",")[2]+' target="_blank"><img src='+allTextLines[i].toString().split(",")[0]+' alt='+allTextLines[i].toString().split(",")[1]+'></img></a></div>');
+											$('#most_influencers').append('<span class="col-md-2 col-sm-2"><a href='+allTextLines[i].toString().split(",")[2]+' target="_blank"><img src='+allTextLines[i].toString().split(",")[0]+' alt='+allTextLines[i].toString().split(",")[1]+'></img></a></span>');
 										}
 									}
 									if(allTextLines.length <= 30){
 										jQuery.each(allTextLines, function(i, val) {
 						      		console.log("i: "+i+" => Value: "+val);
 						      		if(val){
-						      		$('#most_influencers').append('<div class="col-md-2 col-sm-2"><a href='+val.toString().split(",")[2]+' target="_blank"><img src='+val.toString().split(",")[0]+' alt='+val.toString().split(",")[1]+'></img></a></div>')
+						      		$('#most_influencers').append('<span class="col-md-2 col-sm-2"><a href='+val.toString().split(",")[2]+' target="_blank"><img src='+val.toString().split(",")[0]+' alt='+val.toString().split(",")[1]+'></img></a></span>')
 						    			}
 						    		});
 									}
