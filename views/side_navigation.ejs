@@ -1,10 +1,18 @@
 <nav id="side_nav">
-	<ul>
+	<ul>	
+	<% if (search_query != undefined) { %>
+		<li>
+			<a href="/dashboard1"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard1</span></a>
+		</li>
+		<li>
+			<a href="/dashboard2"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard2</span></a>
+		</li>		
+		<% } %>
+		<li>
+			<a href="/"><span class="glyphicon glyphicon-search"></span> <span class="nav_title">Search</span></a>
+		</li>		
 		<li>
 			<a href="/preview"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard</span></a>
 		</li>		
-		<li>
-			<a href="/"><span class="glyphicon glyphicon-search"></span> <span class="nav_title">Search</span></a>
-		</li>				
 	</ul>
 </nav>
