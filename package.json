@@ -16,7 +16,8 @@
     "debug": "~1.0.4",
     "mongoose":"~3.8.12",
     "mongoose-unique-validator":"~0.3.0",
-    "bcrypt-nodejs": "~0.0.3"
+    "bcrypt-nodejs": "~0.0.3",
+    "ejs":"*"
 
   }
 }
