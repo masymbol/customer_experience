@@ -64,9 +64,12 @@ userSchema.pre('save', function(next) {
 });
 
 
+router.get('/', function(req, res) { 
+	res.render('comming_soon', { title: 'Dashboard Page' }); 
+});
 
 /* GET home page. */
-router.get('/', function(req, res) {
+/*router.get('/', function(req, res) {
   if(req.session.loggedIn){
     console.log("username: "+req.session.username );
     var message = req.flash('info');
@@ -78,7 +81,7 @@ router.get('/', function(req, res) {
   }else{
 		res.render('login', { title: 'Login', req:req, message: '' });
   }
-});
+});*/
 
 router.get('/register', function(req, res) {
     res.render("register", {title:apptitle, req:req, message: ""});
