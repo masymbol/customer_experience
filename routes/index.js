@@ -102,7 +102,7 @@ router.get('/preview', function(req, res) {
     	var users_csv = '/users_data/'+login_user+'/users/users.csv';
     	var influencers_csv = '/users_data/'+login_user+'/influencers/influencers.csv';    	
     	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/geoLocations.csv';
-    	var post_csv = '/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv';
+    	var post_csv = '/users_data/'+login_user+"/post/Twitter/"+user.user_search+".csv";
     	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
     	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
     	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
@@ -225,7 +225,7 @@ router.post('/google_search', function(req, res){
 		var log_file_path = working_dir+"/Logs/";
 		var rscript_file = working_dir+"/swaps/twitter/search.R";
 		var timeline_script = working_dir+"/TrailVersionTwitter_Project/timeline_script.sh";
-		var dates_file = working_dir+"/public/users_data/"+user_name+"/Twitter/"+searchQuery+".csv";
+		var dates_file = working_dir+"/public/users_data/"+user_name+"/post/Twitter/"+searchQuery+".csv";
 		var timeline_output = working_dir+"/public/users_data/"+user_name;
 		
 		function puts(error, stdout, stderr) { sys.puts(stdout) }
