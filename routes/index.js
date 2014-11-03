@@ -64,12 +64,12 @@ userSchema.pre('save', function(next) {
 });
 
 
-router.get('/', function(req, res) { 
+/*router.get('/', function(req, res) { 
 	res.render('comming_soon', { title: 'Dashboard Page' }); 
-});
+});*/
 
 /* GET home page. */
-/*router.get('/', function(req, res) {
+router.get('/', function(req, res) {
   if(req.session.loggedIn){
     console.log("username: "+req.session.username );
     var message = req.flash('info');
@@ -81,7 +81,7 @@ router.get('/', function(req, res) {
   }else{
 		res.render('login', { title: 'Login', req:req, message: '' });
   }
-});*/
+});
 
 router.get('/register', function(req, res) {
     res.render("register", {title:apptitle, req:req, message: ""});
@@ -132,7 +132,7 @@ router.get('/dashboard1', function(req, res) {
     	var userdata = req.session.userdata;
     	var working_directory = process.env.PWD;
     	var users_csv = '/users_data/'+login_user+'/users/users.csv';
-    	var post_csv = '/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv';
+    	var post_csv = '/users_data/'+login_user+"/post/Twitter/"+user.user_search+".csv";
     	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
     	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
 
@@ -219,18 +219,19 @@ router.post('/google_search', function(req, res){
 		console.log("searchQuery: "+searchQuery);
 		req.session.userdata = searchQuery;
 		
-		var java_script_file_path = working_dir+"/java_Twitter_project/twitter_script.sh";
+		var java_script_file_path = working_dir+"/TrailVersionTwitter_Project/twitter_script.sh";
 		var rscript_script_path = working_dir+"/swaps/R_program_script.sh";
 		var java_files_path = working_dir+"/public/users_data/"+user_name+"/";
 		var log_file_path = working_dir+"/Logs/";
 		var rscript_file = working_dir+"/swaps/twitter/search.R";
-		var timeline_script = working_dir+"/java_Twitter_project/timeline_script.sh";
-		var dates_file = working_dir+"/public/users_data/"+user_name+"/post/only_dates.csv";
+		var timeline_script = working_dir+"/TrailVersionTwitter_Project/timeline_script.sh";
+		var dates_file = working_dir+"/public/users_data/"+user_name+"/Twitter/"+searchQuery+".csv";
 		var timeline_output = working_dir+"/public/users_data/"+user_name;
 		
 		function puts(error, stdout, stderr) { sys.puts(stdout) }
 
 		exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
+			console.log("jar file started.........");
 				if (err){
 					console.log("Error while running jar file: "+err);
 					errors_array.push("Error while running jar ");
@@ -240,20 +241,79 @@ router.post('/google_search', function(req, res){
 					success_script +=1 ;				
 				}
 		});
-		
-		exec("bash "+rscript_script_path+" "+searchQuery+" "+java_files_path, function(err, data){			
-			checkPostSuccess();
+
+		exec("Rscript "+working_dir+"/swaps/new_changes/material_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
 				if (err){
-					console.log("Error in Rscript : "+err); 
+					console.log("Error in Rscript new : "+err);
 					errors_array.push("Error while running Rscript ");
-					console.log("errors_array in rcode error: "+errors_array);
+					console.log("1.errors_array in rcode error: "+errors_array);
+
 				}else{
 					timeline();
-					console.log("Rscript file running.........");
+					sentimentScore();
+					WordCloud();
+					console.log("new 1 Rscript file running.........");
 					success_script +=1 ;
-					redirectProcess_timer = 5000;
+					redirectProcess_timer = 5000;				
 				}
 		});
+
+		function sentimentScore(){
+
+			exec("Rscript "+working_dir+"/swaps/new_changes/Sentiment_score.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
+					if (err){
+						console.log("Error in Rscript new : "+err);
+						errors_array.push("Error while running Rscript ");
+						console.log("2.errors_array in rcode error: "+errors_array);
+
+					}else{						
+						console.log("new 2 Rscript file running.........");
+						success_script +=1 ;
+						redirectProcess_timer = 5000;				
+					}
+			});
+		}
+
+		function WordCloud(){
+
+			exec("Rscript "+working_dir+"/swaps/new_changes/wordcloud.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
+					if (err){
+						console.log("Error in Rscript new : "+err);
+						errors_array.push("Error while running Rscript ");
+						console.log("3.errors_array in rcode error: "+errors_array);
+
+					}else{
+						console.log("new 3 Rscript file running.........");
+						success_script +=1 ;
+						redirectProcess_timer = 5000;				
+						redirectPage();
+					}
+			});
+		}
+
+		function redirectPage(){
+			var login_user = req.session.username;
+			User.findOne({ username: login_user }, function (err, user) {
+				user.user_search = searchQuery;
+				user.previous_data = true;
+				user.save();
+			});
+
+			
+			console.log("errors_array: ", errors_array);
+
+			setTimeout(function(){
+				if(errors_array.length >= 1 ){
+						console.log("errors_array in if condition: ", errors_array);
+						req.flash('info', errors_array.join());
+						res.redirect("/");
+					}else{
+						setTimeout(function(){
+							res.redirect("/dashboard1");
+						}, 2000);
+					}
+				}, 2000);
+		}
 
 		function timeline(){
 			exec("bash "+timeline_script+" "+dates_file+" "+timeline_output+" "+log_file_path, function(err, data){			
@@ -267,7 +327,6 @@ router.post('/google_search', function(req, res){
 				}
 			});
 		}
-
 		function checkPostSuccess(){
 			var login_user = req.session.username;
 			var post_success= fs.existsSync(process.env.PWD+'/public/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv');
