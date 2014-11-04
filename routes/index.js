@@ -5,7 +5,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 var bcrypt = require('bcrypt-nodejs');
-var apptitle = "Masymbol";
+var apptitle = "Masocial";
 
 var flash = require('./flash');
 
@@ -64,12 +64,12 @@ userSchema.pre('save', function(next) {
 });
 
 
-/*router.get('/', function(req, res) { 
-	res.render('comming_soon', { title: 'Dashboard Page' }); 
-});*/
+router.get('/', function(req, res) { 
+	res.render('comming_soon', { title: apptitle }); 
+});
 
 /* GET home page. */
-router.get('/', function(req, res) {
+/*router.get('/', function(req, res) {
   if(req.session.loggedIn){
     console.log("username: "+req.session.username );
     var message = req.flash('info');
@@ -81,15 +81,15 @@ router.get('/', function(req, res) {
   }else{
 		res.render('login', { title: 'Login', req:req, message: '' });
   }
-});
+});*/
 
 router.get('/register', function(req, res) {
-    res.render("register", {title:apptitle, req:req, message: ""});
+    res.render("register", {title:"Register", req:req, message: ""});
 });
 
 
 router.get('/login', function(req, res) {
-    res.render("login", {title:apptitle, req:req, message: ""});
+    res.render("login", {title:"Login", req:req, message: ""});
 });
 
 router.get('/preview', function(req, res) {
@@ -452,7 +452,7 @@ router.post("/register", function (req, res) {
 	        req.session.username = req.body.username;
 	        var username = req.body.username;
 	        exec("mkdir public/users_data/"+username, function(err, data){
-	        	if (err){
+	      if (err){
 					console.log("Error while creating "+username+" directory in public as public/users_data/"+username+" :"+err); 
 				}else{
 					console.log("Creating "+username+" directory in hdfs as public/users_data/"+username+" :");
