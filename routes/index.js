@@ -50,13 +50,13 @@ userSchema.pre('save', function(next) {
   var user = this;
   var SALT_FACTOR = 5;
 
-  if (!user.isModified('password')) return next();
+  if(!user.isModified('password')) return next();
 
   bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
-    if (err) return next(err);
+    if(err) return next(err);
 
     bcrypt.hash(user.password, salt, null, function(err, hash) {
-      if (err) return next(err);
+      if(err) return next(err);
       user.password = hash;
       next();
     });
@@ -112,7 +112,7 @@ router.get('/preview', function(req, res) {
 
     	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success};
     	console.log("user.user_search: "+user.user_search);
-    	if (user.previous_data){
+    	if(user.previous_data){
 				res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
 			} else{
 				res.redirect('/');
@@ -138,7 +138,7 @@ router.get('/dashboard1', function(req, res) {
 
     	var disp_data = {users_csv: users_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, timeframe_csv: timeframe_csv};
     	console.log("user.user_search: "+user.user_search);
-    	if (user.previous_data){
+    	if(user.previous_data){
 				res.render('dashboard1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
 			} else{
 				res.redirect('/');
@@ -166,7 +166,7 @@ router.get('/dashboard2', function(req, res) {
 
     	var disp_data = { influencers_csv: influencers_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, influencers_success: influencers_success, geo_location_csv: geo_location_csv };
     	console.log("user.user_search: "+user.user_search);
-    	if (user.previous_data){
+    	if(user.previous_data){
 				res.render('dashboard2', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
 			} else{
 				res.redirect('/');
@@ -206,8 +206,9 @@ router.post('/google_search', function(req, res){
 	var redirectProcess_timer = 10000;
 	var errors_array = [];
 
+
 	exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
-		if (err){
+		if(err){
 			console.log("Error when old files deleted : "+err); 
 		}else{
 			console.log("old files deleted .........");
@@ -232,7 +233,7 @@ router.post('/google_search', function(req, res){
 
 		exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
 			console.log("jar file started.........");
-				if (err){
+				if(err){
 					console.log("Error while running jar file: "+err);
 					errors_array.push("Error while running jar ");
 
@@ -244,7 +245,7 @@ router.post('/google_search', function(req, res){
 
 		exec("Rscript "+working_dir+"/swaps/new_rcode/tweet_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
 			console.log("tweet_collection inside");
-				if (err){
+				if(err){
 					console.log("Error in tweet_collection Rscript new : "+err);
 					errors_array.push("Error while running Rscript ");
 				}else{
@@ -256,9 +257,9 @@ router.post('/google_search', function(req, res){
 		});
 
 		exec("Rscript "+working_dir+"/swaps/new_rcode/post_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
-				if (err){
-					console.log("Error in post_collection Rscript new : "+err);
-					errors_array.push("Error while running Rscript ");
+				if(err){
+					console.log("Error in post_collection Rscript : "+err);
+					errors_array.push("Error while running post_collection Rscript ");
 					console.log("1.errors_array in rcode error: "+errors_array);
 				}else{
 					console.log("post_collection Rscript file running.........");
@@ -283,12 +284,12 @@ router.post('/google_search', function(req, res){
 
 			exec("Rscript "+working_dir+"/swaps/new_rcode/Sentiment_score.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
 					if (err){
-						console.log("Error in Rscript new : "+err);
-						errors_array.push("Error while running Rscript ");
-						console.log("2.errors_array in rcode error: "+errors_array);
+						console.log("Error in sentimentScore Rscript: "+err);
+						errors_array.push("Error while running sentimentScore Rscript ");
+						console.log("2.errors_array in sentimentScore rcode error: "+errors_array);
 
 					}else{						
-						console.log("new 2 Rscript file running.........");
+						console.log("sentimentScore Rscript file running.........");
 						success_script +=1 ;
 						redirectProcess_timer = 5000;				
 					}
@@ -299,12 +300,12 @@ router.post('/google_search', function(req, res){
 
 			exec("Rscript "+working_dir+"/swaps/new_rcode/wordcloud.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
 					if (err){
-						console.log("Error in Rscript new : "+err);
-						errors_array.push("Error while running Rscript ");
-						console.log("3.errors_array in rcode error: "+errors_array);
+						console.log("Error in WordCloud Rscript : "+err);
+						errors_array.push("Error while running WordCloud Rscript ");
+						console.log("errors_array in WordCloud rcode error: "+errors_array);
 
 					}else{
-						console.log("new 3 Rscript file running.........");
+						console.log("WordCloud Rscript file running.........");
 						success_script +=1 ;
 						redirectProcess_timer = 5000;				
 						redirectPage();
@@ -323,11 +324,13 @@ router.post('/google_search', function(req, res){
 			console.log("errors_array: ", errors_array);
 
 			setTimeout(function(){
-				if(errors_array.length >= 1 ){
+				if(errors_array.length >= 1 && success_script < 5){
+					console.log("in if cond success_script: "+success_script);
 						console.log("errors_array in if condition: ", errors_array);
 						req.flash('info', errors_array.join());
 						res.redirect("/");
 					}else{
+						console.log("in else cond success_script: "+success_script);
 						setTimeout(function(){
 							res.redirect("/dashboard1");
 						}, 2000);
@@ -363,6 +366,7 @@ router.post('/google_search', function(req, res){
 			console.log("errors_array: ", errors_array);
 
 			setTimeout(function(){
+				console.log("before errors_array in if condition post_success == false: ", errors_array);
 				if(errors_array.length >= 1 || post_success == false){
 						//clearInterval(redirectProcess);
 						console.log("errors_array in if condition: ", errors_array);
