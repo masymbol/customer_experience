@@ -36,17 +36,19 @@
 						        x: {
 					            type: 'timeseries',
 					            tick: {
+					            	count: 10,
 				                format: '%d %b %I%p',
 				                margin: { top: 200, bottom: 0 },
-				                rotate: 80
+				                
 			          			},
 			          			label: {
               					text: 'Time',
               					position: 'outer-center'
-              				},
-			          			height: 100
+              				}
 						        },
 						        y: {
+						        	ticks: 5,
+
 							        label: {
 						            text: 'Posts',
 						            position: 'outer-middle'
