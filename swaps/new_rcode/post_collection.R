@@ -39,7 +39,14 @@ logistic <- function(ans,str)
 	ans_gp <- paste0("#",ans)
     post <- searchPost(ans_gp,ret = "data.frame", language = NULL,result=100)
     ss_gp <- paste("Gp/",ans,".csv", sep="")
-    write.csv(post,ss_gp)
+    #write.csv(post,ss_gp)
+
+    GPlus_str <- "https://plus.google.com/"
+	Link_for_GP <- post$au
+ 	path <- paste0(GPlus_str,Link_for_GP)
+ 	path_df <- data.frame(path)
+    csv <- cbind(post,path_df)
+    write.csv(csv,ss_gp)
 }
     logistic(ans,str)
 

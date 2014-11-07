@@ -44,8 +44,16 @@ logistic <- function(ans,str)
 	print("Twitter search completed...")
     ss_t <- paste("Tweeter/",ans,".csv", sep="")
     tweets_df <- do.call (rbind,lapply(tweets,as.data.frame))
-    write.csv(tweets_df,ss_t)
+    #write.csv(tweets_df,ss_t)
     
+    # Links
+    tweeter_str <- "https://twitter.com/"
+	Link_for_tweets <- tweets_df$screenName
+ 	path <- paste0(tweeter_str,Link_for_tweets)
+    path_df <- data.frame(path)
+    csv <- cbind(tweets_df,path_df)
+    write.csv(csv,ss_t)
+
 }
     logistic(ans,str)
 

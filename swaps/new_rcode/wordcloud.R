@@ -75,6 +75,7 @@ logistic <- function(ans,str)
  word_freqs = sort(rowSums(m), decreasing=TRUE)   #now we get the word orders in decreasing order
 
  dm = data.frame(word=names(word_freqs), freq=word_freqs)    #we create our data set
+ write.csv(dm,"wordcloud_img/wordcloud_data.csv")
  jpeg('wordcloud_img/wordcloud.jpg')
  wordcloud(dm$word, dm$freq, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
  dev.off()

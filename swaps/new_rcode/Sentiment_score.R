@@ -9,16 +9,14 @@ logistic <- function(ans,str)
 	ss_t <- paste("Tweeter/",ans,".csv", sep="")
 	ss_gp <- paste("Gp/",ans,".csv", sep="")
 
- ## Excet write.csv.. everything is working fine
  tweets <- read.csv(ss_t)
  post <- read.csv(ss_gp)
  print("Reading success")
- #pos = scan('/home/purva/Desktop/project/positive-words.txt', what='character', comment.char=';')
- #neg = scan('/home/purva/Desktop/project/negative-words.txt', what='character', comment.char=';')
+# pos = scan('/home/purva/Desktop/project/positive-words.txt', what='character', comment.char=';')
+# neg = scan('/home/purva/Desktop/project/negative-words.txt', what='character', comment.char=';')
  pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
  neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
 
- 
  m <- post$msg
  t <-tweets$text
  print("pass")
@@ -96,8 +94,23 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
  write("Write_success","most_pos_neg/_success.txt")
 
  #### Links with some posN neg ####
+ tweeter_str <- "https://twitter.com/"
+ Link_for_tweets <- tweets$screenName
+ path <- paste0(tweeter_str,Link_for_tweets)
+ path_df <- data.frame(path)
+    
+ GPlus_str <- "https://plus.google.com/"
+ Link_for_GP <- post$au
+ path1 <- paste0(GPlus_str,Link_for_GP)
+ path_df1 <- data.frame(path1)
+ 
+ colnames(path_df1) <- "path"
+ c <- rbind(path_df,path_df1) 
+ analysis_new <- cbind(analysis,c)
+
+
  print("some +ve tweets :-")
- df2 <- analysis[which(analysis$score==3 | analysis$score==2 | analysis$score==1),]
+ df2 <- analysis_new[which(analysis_new$score==3 | analysis_new$score==2 | analysis_new$score==1),]
  p21<-data.frame(df2$score)
  p22<-data.frame(df2$text)
  p23<-cbind(p21,p22)
@@ -105,7 +118,7 @@ score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
  write("Write_success","Some_pos_neg/_success.txt")
 
  print("some -ve tweets :-")
- df3 <- analysis[which(analysis$score==-3 | analysis$score==-2 | analysis$score==-1),]
+ df3 <- analysis_new[which(analysis_new$score==-3 | analysis_new$score==-2 | analysis_new$score==-1),]
  p31<-data.frame(df3$score)
  p32<-data.frame(df3$text)
  p33<-cbind(p31,p32)
