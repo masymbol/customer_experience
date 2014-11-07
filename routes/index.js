@@ -103,14 +103,15 @@ router.get('/preview', function(req, res) {
     	var influencers_csv = '/users_data/'+login_user+'/influencers/influencers.csv';    	
     	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/geoLocations.csv';
     	var post_csv = '/users_data/'+login_user+"/Tweeter/"+user.user_search+".csv";
-    	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
+    	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/wordcloud_img/wordcloud_data.csv';
     	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
     	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
     	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
     	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
     	var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
 
-    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success};
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success};
     	console.log("user.user_search: "+user.user_search);
     	if(user.previous_data){
 				res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
@@ -134,9 +135,10 @@ router.get('/dashboard1', function(req, res) {
     	var users_csv = '/users_data/'+login_user+'/users/users.csv';
     	var post_csv = '/users_data/'+login_user+"/Tweeter/"+user.user_search+".csv";
     	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
+    	var wordcloud_csv = '/users_data/'+login_user+'/wordcloud_img/wordcloud_data.csv';
     	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
 
-    	var disp_data = {users_csv: users_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, timeframe_csv: timeframe_csv};
+    	var disp_data = {users_csv: users_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, timeframe_csv: timeframe_csv};
     	console.log("user.user_search: "+user.user_search);
     	if(user.previous_data){
 				res.render('dashboard1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search });
