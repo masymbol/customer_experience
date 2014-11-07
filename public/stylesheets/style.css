@@ -173,7 +173,7 @@ span.retweet_count strong{
 	height: 100%;
 	z-index: 1000;
 	background-color: silver;
-	background: rgba( 255, 255, 255, .3 ) url('/images/loading.gif') 50% 50% no-repeat;
+	background: rgba( 255, 255, 255, .3 ) url('/images/Loading-Trace-wide.gif') 50% 50% no-repeat;
 }
 
 #most_influencers img#loading_image{
