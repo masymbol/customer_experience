@@ -55,7 +55,17 @@
 				<div class="container-fluid">
 					<div id="wait" style="display: none;" ></div>
 					
-					<% include body_header %>
+					<% include body_header %>					
+
+					<div class="row">
+
+						<% include timeline_graph %>						
+
+					</div>	
+
+					<div class="row">
+						<% include word_cloud %>
+					</div>
 
 					<div class="row">						
 
@@ -63,15 +73,7 @@
 
 						<% include recent_users %>
 						
-					</div>
-
-					<div class="row">
-
-						<% include timeline_graph %>
-
-						<% include word_cloud %>
-
-					</div>					
+					</div>			
 
 				</div>
 			</div>		
