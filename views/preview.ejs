@@ -28,6 +28,10 @@
 			.error{
 				color:red;
 			}
+
+			.modal-body button.close {
+				margin: 0;
+			}
 			
 		</style>
 
@@ -36,11 +40,18 @@
 				<% if (message.length > 1) { %>
 						<div class="alerterror"><%= message %></div>
 						<button class="close">&times</button>
-					<% } %>
+				<% } %>
+
+				<% if (req.session.status_message > 1) { %>
+						<div class="info"><%= message %></div>
+						<button class="close">&times</button>
+				<% } %>
+
+				
 			</div>
 			
 
-    <body>
+    <body >
 		<!-- top bar -->
 		<% include header_content %>
 		
@@ -48,7 +59,8 @@
 		<div id="main_wrapper">
 			<div class="page_content">
 				<div class="container-fluid">
-					<div id="wait" style="display: none;" ></div>
+				<%= req.session.status_message %>
+					<!--<div id="wait" style="display: none;" ></div>-->
 
 					<% include body_header %>
 
@@ -115,6 +127,16 @@
 				$(this).hide();
 		    $('div.alerterror').hide();
 		  });
+		  $('.modal-body button.close').on("click", function(){
+				$(this).show();
+		  });
+
+		  //showModelBox();
+
+		  function showModelBox(){
+		  	$(".search_btn_click").trigger( "click" );
+		  }
+
 		})
 		</script>
 		

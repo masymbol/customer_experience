@@ -33,6 +33,9 @@
 				max-height: 342px;
 
 			}
+			.modal-body button.close {
+				margin: 0;
+			}
 			
 		</style>
 
@@ -53,7 +56,7 @@
 		<div id="main_wrapper">
 			<div class="page_content">
 				<div class="container-fluid">
-					<div id="wait" style="display: none;" ></div>
+					<!--<div id="wait" style="display: none;" ></div>-->
 					
 					<% include body_header %>					
 
@@ -96,6 +99,9 @@
 				$(this).hide();
 		    $('div.alerterror').hide();
 		  });
+		  /*$('.modal-body button.close').on("click", function(){
+				$(this).show();
+		  });*/
 		})
 		</script>
 		
