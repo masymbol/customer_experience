@@ -11,6 +11,10 @@ var flash = require('./flash');
 
 var exec = require('child_process').exec;
 
+var CronJob = require('cron').CronJob;
+var time = require('time');
+
+
 /*
  * UserSchema
  *
@@ -207,15 +211,26 @@ router.post('/google_search', function(req, res){
 	var page_redirect = true;
 	var redirectProcess_timer = 10000;
 	var errors_array = [];
+	
+	//checkOldData();
+
+	function checkOldData(){
+		var login_user = req.session.username;
+			User.findOne({ username: login_user }, function (err, user) {
+				user.user_search = searchQuery;
+				user.previous_data = true;
+				user.save();
+			});
+	}
 
 
-	exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
+	/*exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
 		if(err){
 			console.log("Error when old files deleted : "+err); 
 		}else{
 			console.log("old files deleted .........");
 		}
-	});
+	});*/
 
 	setTimeout(function(){
 		var searchQuery = req.body.search;
@@ -241,7 +256,7 @@ router.post('/google_search', function(req, res){
 
 				}else{
 					console.log("jar file running.........");
-					success_script +=1 ;				
+					//success_script +=1 ;				
 				}
 		});
 
@@ -271,6 +286,7 @@ router.post('/google_search', function(req, res){
 		});
 
 		function TwitterGPSuccess(){
+
 			console.log("success_script: "+success_script);
 			if(success_script >= 2 ){
 				sentimentScore();
@@ -497,6 +513,46 @@ router.get('/logout', function(req, res) {
     req.session.userdata = ''
     res.redirect('/');
 });
+
+function runCronJob(){
+	var previous_data_users = []
+
+ 	User.find({previous_data: true}, function(err, users) {
+    var usersArr = [];
+
+    users.forEach(function(user) {
+      user.previous_data = false;
+      user.user_search = "";
+      user.save()
+      usersArr.push(user.username);
+    });
+    console.log("usersArr: "+usersArr);;
+
+    deleteOldFiles(usersArr);
+
+  });
+
+}
+
+function deleteOldFiles(usersNameArr){
+	usersNameArr.forEach(function(user) {
+
+		exec("rm -rf "+process.env.PWD+"/public/users_data1/"+user+"/*",function(err, data){			
+			if(err){
+				console.log("Error when old files deleted : "+err); 
+			}else{
+				console.log("old files deleted .........");
+			}
+		});
+
+	});
+}
+
+new CronJob('00 00 18 * * *', function(){
+    console.log('All Users data deleted .. every day at 18:00:00');
+    runCronJob();
+
+}, null, true, "Asia/Kolkata");
 
 
 module.exports = router;
