@@ -36,16 +36,13 @@
 			.attr('transform', 'translate('+width/2+', '+height/2+')');
 
 	function calculateCloud(wordCount) {
-		//d3.csv("/users_data/kishore/TimeLine/timeline.csv", function(file_data){
-		d3.csv("javascripts/wordcloud_data.csv", function(file_data){
-		//d3.csv("<%= disp_data.wordcloud_image %>", function(file_data){
-			//console.log("file_data.toSource(): "+file_data.toSource());
+		d3.csv("<%= disp_data.wordcloud_csv %>", function(file_data){
 			d3.layout.cloud()
 			.size([width, height])
 			.words(file_data)
 			.rotate(function() { return ~~(Math.random()*2) * 90;}) // 0 or 90deg
 			.font(typeFace)
-			.fontSize(function(d) { return d.size * minFontSize; })
+			.fontSize(function(d) { return d.freq * minFontSize; })
 			.on('end', drawCloud)
 			.start();
 
@@ -62,7 +59,7 @@
 			.attr('transform', function(d) {
 			  return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
 			})
-			.text(function(d) { return d.text; });
+			.text(function(d) { return d.word; });
 	}
 
 	function processData(strings) { 
