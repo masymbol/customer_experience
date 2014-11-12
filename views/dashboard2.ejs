@@ -40,16 +40,27 @@
 			.modal-body button.close {
 				margin: 0;
 			}
+
+			.alertsuccess {
+				background-color:green;
+			}
 			
 		</style>
 
     </head>
     <div class="messages main_wrapper">
-				<% if (message.length > 1) { %>
+				<% if (message.length >= 1) { %>
 						<div class="alerterror"><%= message %></div>
 						<button class="close">&times</button>
 					<% } %>
 			</div>
+
+			<div class="messages main_wrapper">
+				<% if (process_info.length >= 1) { %>
+						<div class="alertsuccess"><%= process_info %></div>
+						<button class="close">&times</button>
+					<% } %>
+		</div>
 			
 
     <body>

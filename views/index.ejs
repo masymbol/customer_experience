@@ -27,6 +27,10 @@
 				align-items: center;
 			}
 
+			.modal-body button.close {
+				margin: 0;
+			}
+
 
 		</style>
 		<!-- Login stylesheet -->
@@ -40,11 +44,17 @@
 					<div class="alerterror"><%= message %></div>
 					<button class="close">&times</button>
 				<% } %>
-			</div>
+		</div>
+		<div class="messages main_wrapper">
+				<% if (process_info.length >= 1) { %>
+						<div class="alertsuccess"><%= process_info %></div>
+						<button class="close">&times</button>
+					<% } %>
+		</div>
 		<!-- main content -->
 
 			<div class="login_container">
-			<div id="wait" style="display: none;" ></div>
+			<!--<div id="wait" style="display: none;" ></div>-->
 				<div class="panel panel-default" style="margin-top: 10px;">
 					<div class="panel-body search-container">
 						<div class="col-md-12">
@@ -54,13 +64,26 @@
 								<div class="input-group search-container">
 									<input class="form-control" name="search" id="search-text" type="text" placeholder = "Enter a search text">
 									<span class="input-group-btn">
-										<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
+										<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit" data-toggle="modal" data-target="#bs_modal_regular"></input>
 									</span>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
+				<div class="modal fade" id="bs_modal_regular">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="padding:0">&times;</button>
+								<img src="/images/Loading-Trace-wide.gif" alt="Processing ..." width="84" height="84"align="middle" style="display: block; margin: auto;">	<br/>		
+								<p style="text-align: center;">Your Process is Started. It will take time to display result.. </p>
+							
+
+						</div>
+					</div>
+				</div>
+			</div>
 			</div>
 
 		<!-- side navigation -->
