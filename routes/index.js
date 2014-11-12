@@ -103,18 +103,19 @@ router.get('/preview', function(req, res) {
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
+
     	var working_directory = process.env.PWD;
-    	var users_csv = '/users_data/'+login_user+'/users/users.csv';
-    	var influencers_csv = '/users_data/'+login_user+'/influencers/influencers.csv';    	
-    	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/geoLocations.csv';
-    	var post_csv = '/users_data/'+login_user+"/Tweeter/"+user.user_search+".csv";
-    	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg';
-    	var wordcloud_csv = '/users_data/'+login_user+'/wordcloud_img/wordcloud_data.csv';
-    	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
-    	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
-    	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
-    	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
-    	var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
+    	var users_csv = '/users_data/'+login_user+'/'+user.user_search+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user.user_search+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user.user_search+"/Tweeter/"+user.user_search+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user.user_search+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user.user_search+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user.user_search+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user.user_search+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user.user_search+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user.user_search+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user.user_search+'/influencers/_success.csv';
 
     	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success};
     	console.log("user.user_search: "+user.user_search);
@@ -137,11 +138,11 @@ router.get('/dashboard1', function(req, res) {
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
     	var working_directory = process.env.PWD;
-    	var users_csv = '/users_data/'+login_user+'/users/users.csv';
-    	var post_csv = '/users_data/'+login_user+"/Tweeter/"+user.user_search+".csv";
-    	var wordcloud_image = '/users_data/'+login_user+'/wordcloud_img/wordcloud.jpg'; 
-    	var wordcloud_csv = '/users_data/'+login_user+'/wordcloud_img/wordcloud_data.csv';
-    	var timeframe_csv = '/users_data/'+login_user+'/TimeLine/timeline.csv';
+    	var users_csv = '/users_data/'+login_user+'/'+user.user_search+'/users/users.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user.user_search+"/Tweeter/"+user.user_search+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user.user_search+'/wordcloud_img/wordcloud.jpg'; 
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user.user_search+'/wordcloud_img/wordcloud_data.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user.user_search+'/TimeLine/timeline.csv';
 
     	var disp_data = {users_csv: users_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, timeframe_csv: timeframe_csv};
     	console.log("user.user_search: "+user.user_search);
@@ -164,12 +165,12 @@ router.get('/dashboard2', function(req, res) {
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
     	var working_directory = process.env.PWD;
-    	var influencers_csv = '/users_data/'+login_user+'/influencers/influencers.csv';    	
-    	var geo_location_csv = '/users_data/'+login_user+'/geoLocation/geoLocations.csv';
-    	var sentiment_graph_csv = '/users_data/'+login_user+'/sentiment_graphs/score_analysis.csv';
-    	var some_positive_csv = '/users_data/'+login_user+'/Some_pos_neg/some_pos.csv';
-    	var some_negative_csv = '/users_data/'+login_user+'/Some_pos_neg/some_neg.csv';
-    	var influencers_success = '/users_data/'+login_user+'/influencers/_success.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user.user_search+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user.user_search+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user.user_search+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user.user_search+'/Some_pos_neg/some_neg.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user.user_search+'/influencers/_success.csv';
 
     	var disp_data = { influencers_csv: influencers_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, influencers_success: influencers_success, geo_location_csv: geo_location_csv };
     	console.log("user.user_search: "+user.user_search);
@@ -212,8 +213,10 @@ router.post('/google_search', function(req, res){
 	var page_redirect = true;
 	var redirectProcess_timer = 10000;
 	var errors_array = [];
+	var searchQuery = req.body.search;
 	
 	//checkPreviousData();
+	//checkPreviousData(true, true)
 
 	function checkPreviousData(data, data_error){
 		var login_user = req.session.username;
@@ -231,6 +234,13 @@ router.post('/google_search', function(req, res){
 			});
 	}
 
+	exec("mkdir public/users_data/"+user_name+"/"+searchQuery, function(err, data){
+	      if (err){
+					console.log("Error while creating "+user_name+"/"+searchQuery+" directory in public as public/users_data/"+user_name+" :"+err); 
+				}else{
+					console.log("Creating "+user_name+"/"+searchQuery+" directory in hdfs as public/users_data/"+user_name+" :");
+				}
+			});
 
 	/*exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
 		if(err){
@@ -241,19 +251,19 @@ router.post('/google_search', function(req, res){
 	});*/
 
 	setTimeout(function(){
-		var searchQuery = req.body.search;
+		
 		console.log("searchQuery: "+searchQuery);
 		req.session.userdata = searchQuery;
 
 		
 		var java_script_file_path = working_dir+"/TrailVersionTwitter_Project/twitter_script.sh";
 		var rscript_script_path = working_dir+"/swaps/R_program_script.sh";
-		var java_files_path = working_dir+"/public/users_data/"+user_name+"/";
+		var java_files_path = working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/";
 		var log_file_path = working_dir+"/Logs/";
 		var rscript_file = working_dir+"/swaps/twitter/search.R";
 		var timeline_script = working_dir+"/TrailVersionTwitter_Project/timeline_script.sh";
-		var dates_file = working_dir+"/public/users_data/"+user_name+"/Tweeter/"+searchQuery+".csv";
-		var timeline_output = working_dir+"/public/users_data/"+user_name;
+		var dates_file = working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/Tweeter/"+searchQuery+".csv";
+		var timeline_output = working_dir+"/public/users_data/"+user_name+"/"+searchQuery;
 
 
 		
@@ -271,7 +281,7 @@ router.post('/google_search', function(req, res){
 				}
 		});
 
-		exec("Rscript "+working_dir+"/swaps/new_rcode/tweet_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
+		exec("Rscript "+working_dir+"/swaps/new_rcode/tweet_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
 			req.session.status_message = "Your Search Query Process started.. ";
 			console.log("tweet_collection inside");
 				if(err){
@@ -285,11 +295,12 @@ router.post('/google_search', function(req, res){
 				}
 		});
 
-		exec("Rscript "+working_dir+"/swaps/new_rcode/post_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
+		exec("Rscript "+working_dir+"/swaps/new_rcode/post_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
 				if(err){
 					console.log("Error in post_collection Rscript : "+err);
 					errors_array.push("Error while running post_collection Rscript ");
 					req.session.status_message = "Your Search Query having less Google+ posts .. ";
+
 					console.log("1.errors_array in rcode error: "+errors_array);
 				}else{
 					console.log("post_collection Rscript file running.........");
@@ -313,7 +324,7 @@ router.post('/google_search', function(req, res){
 
 		function sentimentScore(){
 
-			exec("Rscript "+working_dir+"/swaps/new_rcode/Sentiment_score.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
+			exec("Rscript "+working_dir+"/swaps/new_rcode/Sentiment_score.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
 					if (err){
 						console.log("Error in sentimentScore Rscript: "+err);
 						errors_array.push("Error while running sentimentScore Rscript ");						
@@ -329,7 +340,7 @@ router.post('/google_search', function(req, res){
 
 		function WordCloud(){
 
-			exec("Rscript "+working_dir+"/swaps/new_rcode/wordcloud.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
+			exec("Rscript "+working_dir+"/swaps/new_rcode/wordcloud.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
 					if (err){
 						console.log("Error in WordCloud Rscript : "+err);
 						errors_array.push("Error while running WordCloud Rscript ");
@@ -377,7 +388,7 @@ router.post('/google_search', function(req, res){
 						console.log("req.session.status_message: "+req.session.status_message);
 						console.log("in else cond success_script: "+success_script);
 						//setTimeout(function(){
-							req.session.status_message = null;
+							req.session.status_message = "null";
 							checkPreviousData(true, false);
 							console.log("req.session.status_message: "+req.session.status_message);
 							//res.redirect("/dashboard1");
@@ -471,8 +482,8 @@ router.post('/google_search', function(req, res){
 		}	*/
 
 		setTimeout(function(){
-						res.redirect("/preview");
-					}, 10000);
+						res.redirect("/dashboard1");
+					}, 5000);
 
 	}, 1000);
 
@@ -527,7 +538,7 @@ router.post("/register", function (req, res) {
 	        req.session.loggedIn = true;
 	        req.session.username = req.body.username;
 	        var username = req.body.username;
-	        exec("mkdir public/users_data/"+username, function(err, data){
+	      exec("mkdir public/users_data/"+username, function(err, data){
 	      if (err){
 					console.log("Error while creating "+username+" directory in public as public/users_data/"+username+" :"+err); 
 				}else{
