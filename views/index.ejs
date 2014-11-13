@@ -21,7 +21,7 @@
 			
 			.vertical-center {
 				min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-				min-height: 100vh; /* These two lines are counted as one :-)       */
+				min-height: 90vh; /* These two lines are counted as one :-)       */
 
 				display: flex;
 				align-items: center;
@@ -31,6 +31,9 @@
 				margin: 0;
 			}
 
+			.alertsuccess {
+				background-color:green;
+			}
 
 		</style>
 		<!-- Login stylesheet -->
@@ -53,12 +56,12 @@
 		</div>
 		<!-- main content -->
 
-			<div class="login_container">
+			<div class="login_container vertical-center">
 			<!--<div id="wait" style="display: none;" ></div>-->
 				<div class="panel panel-default" style="margin-top: 10px;">
 					<div class="panel-body search-container">
 						<div class="col-md-12">
-							<h3>Analysis Query</h3>
+							<div class="heading_b topics_heading">Analysis Query</div>
 							<p><b>Desription:</b> Type your desired keyword or search term to get trends in social media.</p>
 							<form method="POST" action="/google_search">
 								<div class="input-group search-container">
