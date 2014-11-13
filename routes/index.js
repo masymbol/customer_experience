@@ -19,15 +19,23 @@ var time = require('time');
  * UserSchema
  *
  */
+
+ SearchKeyword = new mongoose.Schema({
+  name: { type: String},
+});
+
 userSchema = new mongoose.Schema({
     username:{ type: String, required: true, unique: true },
     password:{ type: String, required: true },
     email:{ type: String, required: true, unique: true },
     user_search:{ type: String},
+    searchkeywords: [SearchKeyword],
     previous_data:{ type: Boolean, default: false},
     previous_data_error:{ type: Boolean, default: false},
     created_at:{type: Date, default: Date.now}
 });
+
+
 
 // Apply the uniqueValidator plugin to userSchema.
 userSchema.plugin(uniqueValidator);
@@ -143,12 +151,15 @@ router.get('/dashboard1', function(req, res) {
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
-    	/*if(userdata == user.user_search){
-    		req.flash('info', 'Your output is generated.. ');
-    	}else{
-    		req.flash('info', req.session.status_message);
 
-    	}*/
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+
+    	console.log("allSearchQueries: "+search_keywords);
+    	console.log("allSearchQueries: ", search_keywords);
+
     	var working_directory = process.env.PWD;
     	var users_csv = '/users_data/'+login_user+'/'+user.user_search+'/users/users.csv';
     	var post_csv = '/users_data/'+login_user+'/'+user.user_search+"/Tweeter/"+user.user_search+".csv";
@@ -229,15 +240,13 @@ router.post('/google_search', function(req, res){
 
 	req.session.status_message = "Your Search Query '"+req.body.search+"' is under Process. Please, wait for a while.. ";
 	
-	//checkPreviousData();
-	//checkPreviousData(true, true)
-
 	function checkPreviousData(data, data_error){
 		var login_user = req.session.username;
 			User.findOne({ username: login_user }, function (err, user) {
 
-				if (user.previous_data_error){
-					user.user_search = req.body.search;					
+				if (data){
+					user.user_search = req.body.search;
+					user.searchkeywords.push({ name: req.body.search });
 				}else{
 					user.user_search = user.user_search;
 				}
