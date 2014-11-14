@@ -11,6 +11,9 @@ var flash = require('./flash');
 
 var exec = require('child_process').exec;
 
+var config = require('./config');
+var app = express();
+
 /*
  * UserSchema
  *
@@ -30,9 +33,11 @@ userSchema.plugin(uniqueValidator);
 /* ==================================
  * MongoDB connection using Mongoose
  */
- 
-var db = mongoose.createConnection('mongodb://localhost/trail-production'),
-    User = db.model('users', userSchema);
+
+app.set('dbUrl', config.db[app.settings.env]);
+var db = mongoose.createConnection(app.get('dbUrl'));
+
+var User = db.model('users', userSchema);
     
 
 db.on('connected', function () {
