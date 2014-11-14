@@ -34,6 +34,8 @@ userSchema.plugin(uniqueValidator);
  * MongoDB connection using Mongoose
  */
 
+var env_var =  app.settings.env
+
 app.set('dbUrl', config.db[app.settings.env]);
 var db = mongoose.createConnection(app.get('dbUrl'));
 
@@ -70,7 +72,7 @@ userSchema.pre('save', function(next) {
 
 
 router.get('/', function(req, res) { 
-	res.render('comming_soon', { title: apptitle }); 
+	res.render('comming_soon', { title: apptitle, env_var: env_var }); 
 });
 
 /* GET home page. */
