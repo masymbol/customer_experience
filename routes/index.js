@@ -34,9 +34,11 @@ userSchema.plugin(uniqueValidator);
  * MongoDB connection using Mongoose
  */
 
-var env_var =  app.settings.env
+//var env_var =  app.settings.env
 
-app.set('dbUrl', config.db[app.settings.env]);
+var env_var =  process.env.NODE_ENV || "development"
+
+app.set('dbUrl', config.db[env_var]);
 var db = mongoose.createConnection(app.get('dbUrl'));
 
 var User = db.model('users', userSchema);
