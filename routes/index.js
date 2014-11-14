@@ -31,7 +31,7 @@ userSchema.plugin(uniqueValidator);
  * MongoDB connection using Mongoose
  */
  
-var db = mongoose.createConnection('mongodb://localhost/social-media'),
+var db = mongoose.createConnection('mongodb://localhost/trail-production'),
     User = db.model('users', userSchema);
     
 
