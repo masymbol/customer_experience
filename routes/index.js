@@ -237,282 +237,320 @@ router.post('/google_search', function(req, res){
 	var redirectProcess_timer = 10000;
 	var errors_array = [];
 	var searchQuery = req.body.search;
+	searchQuery = searchQuery.toLowerCase();
+	var search_keywords = [];
 
-	req.session.status_message = "Your Search Query '"+req.body.search+"' is under Process. Please, wait for a while.. ";
-	
-	function checkPreviousData(data, data_error){
-		var login_user = req.session.username;
-			User.findOne({ username: login_user }, function (err, user) {
-
-				if (data){
-					user.user_search = req.body.search;
-					user.searchkeywords.push({ name: req.body.search });
-				}else{
-					user.user_search = user.user_search;
-				}
-
-				user.previous_data = data;
-				user.previous_data_error = data_error;
-				user.save();
-			});
-	}
-
-	exec("mkdir public/users_data/"+user_name+"/"+searchQuery, function(err, data){
-	      if (err){
-					console.log("Error while creating "+user_name+"/"+searchQuery+" directory in public as public/users_data/"+user_name+" :"+err); 
-				}else{
-					console.log("Creating "+user_name+"/"+searchQuery+" directory in hdfs as public/users_data/"+user_name+" :");
-				}
-			});
-
-	/*exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
-		if(err){
-			console.log("Error when old files deleted : "+err); 
-		}else{
-			console.log("old files deleted .........");
-		}
-	});*/
-
-	setTimeout(function(){
+    User.findOne({ username: user_name }, function (err, user) {
+    	
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
 		
-		console.log("searchQuery: "+searchQuery);
-		req.session.userdata = searchQuery;
+		var previously_exist = search_keywords.indexOf(searchQuery);
 
+		console.log("search_keywords: "+search_keywords);
+		console.log("previously_exist: "+previously_exist);
 		
-		var java_script_file_path = working_dir+"/TrailVersionTwitter_Project/twitter_script.sh";
-		var rscript_script_path = working_dir+"/swaps/R_program_script.sh";
-		var java_files_path = working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/";
-		var log_file_path = working_dir+"/Logs/";
-		var rscript_file = working_dir+"/swaps/twitter/search.R";
-		var timeline_script = working_dir+"/TrailVersionTwitter_Project/timeline_script.sh";
-		var dates_file = working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/Tweeter/"+searchQuery+".csv";
-		var timeline_output = working_dir+"/public/users_data/"+user_name+"/"+searchQuery;
+		setTimeout(function(){
 
-
-		
-		function puts(error, stdout, stderr) { sys.puts(stdout) }
-
-		exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
-			console.log("jar file started.........");
-				if(err){
-					console.log("Error while running jar file: "+err);
-					errors_array.push("Error while running jar ");
-
-				}else{
-					console.log("jar file running.........");
-					//success_script +=1 ;				
-				}
-		});
-
-		exec("Rscript "+working_dir+"/swaps/new_rcode/tweet_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
-			
-			console.log("tweet_collection inside");
-				if(err){
-					console.log("Error in tweet_collection Rscript new : "+err);
-					errors_array.push("Error while running Rscript ");
-				}else{
-					console.log("tweet_collection Rscript file running.........");
-					success_script +=1 ;		
-					TwitterGPSuccess();
-					timeline();
-				}
-		});
-
-		exec("Rscript "+working_dir+"/swaps/new_rcode/post_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
-				if(err){
-					console.log("Error in post_collection Rscript : "+err);
-					errors_array.push("Error while running post_collection Rscript ");
-					req.session.status_message = "Your Search Query having less Google+ posts .. ";
-
-					console.log("1.errors_array in rcode error: "+errors_array);
-				}else{
-					console.log("post_collection Rscript file running.........");
-					success_script +=1 ;	
-					TwitterGPSuccess();			
-				}
-		});
-
-		function TwitterGPSuccess(){
-
-			console.log("success_script: "+success_script);
-			if(success_script >= 2 ){
-				sentimentScore();
-				WordCloud();
-			}else{
-				console.log("...success_script: "+success_script);
-			}
-		}
-
-		console.log("new success_script: "+success_script);
-
-		function sentimentScore(){
-
-			exec("Rscript "+working_dir+"/swaps/new_rcode/Sentiment_score.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
-					if (err){
-						console.log("Error in sentimentScore Rscript: "+err);
-						errors_array.push("Error while running sentimentScore Rscript ");						
-						console.log("2.errors_array in sentimentScore rcode error: "+errors_array);
-
-					}else{						
-						console.log("sentimentScore Rscript file running.........");
-						success_script +=1 ;
-						redirectProcess_timer = 5000;				
-					}
-			});
-		}
-
-		function WordCloud(){
-
-			exec("Rscript "+working_dir+"/swaps/new_rcode/wordcloud.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
-					if (err){
-						console.log("Error in WordCloud Rscript : "+err);
-						errors_array.push("Error while running WordCloud Rscript ");
-						console.log("errors_array in WordCloud rcode error: "+errors_array);
-
-					}else{
-						console.log("WordCloud Rscript file running.........");
-						success_script +=1 ;
-						redirectProcess_timer = 5000;				
-						redirectPage();
-					}
-			});
-		}
-
-		/*function storeUserData(data, data_error){
-
-			var login_user = req.session.username;
-			User.findOne({ username: login_user }, function (err, user) {
+			if(previously_exist != -1){
+				req.session.status_message = "Your Search Query '"+req.body.search+"' is in previous searching Process. So, your result is displaying now..";
 				user.user_search = searchQuery;
 				user.previous_data = true;
+				user.previous_data_error = false;
 				user.save();
-			});
-
-		}*/
-
-		function redirectPage(){
-			var login_user = req.session.username;
-			User.findOne({ username: login_user }, function (err, user) {
-				user.user_search = searchQuery;
-				user.previous_data = true;
-				user.save();
-			});
-			
-			console.log("errors_array: ", errors_array);
-
-			setTimeout(function(){
-				if(errors_array.length >= 1 && success_script < 5){
-					console.log("in if cond success_script: "+success_script);
-						console.log("errors_array in if condition: ", errors_array);
-						//req.flash('info', errors_array.join());
-						req.session.status_message = "Check Your previous search Keyword.. ";
-						//req.flash('info', req.session.status_message );
-						checkPreviousData(false, true);
-
-						//res.redirect("/");
-					}else{
-						console.log("req.session.status_message: "+req.session.status_message);
-						console.log("in else cond success_script: "+success_script);
-						//setTimeout(function(){
-							req.session.status_message = null;
-							checkPreviousData(true, false);
-							console.log("req.session.status_message: "+req.session.status_message);
-							//req.flash('info', req.session.status_message );
-							//res.redirect("/dashboard1");
-						//}, 2000);
-					}
-				}, 2000);
-		}
-
-		function timeline(){
-			exec("bash "+timeline_script+" "+dates_file+" "+timeline_output+" "+log_file_path, function(err, data){			
-				if (err){
-					console.log("Timeline Script : "+err); 
-					errors_array.push("Error while running Timeline Script ");
-				}else{
-					console.log("Timeline File.........");
-					success_script +=1 ;
-					redirectProcess_timer = 5000;
-				}
-			});
-		}
-		function checkPostSuccess(){
-			var login_user = req.session.username;
-			var post_success= fs.existsSync(process.env.PWD+'/public/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv');
-			console.log("post_success: "+post_success);
-
-			var login_user = req.session.username;
-			User.findOne({ username: login_user }, function (err, user) {
-				user.user_search = searchQuery;
-				user.previous_data = true;
-				user.save();
-			});
-
-			
-			console.log("errors_array: ", errors_array);
-
-			setTimeout(function(){
-				console.log("before errors_array in if condition post_success == false: ", errors_array);
-				if(errors_array.length >= 1 || post_success == false){
-						//clearInterval(redirectProcess);
-						console.log("errors_array in if condition: ", errors_array);
-						req.flash('info', errors_array.join());
-						//res.redirect("/");
-					}else{
-						setTimeout(function(){
-							//res.redirect("/dashboard1");
-						}, 2000);
-					}
-				}, 2000);
-
-			
-		}
-
-		/*setTimeout(function(){		
-
-
-			var login_user = req.session.username;
-			User.findOne({ username: login_user }, function (err, user) {
-				user.user_search = searchQuery;
-				user.previous_data = true;
-				user.save();
-			});
-
-			setTimeout(function(){
+				req.flash('process_info', req.session.status_message );
+				setTimeout(function(){
 				res.redirect("/dashboard1");
-			}, 2000);
-		}, 45000);*/
+			}, 1000);
 
-		/*if(page_redirect){
-			var redirectProcess = setInterval(function(){
-				if(success_script >= 2 && page_redirect){
-					clearInterval(redirectProcess);
-					page_redirect = false;
-					var login_user = req.session.username;
-    			User.findOne({ username: login_user }, function (err, user) {
-    				user.user_search = searchQuery;
-    				user.previous_data = true;
-    				user.save();
-    			});
+			}else{
+				req.session.status_message = "Your Search Query '"+req.body.search+"' is under Process. Please, wait for a while.. ";
+				runningBGProcess();
+			}
 
-    			setTimeout(function(){
-						res.redirect("/preview");
-					}, 2000);
 
-				}
-				if(errors_array.length >= 1){
-					clearInterval(redirectProcess);
-					req.flash('info', errors_array.join());
-					res.redirect("/");
-				}
-			}, redirectProcess_timer);
-		}	*/
+		}, 2000);
+
+	function runningBGProcess(){
+
+		function checkPreviousData(data, data_error){
+			var login_user = req.session.username;
+				User.findOne({ username: login_user }, function (err, user) {
+
+					if (data){
+						user.user_search = req.body.search;
+						user.searchkeywords.push({ name: req.body.search });
+					}else{
+						user.user_search = user.user_search;
+					}
+
+					user.previous_data = data;
+					user.previous_data_error = data_error;
+					user.save();
+				});
+		}
+
+		exec("mkdir public/users_data/"+user_name+"/"+searchQuery, function(err, data){
+		      if (err){
+						console.log("Error while creating "+user_name+"/"+searchQuery+" directory in public as public/users_data/"+user_name+" :"+err); 
+					}else{
+						console.log("Creating "+user_name+"/"+searchQuery+" directory in hdfs as public/users_data/"+user_name+" :");
+					}
+				});
+
+		/*exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
+			if(err){
+				console.log("Error when old files deleted : "+err); 
+			}else{
+				console.log("old files deleted .........");
+			}
+		});*/
 
 		setTimeout(function(){
-						req.flash('process_info', req.session.status_message );
-						res.redirect("/dashboard1");
-					}, 5000);
+			
+			console.log("searchQuery: "+searchQuery);
+			req.session.userdata = searchQuery;
 
-	}, 1000);
+			
+			var java_script_file_path = working_dir+"/TrailVersionTwitter_Project/twitter_script.sh";
+			var rscript_script_path = working_dir+"/swaps/R_program_script.sh";
+			var java_files_path = working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/";
+			var log_file_path = working_dir+"/Logs/";
+			var rscript_file = working_dir+"/swaps/twitter/search.R";
+			var timeline_script = working_dir+"/TrailVersionTwitter_Project/timeline_script.sh";
+			var dates_file = working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/Tweeter/"+searchQuery+".csv";
+			var timeline_output = working_dir+"/public/users_data/"+user_name+"/"+searchQuery;
+
+
+			
+			function puts(error, stdout, stderr) { sys.puts(stdout) }
+
+			exec("bash "+java_script_file_path+" "+searchQuery+" "+java_files_path+" "+log_file_path, function(err, data){
+				console.log("jar file started.........");
+					if(err){
+						console.log("Error while running jar file: "+err);
+						errors_array.push("Error while running jar ");
+
+					}else{
+						console.log("jar file running.........");
+						//success_script +=1 ;				
+					}
+			});
+
+			exec("Rscript "+working_dir+"/swaps/new_rcode/tweet_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
+				
+				console.log("tweet_collection inside");
+					if(err){
+						console.log("Error in tweet_collection Rscript new : "+err);
+						errors_array.push("Error while running Rscript ");
+					}else{
+						console.log("tweet_collection Rscript file running.........");
+						success_script +=1 ;		
+						TwitterGPSuccess();
+						timeline();
+					}
+			});
+
+			exec("Rscript "+working_dir+"/swaps/new_rcode/post_collection.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
+					if(err){
+						console.log("Error in post_collection Rscript : "+err);
+						errors_array.push("Error while running post_collection Rscript ");
+						req.session.status_message = "Your Search Query having less Google+ posts .. ";
+
+						console.log("1.errors_array in rcode error: "+errors_array);
+					}else{
+						console.log("post_collection Rscript file running.........");
+						success_script +=1 ;	
+						TwitterGPSuccess();			
+					}
+			});
+
+			function TwitterGPSuccess(){
+
+				console.log("success_script: "+success_script);
+				if(success_script >= 2 ){
+					sentimentScore();
+					WordCloud();
+				}else{
+					console.log("...success_script: "+success_script);
+				}
+			}
+
+			console.log("new success_script: "+success_script);
+
+			function sentimentScore(){
+
+				exec("Rscript "+working_dir+"/swaps/new_rcode/Sentiment_score.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
+						if (err){
+							console.log("Error in sentimentScore Rscript: "+err);
+							errors_array.push("Error while running sentimentScore Rscript ");						
+							console.log("2.errors_array in sentimentScore rcode error: "+errors_array);
+
+						}else{						
+							console.log("sentimentScore Rscript file running.........");
+							success_script +=1 ;
+							redirectProcess_timer = 5000;				
+						}
+				});
+			}
+
+			function WordCloud(){
+
+				exec("Rscript "+working_dir+"/swaps/new_rcode/wordcloud.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/", function(err, data){
+						if (err){
+							console.log("Error in WordCloud Rscript : "+err);
+							errors_array.push("Error while running WordCloud Rscript ");
+							console.log("errors_array in WordCloud rcode error: "+errors_array);
+
+						}else{
+							console.log("WordCloud Rscript file running.........");
+							success_script +=1 ;
+							redirectProcess_timer = 5000;				
+							redirectPage();
+						}
+				});
+			}
+
+			/*function storeUserData(data, data_error){
+
+				var login_user = req.session.username;
+				User.findOne({ username: login_user }, function (err, user) {
+					user.user_search = searchQuery;
+					user.previous_data = true;
+					user.save();
+				});
+
+			}*/
+
+			function redirectPage(){
+				var login_user = req.session.username;
+				User.findOne({ username: login_user }, function (err, user) {
+					user.user_search = searchQuery;
+					user.previous_data = true;
+					user.save();
+				});
+				
+				console.log("errors_array: ", errors_array);
+
+				setTimeout(function(){
+					if(errors_array.length >= 1 && success_script < 5){
+						console.log("in if cond success_script: "+success_script);
+							console.log("errors_array in if condition: ", errors_array);
+							//req.flash('info', errors_array.join());
+							req.session.status_message = "Check Your previous search Keyword.. ";
+							//req.flash('info', req.session.status_message );
+							checkPreviousData(false, true);
+
+							//res.redirect("/");
+						}else{
+							console.log("req.session.status_message: "+req.session.status_message);
+							console.log("in else cond success_script: "+success_script);
+							//setTimeout(function(){
+								req.session.status_message = null;
+								checkPreviousData(true, false);
+								console.log("req.session.status_message: "+req.session.status_message);
+								//req.flash('info', req.session.status_message );
+								//res.redirect("/dashboard1");
+							//}, 2000);
+						}
+					}, 2000);
+			}
+
+			function timeline(){
+				exec("bash "+timeline_script+" "+dates_file+" "+timeline_output+" "+log_file_path, function(err, data){			
+					if (err){
+						console.log("Timeline Script : "+err); 
+						errors_array.push("Error while running Timeline Script ");
+					}else{
+						console.log("Timeline File.........");
+						success_script +=1 ;
+						redirectProcess_timer = 5000;
+					}
+				});
+			}
+			function checkPostSuccess(){
+				var login_user = req.session.username;
+				var post_success= fs.existsSync(process.env.PWD+'/public/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv');
+				console.log("post_success: "+post_success);
+
+				var login_user = req.session.username;
+				User.findOne({ username: login_user }, function (err, user) {
+					user.user_search = searchQuery;
+					user.previous_data = true;
+					user.save();
+				});
+
+				
+				console.log("errors_array: ", errors_array);
+
+				setTimeout(function(){
+					console.log("before errors_array in if condition post_success == false: ", errors_array);
+					if(errors_array.length >= 1 || post_success == false){
+							//clearInterval(redirectProcess);
+							console.log("errors_array in if condition: ", errors_array);
+							req.flash('info', errors_array.join());
+							//res.redirect("/");
+						}else{
+							setTimeout(function(){
+								//res.redirect("/dashboard1");
+							}, 2000);
+						}
+					}, 2000);
+
+				
+			}
+
+			/*setTimeout(function(){		
+
+
+				var login_user = req.session.username;
+				User.findOne({ username: login_user }, function (err, user) {
+					user.user_search = searchQuery;
+					user.previous_data = true;
+					user.save();
+				});
+
+				setTimeout(function(){
+					res.redirect("/dashboard1");
+				}, 2000);
+			}, 45000);*/
+
+			/*if(page_redirect){
+				var redirectProcess = setInterval(function(){
+					if(success_script >= 2 && page_redirect){
+						clearInterval(redirectProcess);
+						page_redirect = false;
+						var login_user = req.session.username;
+	    			User.findOne({ username: login_user }, function (err, user) {
+	    				user.user_search = searchQuery;
+	    				user.previous_data = true;
+	    				user.save();
+	    			});
+
+	    			setTimeout(function(){
+							res.redirect("/preview");
+						}, 2000);
+
+					}
+					if(errors_array.length >= 1){
+						clearInterval(redirectProcess);
+						req.flash('info', errors_array.join());
+						res.redirect("/");
+					}
+				}, redirectProcess_timer);
+			}	*/
+
+			setTimeout(function(){
+							req.flash('process_info', req.session.status_message );
+							res.redirect("/dashboard1");
+						}, 5000);
+
+			}, 1000);
+
+		} //runningBGProcess() ending
+
+	});
 
 });
 
