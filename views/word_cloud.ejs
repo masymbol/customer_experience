@@ -4,7 +4,7 @@
 			<div class="heading_b topics_heading">Keywords</div>
 			<div class="row">
 				<div class="col-md-12">
-					<div id="flot_social__wordcloud" class="chart" style="width:100%; height: 321px;">	
+					<div id="flot_social__wordcloud" class="chart" style="width:100%;">	
 					<!--<img src="<%= disp_data.wordcloud_image %>" alt="wordcloud" style="width:100%; height: 330px;"/>-->
 					<section id="wordcloud"> </section>
 					</div>
@@ -17,13 +17,14 @@
 <script src="javascripts/d3.min.js"></script>	
 
 <script src="javascripts/d3.layout.cloud.js"></script>
+<script src="javascripts/jquery.tipsy.js"></script>
 <script type="text/javascript">
 (function() {
 
 	/* D3  */
 
 	var width = document.body.clientWidth;
-	var height = 350;
+	var height = 540;
 
 	var typeFace = 'Gorditas';
 	var minFontSize = 2;
@@ -33,16 +34,29 @@
 			.attr('width', width)
 			.attr('height', height)
 			.append('g')
-			.attr('transform', 'translate('+width/2+', '+height/2+')');
+			.attr('transform', 'translate('+600+', '+202+')');
+
+			//.attr('transform', 'translate('+width/2+', '+height/2+')');
 
 	function calculateCloud(wordCount) {
 		d3.csv("<%= disp_data.wordcloud_csv %>", function(file_data){
+
+			file_length = file_data.length
+
+			file_length1 = Math.floor(file_length/1000)
+
+			console.log("file_length1: "+file_length1);
+
+			file_length1 = 0.6 / file_length1
+
+			console.log("file_length1: "+file_length1);
+
 			d3.layout.cloud()
 			.size([width, height])
 			.words(file_data)
 			.rotate(function() { return ~~(Math.random()*2) * 90;}) // 0 or 90deg
 			.font(typeFace)
-			.fontSize(function(d) { return d.freq * minFontSize; })
+			.fontSize(function(d) { return d.freq * file_length1; })
 			.on('end', drawCloud)
 			.start();
 
@@ -59,7 +73,22 @@
 			.attr('transform', function(d) {
 			  return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
 			})
-			.text(function(d) { return d.word; });
+			.text(function(d) { return d.word; })
+			.on("mouseover", function(d) {
+    	//alert(d.freq);
+
+    	/*$('section#wordcloud').tipsy();*/
+
+    	$('svg text').tipsy({ 
+        gravity: 's',
+        html: true, 
+        title: function() {
+          var d = this.__data__, f = d.freq, w = d.word;
+          return w+' Frequency is: ' + f + '</span>'; 
+        }
+      });
+
+  	});
 	}
 
 	function processData(strings) { 
@@ -89,12 +118,11 @@
 		for(var prop in wordCount) {
 			wordCountArr.push({text: prop, size: wordCount[prop]});
 		}
-		
+											
 		return wordCountArr;
 	}
 
-	calculateCloud();
-	
+	calculateCloud();			
 })();
 
 </script>
