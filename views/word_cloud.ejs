@@ -41,6 +41,8 @@
 	function calculateCloud(wordCount) {
 		d3.csv("<%= disp_data.wordcloud_csv %>", function(file_data){
 
+		console.log("file_data: ", file_data);
+
 			file_length = file_data.length
 
 			file_length1 = Math.floor(file_length/1000)
@@ -56,7 +58,7 @@
 			.words(file_data)
 			.rotate(function() { return ~~(Math.random()*2) * 90;}) // 0 or 90deg
 			.font(typeFace)
-			.fontSize(function(d) { return d.freq * file_length1; })
+			.fontSize(function(d) { return d.freq * 0.2; })
 			.on('end', drawCloud)
 			.start();
 
@@ -75,12 +77,9 @@
 			})
 			.text(function(d) { return d.word; })
 			.on("mouseover", function(d) {
-    	//alert(d.freq);
-
-    	/*$('section#wordcloud').tipsy();*/
 
     	$('svg text').tipsy({ 
-        gravity: 's',
+        gravity: 'e',
         html: true, 
         title: function() {
           var d = this.__data__, f = d.freq, w = d.word;
