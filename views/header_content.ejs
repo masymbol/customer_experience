@@ -3,10 +3,11 @@
 		<div class="navbar-header">
 			<a href="/" class="navbar-brand"><img src="assets/img/blank.gif" alt="Logo"></a>
 		</div>	
+		<span class="nav navbar-nav previous_search" style="background: silver; color: green; padding: 5px; margin-top: 6px; font-weight: bold;">Your Previous Searches: </span>
 		<ul class="top_links l_tinynav1">
-
-			<% for(var i=0; i<search_keywords.length; i++) { %>
-				<% if ( search_query != search_keywords[i] ) { %>
+			<% search_keywords = search_keywords.reverse() %>
+			<% for(var i=0; i < search_keywords.length; i++) { %>
+				<% if (i <= 5) { %>
 	        <li>
 	            <a href='/previous_search<%= i+1 %>' style="padding: 5px;font-size: 12px;">
 	                <%= search_keywords[i] %>
