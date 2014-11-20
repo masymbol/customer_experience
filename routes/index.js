@@ -101,6 +101,7 @@ router.get('/register', function(req, res) {
 });
 
 
+
 router.get('/login', function(req, res) {
     res.render("login", {title:"Login", req:req, message: ""});
 });
@@ -111,6 +112,11 @@ router.get('/preview', function(req, res) {
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
     	var userdata = req.session.userdata;
+
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
 
     	if(userdata == user.user_search){
     		//req.flash('info', '');
@@ -134,7 +140,7 @@ router.get('/preview', function(req, res) {
     	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
     	console.log("user.user_search: "+user.user_search);
     	if(user.previous_data){
-				res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info')  });
+				res.render('preview', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
 			} else{
 				res.redirect('/');
 			}
@@ -147,6 +153,7 @@ router.get('/preview', function(req, res) {
 
 router.get('/dashboard1', function(req, res) {
   if(req.session.loggedIn){
+  	var search_keywords;
     console.log("username: "+req.session.username );
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
@@ -170,7 +177,7 @@ router.get('/dashboard1', function(req, res) {
     	var disp_data = {users_csv: users_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, timeframe_csv: timeframe_csv};
     	console.log("user.user_search: "+user.user_search);
     	if(user.previous_data){
-				res.render('dashboard1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info') });
+				res.render('dashboard1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
 			} else{
 				res.redirect('/');
 			}
@@ -186,6 +193,12 @@ router.get('/dashboard2', function(req, res) {
     console.log("username: "+req.session.username );
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
+
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+
     	var userdata = req.session.userdata;
     	var working_directory = process.env.PWD;
     	var influencers_csv = '/users_data/'+login_user+'/'+user.user_search+'/influencers/influencers.csv';    	
@@ -198,7 +211,7 @@ router.get('/dashboard2', function(req, res) {
     	var disp_data = { influencers_csv: influencers_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, influencers_success: influencers_success, geo_location_csv: geo_location_csv };
     	console.log("user.user_search: "+user.user_search);
     	if(user.previous_data){
-				res.render('dashboard2', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info') });
+				res.render('dashboard2', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: userdata, disp_data: disp_data, search_query:user.user_search, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
 			} else{
 				res.redirect('/');
 			}
