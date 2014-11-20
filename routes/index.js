@@ -88,7 +88,7 @@ router.get('/', function(req, res) {
     var message = req.flash('info');
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
-		  res.render('index', { title: 'Dashboard Page', req:req, message: message, search_query:user.user_search, process_info: req.flash('process_info') });
+		  res.render('index', { title: 'Dashboard Page', req:req, message: message, search_query:user.user_search, process_info: req.flash('process_info'), search_keywords: [] });
 
 		});
   }else{
@@ -100,7 +100,314 @@ router.get('/register', function(req, res) {
     res.render("register", {title:"Register", req:req, message: ""});
 });
 
+router.get('/previous_search1', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
 
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	//var userdata = user.user_search;
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+
+			var arr_index = search_keywords.length - 1;
+			
+    	var user_data = search_keywords[arr_index]
+
+			var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
+
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
+    	console.log("user.user_search: "+user.user_search);
+
+			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
+
+
+		});
+
+
+
+	}else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+    
+});
+
+router.get('/previous_search1', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+
+			var arr_index = search_keywords.length - 2;
+			
+    	var user_data = search_keywords[arr_index]
+
+			var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
+
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
+    	console.log("user.user_search: "+user.user_search);
+
+			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
+
+
+		});
+
+
+
+	}else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+    
+});
+
+router.get('/previous_search2', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+			
+    	var arr_index = search_keywords.length - 2;
+			
+    	var user_data = search_keywords[arr_index]
+
+			var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
+
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
+    	console.log("user.user_search: "+user.user_search);
+
+			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
+
+
+		});
+
+
+
+	}else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+    
+});
+
+router.get('/previous_search3', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+			
+    	var arr_index = search_keywords.length - 3;
+			
+    	var user_data = search_keywords[arr_index]
+
+			var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
+
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
+    	console.log("user.user_search: "+user.user_search);
+
+			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
+
+
+		});
+
+
+
+	}else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+    
+});
+
+router.get('/previous_search4', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+			
+    	var arr_index = search_keywords.length - 4;
+			
+    	var user_data = search_keywords[arr_index]
+
+			var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
+
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
+    	console.log("user.user_search: "+user.user_search);
+
+			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
+
+
+		});
+
+
+
+	}else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+    
+});
+
+router.get('/previous_search5', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+			
+    	var arr_index = search_keywords.length - 5;
+			
+    	var user_data = search_keywords[arr_index]
+
+			var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
+
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
+    	console.log("user.user_search: "+user.user_search);
+
+			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
+
+
+		});
+
+
+
+	}else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+    
+});
+
+router.get('/previous_search6', function(req, res) {
+	if(req.session.loggedIn){
+    console.log("username: "+req.session.username );
+
+    var login_user = req.session.username;
+    User.findOne({ username: login_user }, function (err, user) {
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+			
+    	var arr_index = search_keywords.length - 6;
+			
+    	var user_data = search_keywords[arr_index]
+
+			var working_directory = process.env.PWD;
+    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
+    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
+    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
+    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
+    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
+    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
+    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
+    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
+    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
+    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
+    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
+
+    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
+    	console.log("user.user_search: "+user.user_search);
+
+			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
+
+
+		});
+
+
+
+	}else{
+		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
+  }
+    
+});
 
 router.get('/login', function(req, res) {
     res.render("login", {title:"Login", req:req, message: ""});

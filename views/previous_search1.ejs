@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+			<meta charset="UTF-8">
+			<title><%= title %></title>
+			<% include head %>
+
+			<!-- Load c3.css -->
+			<link href="stylesheets/c3.css" rel="stylesheet" type="text/css">
+
+			<!-- Load d3.js and c3.js -->
+			<script src="javascripts/d3.min.js"></script>
+			<script src="javascripts/c3.min.js"></script>
+			<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<style type="text/css">
+			.alerterror, .alertsuccess, .alertinfo {
+				width: auto;
+				padding: 10px 10px;
+				text-align: center;
+				background-color: #c0392b;
+				margin: 5px 0 10px;
+			}
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+
+			.error{
+				color:red;
+			}
+
+			.modal-body button.close {
+				margin: 0;
+			}
+
+			.alertsuccess {
+				background-color:green;
+			}
+			
+		</style>
+
+    </head>
+    <div class="messages main_wrapper">
+				<% if (message.length >= 1) { %>
+						<div class="alertsuccess"><%= message %></div>
+						<button class="close">&times</button>
+				<% } %>
+
+				
+			</div>
+
+			<div class="messages main_wrapper">
+				<% if (process_info.length >= 1) { %>
+						<div class="alertsuccess"><%= process_info %></div>
+						<button class="close">&times</button>
+					<% } %>
+		</div>
+			
+
+    <body >
+		<!-- top bar -->
+		<% include header_content %>
+		
+		<!-- main content -->
+		<div id="main_wrapper">
+			<div class="page_content">
+				<div class="container-fluid">
+					<!--<div id="wait" style="display: none;" ></div>-->
+
+					<% include body_header %>
+
+					<div class="row">
+
+						<% include timeline_graph2 %>
+
+					</div>
+
+					<div class="row">
+					
+						<% include word_cloud2 %>
+
+					</div>
+
+					<div class="row">
+
+						<% include top_posts2 %>
+						
+						<% include sentiment_graph2 %>
+						
+					</div>
+
+					<div class="row">
+						
+						<% include some_positive2 %>
+
+						<% include some_negative2 %>
+						
+					</div>					
+
+					<div class="row">
+						
+						<% include recent_users2 %>
+
+						<% include most_influencers2 %>
+
+					</div>
+
+					<div class="row">
+					
+						<% include geo_location2 %>
+
+					</div>
+
+				</div>
+			</div>		
+		</div>
+
+		<!-- side navigation -->
+		<% include side_navigation %>
+
+		<!-- bootstrap js plugins -->
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<!-- top dropdown navigation -->
+		<script src="assets/js/tinynav.js"></script>		
+	
+		<!-- style switcher -->
+		<script src="assets/js/tisa_style_switcher.js"></script>
+
+		<script type="text/javascript">
+		$(function() {
+			$('button.close').on("click", function(){
+				$(this).hide();
+		    $('div.alerterror').hide();
+		  });
+		  $('.modal-body button.close').on("click", function(){
+				$(this).show();
+		  });
+
+		  //showModelBox();
+
+		  function showModelBox(){
+		  	$(".search_btn_click").trigger( "click" );
+		  }
+
+		})
+		</script>
+		
+    </body>
+</html>
