@@ -978,8 +978,8 @@ function deleteOldFiles(usersNameArr){
 	});
 }
 
-new CronJob('00 00 18 * * *', function(){
-    console.log('All Users data deleted .. every day at 18:00:00');
+new CronJob('59 59 23 * * *', function(){
+    console.log('All Users data deleted .. every day at 23:59:59');
     runCronJob();
 
 }, null, true, "Asia/Kolkata");
