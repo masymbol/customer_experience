@@ -1,0 +1,40 @@
+<div class="col-md-12">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="heading_b topics_heading">Posts Location</div>	
+			<div id="world_map"></div>
+		    <script type="text/javascript">
+		    	var rawData = $.csv.toArrays("narendramodi.csv", {
+				    onParseValue: $.csv.hooks.castToScalar
+				});
+				console.log(rawData);
+		      	google.load('visualization', '1.0', {'packages':['geochart']});
+				var country;
+				$.ajax({
+				    url: "<%= disp_data.geo_location_csv %>",
+				    aync: false,
+				    success: function (csvd) {
+				    	country = $.csv.toArrays(csvd, {
+						    onParseValue: $.csv.hooks.castToScalar
+						});			    	
+					  	google.setOnLoadCallback(drawRegionsMap);
+					  	function drawRegionsMap() {
+					  		console.log(country);
+					    	var data = google.visualization.arrayToDataTable(country);
+
+						    var options = {
+						        backgroundColor: '#b9e5eb',
+						        color: 'black',
+						        displayMode: 'markers',
+						        tooltip: {trigger: 'none'}
+						    };
+
+						    var chart = new google.visualization.GeoChart(document.getElementById('world_map'));
+						    chart.draw(data,options);
+						}
+				    }
+				});
+			</script>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,71 @@
+<div class="col-md-12">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="heading_b topics_heading">No of Conversations</div>
+			<div class="row">										
+				<div class="col-md-12">
+					<div id="flot_browsers" class="" style="width:100%">
+						<div id="timeline"></div>
+				    <script type="text/javascript">
+				    	var no_of_posts = ['No Of Posts'];
+				    	var time = ['Time'];
+				    	var format = d3.time.format("%Y-%m-%d %H")
+				    	d3.csv("<%= disp_data.timeframe_csv %>", function(tests){
+								data = tests.map(function(d)
+								{
+									no_of_posts.push(d.no_of_posts);
+									time.push(format.parse(d.time));
+								})
+				    		var chart = c3.generate({
+							    bindto: '#timeline',
+							    data: {
+						    		x: 'Time',
+						      	columns: [
+						      		time,
+						          no_of_posts,
+						        ],
+						        types: {
+			            			'No Of Posts': 'area-spline'
+						        },
+						        colors: {
+					            "No Of Posts": '#FE642E'
+					          },
+						    	},
+						    	color: 'silver',
+							    axis: {
+						        x: {
+					            type: 'timeseries',
+					            tick: {
+					            	count: 10,
+				                format: '%d %b %I%p',
+				                margin: { top: 200, bottom: 0 },
+				                
+			          			},
+			          			label: {
+              					text: 'Time',
+              					position: 'outer-center'
+              				}
+						        },
+						        y: {
+						        	ticks: 5,
+
+							        label: {
+						            text: 'Posts',
+						            position: 'outer-middle'
+						          }
+						        }
+							    },												  
+									legend: {
+				       			show: false
+				    			}
+								});
+							})						    	
+				    	
+				    </script>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
