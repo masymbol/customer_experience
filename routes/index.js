@@ -561,10 +561,12 @@ router.post('/google_search', function(req, res){
 	var search_keywords = [];
 
     User.findOne({ username: user_name }, function (err, user) {
-    	
-    	user.searchkeywords.map( function(item) {
-     		search_keywords.push(item.name);
-			})
+    	if (user.searchkeywords.length > 0){
+	    	user.searchkeywords.map( function(item) {
+	     		search_keywords.push(item.name);
+
+				});
+	    }
 		
 		var previously_exist = search_keywords.indexOf(searchQuery);
 
@@ -950,12 +952,15 @@ function runCronJob(){
  	User.find({previous_data: true}, function(err, users) {
     var usersArr = [];
 
-    users.forEach(function(user) {
-      user.previous_data = false;
-      user.user_search = "";
-      user.save()
-      usersArr.push(user.username);
-    });
+    for(var i=0; i < users.length; i++){
+
+	    User.update({username: users[i]["username"]}, {$set: {searchkeywords: [], user_search: "", previous_data: false }}, function (err, data) {
+	    	console.log("userdata deleted..")
+	  	})
+
+      usersArr.push(users[i]["username"]);
+  	}
+
     console.log("usersArr: "+usersArr);;
 
     deleteOldFiles(usersArr);
@@ -967,7 +972,7 @@ function runCronJob(){
 function deleteOldFiles(usersNameArr){
 	usersNameArr.forEach(function(user) {
 
-		exec("rm -rf "+process.env.PWD+"/public/users_data1/"+user+"/*",function(err, data){			
+		exec("rm -rf "+process.env.PWD+"/public/users_data/"+user+"/*",function(err, data){			
 			if(err){
 				console.log("Error when old files deleted : "+err); 
 			}else{
