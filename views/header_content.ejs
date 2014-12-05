@@ -4,14 +4,14 @@
 			<a href="/" class="navbar-brand"><img src="assets/img/blank.gif" alt="Logo"></a>
 		</div>	
 		<% if (search_query != undefined && search_query.length != 0) { %>
-			<span class="nav navbar-nav previous_search" style="background: silver; color: green; padding: 5px; margin-top: 6px; font-weight: bold;">Your Previous Searches: </span>
+			<span class="nav navbar-nav previous_search" style="background: silver; color: green; padding: 5px; margin-top: 6px; font-weight: bold; border-radius: 24px;">Your Previous Searches: </span>
 		<% } %>
 		<ul class="top_links l_tinynav1">
 			<% search_keywords = search_keywords.reverse() %>
 			<% for(var i=0; i < search_keywords.length; i++) { %>
 				<% if (i <= 5) { %>
 	        <li>
-	            <a href='/previous_search<%= i+1 %>' style="padding: 5px;font-size: 12px;">
+	            <a href='/previous_search<%= i+1 %>' style="padding: 5px;font-size: 12px; border-radius: 10px;">
 	                <%= search_keywords[i] %>
 	            </a>
 	        </li>

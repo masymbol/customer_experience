@@ -40,7 +40,7 @@ logistic <- function(ans,str)
 	{
 	dir.create(paste(parent,folders[i], sep="/"))
 	}
-	tweets <- searchTwitter(ans,n=100,lang="en")
+	tweets <- searchTwitter(ans,n=2000,lang="en")
 	print("Twitter search completed...")
     ss_t <- paste("Tweeter/",ans,".csv", sep="")
     tweets_df <- do.call (rbind,lapply(tweets,as.data.frame))

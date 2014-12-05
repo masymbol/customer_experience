@@ -14,13 +14,12 @@ var exec = require('child_process').exec;
 var CronJob = require('cron').CronJob;
 var time = require('time');
 
-
 /*
  * UserSchema
  *
  */
 
- SearchKeyword = new mongoose.Schema({
+SearchKeyword = new mongoose.Schema({
   name: { type: String},
 });
 
@@ -34,8 +33,6 @@ userSchema = new mongoose.Schema({
     previous_data_error:{ type: Boolean, default: false},
     created_at:{type: Date, default: Date.now}
 });
-
-
 
 // Apply the uniqueValidator plugin to userSchema.
 userSchema.plugin(uniqueValidator);
@@ -76,7 +73,6 @@ userSchema.pre('save', function(next) {
   });
 });
 
-
 /*router.get('/', function(req, res) { 
 	res.render('comming_soon', { title: apptitle }); 
 });*/
@@ -88,7 +84,13 @@ router.get('/', function(req, res) {
     var message = req.flash('info');
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
-		  res.render('index', { title: 'Dashboard Page', req:req, message: message, search_query:user.user_search, process_info: req.flash('process_info'), search_keywords: [] });
+
+    	var search_keywords = []
+    	user.searchkeywords.map( function(item) {
+     		search_keywords.push(item.name);
+			})
+
+		  res.render('index', { title: 'Dashboard Page', req:req, message: message, search_query:user.user_search, process_info: req.flash('process_info'), search_keywords: search_keywords });
 
 		});
   }else{
@@ -106,7 +108,7 @@ router.get('/previous_search1', function(req, res) {
 
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
-    	//var userdata = user.user_search;
+
     	var search_keywords = []
     	user.searchkeywords.map( function(item) {
      		search_keywords.push(item.name);
@@ -133,55 +135,7 @@ router.get('/previous_search1', function(req, res) {
     	console.log("user.user_search: "+user.user_search);
 
 			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
-
-
 		});
-
-
-
-	}else{
-		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
-  }
-    
-});
-
-router.get('/previous_search1', function(req, res) {
-	if(req.session.loggedIn){
-    console.log("username: "+req.session.username );
-
-    var login_user = req.session.username;
-    User.findOne({ username: login_user }, function (err, user) {
-    	var search_keywords = []
-    	user.searchkeywords.map( function(item) {
-     		search_keywords.push(item.name);
-			})
-
-			var arr_index = search_keywords.length - 2;
-			
-    	var user_data = search_keywords[arr_index]
-
-			var working_directory = process.env.PWD;
-    	var users_csv = '/users_data/'+login_user+'/'+user_data+'/users/users.csv';
-    	var influencers_csv = '/users_data/'+login_user+'/'+user_data+'/influencers/influencers.csv';    	
-    	var geo_location_csv = '/users_data/'+login_user+'/'+user.user_search+'/geoLocation/geoLocations.csv';
-    	var post_csv = '/users_data/'+login_user+'/'+user_data+"/Tweeter/"+user_data+".csv";
-    	var wordcloud_image = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud.jpg';
-    	var wordcloud_csv = '/users_data/'+login_user+'/'+user_data+'/wordcloud_img/wordcloud_data.csv';
-    	var sentiment_graph_csv = '/users_data/'+login_user+'/'+user_data+'/sentiment_graphs/score_analysis.csv';
-    	var some_positive_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_pos.csv';
-    	var some_negative_csv = '/users_data/'+login_user+'/'+user_data+'/Some_pos_neg/some_neg.csv';
-    	var timeframe_csv = '/users_data/'+login_user+'/'+user_data+'/TimeLine/timeline.csv';
-    	var influencers_success = '/users_data/'+login_user+'/'+user_data+'/influencers/_success.csv';
-
-    	var disp_data = {users_csv: users_csv, influencers_csv: influencers_csv, post_csv: post_csv, wordcloud_image: wordcloud_image, wordcloud_csv: wordcloud_csv, sentiment_graph: sentiment_graph_csv, some_positive_csv: some_positive_csv, some_negative_csv: some_negative_csv, geo_location_csv: geo_location_csv, timeframe_csv: timeframe_csv, influencers_success: influencers_success, previous_data_error:user.previous_data_error};
-    	console.log("user.user_search: "+user.user_search);
-
-			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
-
-
-		});
-
-
 
 	}else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
@@ -221,12 +175,7 @@ router.get('/previous_search2', function(req, res) {
     	console.log("user.user_search: "+user.user_search);
 
 			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
-
-
 		});
-
-
-
 	}else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
   }
@@ -239,6 +188,7 @@ router.get('/previous_search3', function(req, res) {
 
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
+
     	var search_keywords = []
     	user.searchkeywords.map( function(item) {
      		search_keywords.push(item.name);
@@ -265,12 +215,7 @@ router.get('/previous_search3', function(req, res) {
     	console.log("user.user_search: "+user.user_search);
 
 			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
-
-
 		});
-
-
-
 	}else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
   }
@@ -309,12 +254,7 @@ router.get('/previous_search4', function(req, res) {
     	console.log("user.user_search: "+user.user_search);
 
 			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
-
-
 		});
-
-
-
 	}else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
   }
@@ -327,6 +267,7 @@ router.get('/previous_search5', function(req, res) {
 
     var login_user = req.session.username;
     User.findOne({ username: login_user }, function (err, user) {
+
     	var search_keywords = []
     	user.searchkeywords.map( function(item) {
      		search_keywords.push(item.name);
@@ -353,12 +294,7 @@ router.get('/previous_search5', function(req, res) {
     	console.log("user.user_search: "+user.user_search);
 
 			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
-
-
 		});
-
-
-
 	}else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
   }
@@ -397,12 +333,7 @@ router.get('/previous_search6', function(req, res) {
     	console.log("user.user_search: "+user.user_search);
 
 			res.render('previous_search1', { title: 'Dashboard Page', req:req, message: req.flash('info'), userdata: user_data, disp_data: disp_data, search_query:user_data, previous_data:user.previous_data, previous_data_error:user.previous_data_error, process_info: req.flash('process_info'), search_keywords: search_keywords });
-
-
 		});
-
-
-
 	}else{
 		res.render('login', { title: 'Login', req:req, message: 'You have to login to access this site..' });
   }
@@ -426,7 +357,6 @@ router.get('/preview', function(req, res) {
 			})
 
     	if(userdata == user.user_search){
-    		//req.flash('info', '');
     	}else{
     		req.flash('info') == req.session.status_message;
     	}
@@ -471,7 +401,6 @@ router.get('/dashboard1', function(req, res) {
      		search_keywords.push(item.name);
 			})
 
-    	console.log("allSearchQueries: "+search_keywords);
     	console.log("allSearchQueries: ", search_keywords);
 
     	var working_directory = process.env.PWD;
@@ -590,8 +519,6 @@ router.post('/google_search', function(req, res){
 				req.session.status_message = "Your Search Query '"+req.body.search+"' is under Process. Please, wait for a while.. ";
 				runningBGProcess();
 			}
-
-
 		}, 2000);
 
 	function runningBGProcess(){
@@ -621,14 +548,6 @@ router.post('/google_search', function(req, res){
 					}
 				});
 
-		/*exec("rm -rf "+working_dir+"/public/users_data/"+user_name+"/*",function(err, data){			
-			if(err){
-				console.log("Error when old files deleted : "+err); 
-			}else{
-				console.log("old files deleted .........");
-			}
-		});*/
-
 		setTimeout(function(){
 			
 			console.log("searchQuery: "+searchQuery);
@@ -643,8 +562,6 @@ router.post('/google_search', function(req, res){
 			var timeline_script = working_dir+"/TrailVersionTwitter_Project/timeline_script.sh";
 			var dates_file = working_dir+"/public/users_data/"+user_name+"/"+searchQuery+"/Tweeter/"+searchQuery+".csv";
 			var timeline_output = working_dir+"/public/users_data/"+user_name+"/"+searchQuery;
-
-
 			
 			function puts(error, stdout, stderr) { sys.puts(stdout) }
 
@@ -656,7 +573,6 @@ router.post('/google_search', function(req, res){
 
 					}else{
 						console.log("jar file running.........");
-						//success_script +=1 ;				
 					}
 			});
 
@@ -734,17 +650,6 @@ router.post('/google_search', function(req, res){
 				});
 			}
 
-			/*function storeUserData(data, data_error){
-
-				var login_user = req.session.username;
-				User.findOne({ username: login_user }, function (err, user) {
-					user.user_search = searchQuery;
-					user.previous_data = true;
-					user.save();
-				});
-
-			}*/
-
 			function redirectPage(){
 				var login_user = req.session.username;
 				User.findOne({ username: login_user }, function (err, user) {
@@ -757,24 +662,14 @@ router.post('/google_search', function(req, res){
 
 				setTimeout(function(){
 					if(errors_array.length >= 1 && success_script < 5){
-						console.log("in if cond success_script: "+success_script);
 							console.log("errors_array in if condition: ", errors_array);
-							//req.flash('info', errors_array.join());
 							req.session.status_message = "Check Your previous search Keyword.. ";
-							//req.flash('info', req.session.status_message );
 							checkPreviousData(false, true);
-
-							//res.redirect("/");
 						}else{
-							console.log("req.session.status_message: "+req.session.status_message);
-							console.log("in else cond success_script: "+success_script);
-							//setTimeout(function(){
 								req.session.status_message = null;
-								checkPreviousData(true, false);
+								checkPreviousData(true, false); 
 								console.log("req.session.status_message: "+req.session.status_message);
-								//req.flash('info', req.session.status_message );
-								//res.redirect("/dashboard1");
-							//}, 2000);
+								console.log("Successfully Generated your output for '"+searchQuery+"'")
 						}
 					}, 2000);
 			}
@@ -791,79 +686,7 @@ router.post('/google_search', function(req, res){
 					}
 				});
 			}
-			function checkPostSuccess(){
-				var login_user = req.session.username;
-				var post_success= fs.existsSync(process.env.PWD+'/public/users_data/'+login_user+'/post/post_with_links_retweets_reshares.csv');
-				console.log("post_success: "+post_success);
-
-				var login_user = req.session.username;
-				User.findOne({ username: login_user }, function (err, user) {
-					user.user_search = searchQuery;
-					user.previous_data = true;
-					user.save();
-				});
-
-				
-				console.log("errors_array: ", errors_array);
-
 				setTimeout(function(){
-					console.log("before errors_array in if condition post_success == false: ", errors_array);
-					if(errors_array.length >= 1 || post_success == false){
-							//clearInterval(redirectProcess);
-							console.log("errors_array in if condition: ", errors_array);
-							req.flash('info', errors_array.join());
-							//res.redirect("/");
-						}else{
-							setTimeout(function(){
-								//res.redirect("/dashboard1");
-							}, 2000);
-						}
-					}, 2000);
-
-				
-			}
-
-			/*setTimeout(function(){		
-
-
-				var login_user = req.session.username;
-				User.findOne({ username: login_user }, function (err, user) {
-					user.user_search = searchQuery;
-					user.previous_data = true;
-					user.save();
-				});
-
-				setTimeout(function(){
-					res.redirect("/dashboard1");
-				}, 2000);
-			}, 45000);*/
-
-			/*if(page_redirect){
-				var redirectProcess = setInterval(function(){
-					if(success_script >= 2 && page_redirect){
-						clearInterval(redirectProcess);
-						page_redirect = false;
-						var login_user = req.session.username;
-	    			User.findOne({ username: login_user }, function (err, user) {
-	    				user.user_search = searchQuery;
-	    				user.previous_data = true;
-	    				user.save();
-	    			});
-
-	    			setTimeout(function(){
-							res.redirect("/preview");
-						}, 2000);
-
-					}
-					if(errors_array.length >= 1){
-						clearInterval(redirectProcess);
-						req.flash('info', errors_array.join());
-						res.redirect("/");
-					}
-				}, redirectProcess_timer);
-			}	*/
-
-			setTimeout(function(){
 							req.flash('process_info', req.session.status_message );
 							res.redirect("/dashboard1");
 						}, 5000);
@@ -988,6 +811,5 @@ new CronJob('59 59 23 * * *', function(){
     runCronJob();
 
 }, null, true, "Asia/Kolkata");
-
 
 module.exports = router;
