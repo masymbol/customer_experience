@@ -11,7 +11,10 @@ var flash = require('./flash');
 
 var exec = require('child_process').exec;
 
-var config = require('./config');
+// This already exist in app.js
+var env_var =  process.env.NODE_ENV || "development"
+var config = require('./config')[env_var];
+
 var app = express();
 
 /*
@@ -36,9 +39,9 @@ userSchema.plugin(uniqueValidator);
 
 //var env_var =  app.settings.env
 
-var env_var =  process.env.NODE_ENV || "development"
 
-app.set('dbUrl', config.db[env_var]);
+
+app.set('dbUrl', config.db);
 var db = mongoose.createConnection(app.get('dbUrl'));
 
 var User = db.model('users', userSchema);
@@ -73,12 +76,14 @@ userSchema.pre('save', function(next) {
 });
 
 
+/* Comming soom page */
+/*
 router.get('/', function(req, res) { 
 	res.render('comming_soon', { title: apptitle, env_var: env_var }); 
-});
+});*/
 
 /* GET home page. */
-/*router.get('/', function(req, res) {
+router.get('/', function(req, res) {
   if(req.session.loggedIn){
     console.log("username: "+req.session.username );
     var message = req.flash('info');
@@ -90,7 +95,7 @@ router.get('/', function(req, res) {
   }else{
 		res.render('login', { title: 'Login', req:req, message: '' });
   }
-});*/
+});
 
 router.get('/register', function(req, res) {
     res.render("register", {title:"Register", req:req, message: ""});
