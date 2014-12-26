@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+			<meta charset="UTF-8">
+			<title><%= title %></title>
+			<% include head %>
+
+			<!-- Load c3.css -->
+			<link href="stylesheets/c3.css" rel="stylesheet" type="text/css">
+
+			<!-- Load d3.js and c3.js -->
+			<script src="javascripts/d3.min.js"></script>
+			<script src="javascripts/c3.min.js"></script>
+			<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    </head>
+    <body onload="showLoader()">
+		<!-- top bar -->
+		<% include header_content %>
+		
+		<!-- main content -->
+		<div id="main_wrapper">
+			<div class="page_content">
+				<div class="container-fluid">
+					<div id="wait" style="display: none;" ></div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-body search-container">
+									<h2>Dashboard</h2>
+									<form method="POST" action="/google_search"> 
+										<input type="text" name="search" id="search-text" placeholder = "Enter a search text"> 
+										<input type="submit" value="Search" class="btn btn-primary btn-sm" id="btn_search_submit">
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>				
+
+					<div class="row">
+
+						<% include timeline_graph %>
+
+						<% include top_posts %>
+						
+					</div>
+
+					<div class="row">
+						<% include word_cloud %>
+						
+						<% include sentiment_graph %>
+
+					</div>					
+
+					<div class="row">
+						
+						<% include some_positive %>
+
+						<% include some_negative %>
+						
+					</div>					
+
+					<div class="row">
+						
+						<% include recent_users %>
+
+						<% include most_influencers %>
+
+					</div>
+
+					<div class="row">
+					
+						<% include geo_location %>
+
+					</div>
+
+				</div>
+			</div>		
+		</div>
+
+		<!-- side navigation -->
+		<nav id="side_nav">
+			<ul>
+				<li>
+					<a href="/preview"><span class="ion-speedometer"></span> <span class="nav_title">Dashboard</span></a>
+				</li>		
+				<li>
+					<a href="/"><span class="glyphicon glyphicon-search"></span> <span class="nav_title">Search</span></a>
+				</li>				
+			</ul>
+		</nav>
+
+		<!-- bootstrap js plugins -->
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<!-- top dropdown navigation -->
+		<script src="assets/js/tinynav.js"></script>		
+	
+		<!-- style switcher -->
+		<script src="assets/js/tisa_style_switcher.js"></script>
+		
+    </body>
+</html>

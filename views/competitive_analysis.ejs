@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+			<meta charset="UTF-8">
+			<title><%= title %></title>
+			<% include head %>
+
+			<!-- Load c3.css -->
+			<link href="stylesheets/c3.css" rel="stylesheet" type="text/css">
+
+			<!-- Load d3.js and c3.js -->
+			<script src="javascripts/d3.min.js"></script>
+			<script src="javascripts/c3.min.js"></script>
+			<script type="text/javascript" src="javascripts/jquery-csv.js"></script>
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<style type="text/css">
+			.alerterror, .alertsuccess, .alertinfo {
+				width: auto;
+				padding: 10px 10px;
+				text-align: center;
+				background-color: #c0392b;
+				margin: 5px 0 10px;
+			}
+			button.close {
+				margin: -40px 10px 0 0;
+			}
+
+			.error{
+				color:red;
+			}
+			
+		</style>
+
+    </head>
+    <div class="messages main_wrapper">
+				<% if (message.length > 1) { %>
+						<div class="alerterror"><%= message %></div>
+						<button class="close">&times</button>
+					<% } %>
+			</div>
+			
+
+    <body onload="showLoader()">
+		<!-- top bar -->
+		<% include header_content %>
+		
+		<!-- main content -->
+		<div id="main_wrapper">
+			<div class="page_content">
+				<div class="container-fluid">
+					<div id="wait" style="display: none;" ></div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-body search-container">
+									<h2>Dashboard</h2>
+									<div class="col-md-3 col-md-offset-9">
+										<div class="form-group">
+											<form method="POST" action="/competitive_search">
+											<div class="input-group search-container">
+												<input class="form-control" name="search" type="text" placeholder = "Enter a search text">
+												<span class="input-group-btn">
+													<input id="btn_search_submit" value="Search" class="btn btn-primary" type="submit"></input>
+												</span>
+											</div>
+											</form>
+											<div id="searching_info">										
+												<% if (search_query != undefined) { %>
+												<b> Search Results for <%= search_query %> .. </b>
+												<% } %>
+											</div>
+										</div>
+									</div> <!-- /col-md-3 col-md-offset-9 -->				
+
+								</div>
+							</div>
+						</div>
+					</div>				
+					<div class="row">
+						<%= disp_data.influencers_csv1 %><br/>
+						<%= disp_data.influencers_csv2 %><br/>
+						<%= disp_data.influencers_csv3 %><br/>
+						<%= disp_data.post_csv1 %><br/>
+						<%= disp_data.post_csv2 %><br/>
+						<%= disp_data.post_csv3 %><br/>
+						<%= disp_data.wordcloud_image %><br/>
+						<%= disp_data.some_positive_csv1 %><br/>
+						<%= disp_data.some_positive_csv2 %><br/>
+						<%= disp_data.some_positive_csv3 %><br/>
+						<%= disp_data.some_negative_csv1 %><br/>
+						<%= disp_data.some_negative_csv2 %><br/>
+						<%= disp_data.some_negative_csv3 %><br/>
+						<% include word_cloud %>
+					</div>
+				</div>
+			</div>		
+		</div>
+
+		<!-- side navigation -->
+		<% include side_navigation %>
+
+		<!-- bootstrap js plugins -->
+		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+		<!-- top dropdown navigation -->
+		<script src="assets/js/tinynav.js"></script>		
+	
+		<!-- style switcher -->
+		<script src="assets/js/tisa_style_switcher.js"></script>
+
+		<script type="text/javascript">
+		$(function() {
+			$('button.close').on("click", function(){
+				$(this).hide();
+		    $('div.alerterror').hide();
+		  });
+		})
+		</script>
+		
+    </body>
+</html>
