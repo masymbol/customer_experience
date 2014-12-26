@@ -33,8 +33,8 @@ write.csv(bigdata.df,"post/Twitter_post.csv")
 write.csv(ppostt,"post/Gp_post.csv")
 write("Write_success","post/_success.txt")
 
-pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
-neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
+pos = scan('../swaps/project/positive-words.txt', what='character', comment.char=';')
+neg = scan('../swaps/project/negative-words.txt', what='character', comment.char=';')
 
 score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
   

@@ -116,8 +116,8 @@ write.csv(combined_text_with_Links,"post/post_with_links_retweets_reshares.csv")
 write.csv(dateonly,"post/only_dates.csv")
 write("Write_success","post/_success.txt") 
 
- pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
- neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
+ pos = scan('swaps/project/positive-words.txt', what='character', comment.char=';')
+ neg = scan('swaps/project/negative-words.txt', what='character', comment.char=';')
 
 #pos = scan('/home/purva/Desktop/project/positive-words.txt', what='character', comment.char=';')
 #neg = scan('/home/purva/Desktop/project/negative-words.txt', what='character', comment.char=';')
