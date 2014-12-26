@@ -1,0 +1,78 @@
+<script type="text/javascript">
+										    	var no_of_posts = ['No Of Posts'];
+										    	var time = ['Time'];
+										    	var format = d3.time.format("%Y-%m-%d %H")
+										    	d3.csv("time_line.csv", function(tests)
+												{
+													data = tests.map(function(d)
+													{
+														no_of_posts.push(d.no_of_posts);
+														console.log(format.parse(d.time));
+														time.push(format.parse(d.time));
+													})
+													console.log(time)
+										    		var chart = c3.generate({
+													    bindto: '#timeline',
+													    data: {
+													    		x: 'Time',
+													      	columns: [
+													      		time,
+													            no_of_posts,
+													        ],
+													        types: {
+										            			'No Of Posts': 'area-spline'
+													        }
+												    },
+													    axis: {
+													        x: {
+												            type: 'timeseries',
+												            localtime: false,
+												            tick: {
+											                //rotate: -75,
+											                format: '%d-%m %H:%M',
+											                margin: { top: 200, bottom: 0 } 
+										          			},
+										          			height: 80
+													        }
+													    },													  
+															legend: {
+										       			show: false
+										    			}
+													});
+												})						    	
+										    	
+										    </script>
+
+
+
+
+
+
+
+
+time_line.csv
+
+
+no_of_posts,time
+1,2014-09-27 21
+1,2014-09-27 20
+3,2014-09-27 19
+19,2014-09-27 18
+16,2014-09-27 17
+19,2014-09-27 16
+16,2014-09-27 15
+52,2014-09-27 14
+69,2014-09-27 13
+51,2014-09-27 12
+8,2014-09-27 11
+24,2014-09-27 10
+14,2014-09-27 09
+6,2014-09-27 08
+
+
+
+
+
+
+
+
