@@ -48,13 +48,3 @@ app.use('/users', users);
 var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + server.address().port);
 });
-
-// Handle 404
-app.use(function(req, res) {
-    res.status(404).redirect('./error/404.html');
-});
-
-// Handle 500
-app.use(function(error, req, res, next) {
-    res.status(500).redirect('./error/500.html');
-});

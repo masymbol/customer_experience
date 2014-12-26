@@ -13,8 +13,8 @@ logistic <- function(ans,str)
  tweets <- read.csv(ss_t)
  post <- read.csv(ss_gp)
  print("Reading success")
- pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
- neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
+ pos = scan('../../../swaps/project/positive-words.txt', what='character', comment.char=';')
+ neg = scan('../../../swaps/project/negative-words.txt', what='character', comment.char=';')
 
  m <- post$msg
  t <-tweets$text

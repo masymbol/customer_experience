@@ -273,6 +273,7 @@ router.post('/google_search', function(req, res){
 		});
 
 		function sentimentScore(){
+			console.log('working_dir: '+working_dir);
 
 			exec("Rscript "+working_dir+"/swaps/new_changes/Sentiment_score.R "+searchQuery+" "+working_dir+"/public/users_data/"+user_name+"/", function(err, data){
 					if (err){
