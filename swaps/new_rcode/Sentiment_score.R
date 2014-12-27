@@ -14,8 +14,8 @@ logistic <- function(ans,str)
  print("Reading success")
 # pos = scan('/home/purva/Desktop/project/positive-words.txt', what='character', comment.char=';')
 # neg = scan('/home/purva/Desktop/project/negative-words.txt', what='character', comment.char=';')
- pos = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt', what='character', comment.char=';')
- neg = scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt', what='character', comment.char=';')
+ pos = scan('../../../../swaps/project/positive-words.txt', what='character', comment.char=';')
+ neg = scan('../../../../swaps/project/negative-words.txt', what='character', comment.char=';')
 
  m <- post$msg
  t <-tweets$text

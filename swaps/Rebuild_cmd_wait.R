@@ -55,8 +55,8 @@ cat("\nAuthorised..\n")
 
 
 ## sentiment score function ##
-hu.liu.pos=scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/positive-words.txt',what='character',comment.char=';')
-hu.liu.neg=scan('/home/raghuvarma/Documents/nodejs_examples/social_media/swaps/project/negative-words.txt',what='character',comment.char=';')
+hu.liu.pos=scan('../../../project/positive-words.txt',what='character',comment.char=';')
+hu.liu.neg=scan('../../../project/negative-words.txt',what='character',comment.char=';')
 pos.words=c(hu.liu.pos,'upgrade')
 neg.words=c(hu.liu.neg,'wtf','wait','waiting','epicfail','mechanical')
 sample=c("You'reawesomeandIloveyou","Ihateandhateandhate.Soangry.Die!","Impressedandamazed:youarepeerlessinyourachievementofunparalleledmediocrity.")

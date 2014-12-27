@@ -1,1 +1,1 @@
-Rscript /home/raghuvarma/Documents/nodejs_examples/social_media/swaps/Rebuild_cmd_wait.R $1 $2
+Rscript swaps/Rebuild_cmd_wait.R $1 $2

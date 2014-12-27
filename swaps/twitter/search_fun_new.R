@@ -29,9 +29,9 @@ write.csv(combined_text,"post/iphone.csv")
 write("Write_success","post/_success.txt")
  
 Tweets.text = laply(tweets,function(t)t$getText())
-pos = scan('/home/raghuvarma/Desktop/swaps/project/positive-words.txt', what='character', comment.char=';')
+pos = scan('swaps/project/positive-words.txt', what='character', comment.char=';')
 
-neg = scan('/home/raghuvarma/Desktop/swaps/project/negative-words.txt', what='character', comment.char=';')
+neg = scan('swaps/project/negative-words.txt', what='character', comment.char=';')
 
 score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
   

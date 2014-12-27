@@ -29,9 +29,9 @@ bigdata.df <-do.call (rbind,lapply(tweets,as.data.frame))
  write.csv(bigdata.df,"/home/raghuvarma/Documents/nodejs_examples/social-media/iphone.csv")
  
 Tweets.text = laply(tweets,function(t)t$getText())
-pos = scan('/home/raghuvarma/Desktop/swaps/project/positive-words.txt', what='character', comment.char=';')
+pos = scan('../../../project/positive-words.txt', what='character', comment.char=';')
 
-neg = scan('/home/raghuvarma/Desktop/swaps/project/negative-words.txt', what='character', comment.char=';')
+neg = scan('../../../project/negative-words.txt', what='character', comment.char=';')
 
 score.sentiment = function(sentences, pos.words, neg.words, .progress='none')
   
