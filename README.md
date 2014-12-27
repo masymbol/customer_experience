@@ -13,6 +13,9 @@
 * npm install --save bcrypt
 * npm install --save bcrypt-nodejs
 * npm install --save ejs
+* npm install --save time
+* npm install --save cron
+* 
 
 ### Install R
 Check with R documention
