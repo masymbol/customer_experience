@@ -1,0 +1,43 @@
+<header class="navbar navbar-fixed-top" role="banner">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand"><img src="assets/img/blank.gif" alt="Logo"></a>
+		</div>	
+		<% if (search_query != undefined && search_query.length != 0) { %>
+			<span class="nav navbar-nav previous_search" style="background: silver; color: green; padding: 5px; margin-top: 6px; font-weight: bold; border-radius: 24px;">Your Previous Searches: </span>
+		<% } %>
+		<ul class="top_links l_tinynav1">
+			<% search_keywords = search_keywords.reverse() %>
+			<% for(var i=0; i < search_keywords.length; i++) { %>
+				<% if (i <= 5) { %>
+	    	<li>
+	            <a href='/previous_search<%= i+1 %>' style="padding: 5px;font-size: 12px; border-radius: 10px;">
+	                <%= search_keywords[i] %>
+	            </a>
+	        </li>
+        <% } %>
+    <% } %>
+
+		</ul>		
+		<ul class="nav navbar-nav navbar-right">				
+		<% if ((Object.keys(req).length > 1) && (Object.keys(req.session).length > 1 ) && (req.session.loggedIn == true)) { %>
+		  <li class="user_menu"><a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="navbar_el_icon ion-person"></span><span class="caret"></span></a>
+			<ul class="dropdown-menu dropdown-menu-right">
+  				<li><a href='/'><%= req.session.username %></a></li>
+  				<li class="divider"></li>
+  				<li><a href='/logout'>Log Out</a></li>
+			</ul>
+			</li>
+			<% } else { %>
+			<li><a href="/login" style="border:none;" class="btn btn-mini btn-sign-in">Login</a></li>
+		<li><a href="/register" style="border:none;" class="btn btn-mini btn-sign-up">Register</a></li>
+			<% } %>
+		</ul>
+	</div>
+	<div class="messages main_wrapper">
+		<% if (message && message.length > 1) { %>
+				<div class="alerterror"><%= message %><b><%= searchQuery %></b></div>
+			<% } %>
+	</div>
+</header>
+

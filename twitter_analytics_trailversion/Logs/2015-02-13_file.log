@@ -1,0 +1,63 @@
+2015-02-13 10:25:14,764 INFO  [main] root: Main Method start
+2015-02-13 10:25:27,648 INFO  [main] root: recentUsers method start
+2015-02-13 10:25:27,657 INFO  [main] root: recentUsers method end
+2015-02-13 10:25:27,657 INFO  [main] root: Geo Location method start
+2015-02-13 10:25:27,658 INFO  [main] root: Geo Location method end
+2015-02-13 10:25:27,658 INFO  [main] root: MostInfluencers method start
+2015-02-13 10:25:27,668 INFO  [main] root: MostInfluencers method end
+2015-02-13 10:25:27,669 INFO  [main] root: Total Time :13
+2015-02-13 10:25:27,669 INFO  [main] root: Main method End
+2015-02-13 10:36:38,272 INFO  [main] root: Main Method start
+2015-02-13 10:36:47,396 INFO  [main] root: recentUsers method start
+2015-02-13 10:36:47,403 INFO  [main] root: recentUsers method end
+2015-02-13 10:36:47,403 INFO  [main] root: Geo Location method start
+2015-02-13 10:36:47,404 INFO  [main] root: Geo Location method end
+2015-02-13 10:36:47,404 INFO  [main] root: MostInfluencers method start
+2015-02-13 10:36:47,411 INFO  [main] root: MostInfluencers method end
+2015-02-13 10:36:47,411 INFO  [main] root: Total Time :9
+2015-02-13 10:36:47,411 INFO  [main] root: Main method End
+2015-02-13 10:37:00,551 INFO  [main] root: Main mehod start
+2015-02-13 10:37:00,552 INFO  [main] root: output File creation Start
+2015-02-13 10:37:00,552 INFO  [main] root: output File creation End
+2015-02-13 10:37:00,552 INFO  [main] root: Input  File Reading Start
+2015-02-13 10:37:00,726 INFO  [main] root: Input  File Reading End
+2015-02-13 10:37:00,896 INFO  [main] root: success file  Start
+2015-02-13 10:37:00,896 INFO  [main] root: success file end
+2015-02-13 10:37:00,896 INFO  [main] root: Main method End
+2015-02-13 10:37:00,897 INFO  [main] root: Total Time : 0
+2015-02-13 10:38:59,144 INFO  [main] root: Main Method start
+2015-02-13 10:39:11,399 INFO  [main] root: recentUsers method start
+2015-02-13 10:39:11,408 INFO  [main] root: recentUsers method end
+2015-02-13 10:39:11,408 INFO  [main] root: Geo Location method start
+2015-02-13 10:39:11,409 INFO  [main] root: Geo Location method end
+2015-02-13 10:39:11,409 INFO  [main] root: MostInfluencers method start
+2015-02-13 10:39:11,418 INFO  [main] root: MostInfluencers method end
+2015-02-13 10:39:11,418 INFO  [main] root: Total Time :12
+2015-02-13 10:39:11,418 INFO  [main] root: Main method End
+2015-02-13 10:39:59,933 INFO  [main] root: Main mehod start
+2015-02-13 10:39:59,933 INFO  [main] root: output File creation Start
+2015-02-13 10:39:59,933 INFO  [main] root: output File creation End
+2015-02-13 10:39:59,933 INFO  [main] root: Input  File Reading Start
+2015-02-13 10:40:00,354 INFO  [main] root: Input  File Reading End
+2015-02-13 10:40:00,680 INFO  [main] root: success file  Start
+2015-02-13 10:40:00,681 INFO  [main] root: success file end
+2015-02-13 10:40:00,681 INFO  [main] root: Main method End
+2015-02-13 10:40:00,681 INFO  [main] root: Total Time : 0
+2015-02-13 16:45:13,293 INFO  [main] root: Main Method start
+2015-02-13 16:45:29,512 INFO  [main] root: recentUsers method start
+2015-02-13 16:45:29,557 INFO  [main] root: recentUsers method end
+2015-02-13 16:45:29,557 INFO  [main] root: Geo Location method start
+2015-02-13 16:45:29,557 INFO  [main] root: Geo Location method end
+2015-02-13 16:45:29,557 INFO  [main] root: MostInfluencers method start
+2015-02-13 16:45:29,566 INFO  [main] root: MostInfluencers method end
+2015-02-13 16:45:29,567 INFO  [main] root: Total Time :17
+2015-02-13 16:45:29,567 INFO  [main] root: Main method End
+2015-02-13 16:46:24,136 INFO  [main] root: Main mehod start
+2015-02-13 16:46:24,136 INFO  [main] root: output File creation Start
+2015-02-13 16:46:24,137 INFO  [main] root: output File creation End
+2015-02-13 16:46:24,137 INFO  [main] root: Input  File Reading Start
+2015-02-13 16:46:24,537 INFO  [main] root: Input  File Reading End
+2015-02-13 16:46:24,911 INFO  [main] root: success file  Start
+2015-02-13 16:46:24,912 INFO  [main] root: success file end
+2015-02-13 16:46:24,913 INFO  [main] root: Main method End
+2015-02-13 16:46:24,913 INFO  [main] root: Total Time : 0

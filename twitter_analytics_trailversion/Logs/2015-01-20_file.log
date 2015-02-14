@@ -1,0 +1,387 @@
+2015-01-20 11:17:19,660 INFO  [main] root: Main Method start
+2015-01-20 11:17:57,100 INFO  [main] root: Main Method start
+2015-01-20 11:18:11,514 INFO  [main] root: recentUsers method start
+2015-01-20 11:18:11,521 INFO  [main] root: recentUsers method end
+2015-01-20 11:18:11,521 INFO  [main] root: Geo Location method start
+2015-01-20 11:18:11,522 INFO  [main] root: Geo Location method end
+2015-01-20 11:18:11,522 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:18:11,529 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:18:11,530 INFO  [main] root: Total Time :14
+2015-01-20 11:18:11,530 INFO  [main] root: Main method End
+2015-01-20 11:19:00,113 INFO  [main] root: Main mehod start
+2015-01-20 11:19:00,114 INFO  [main] root: output File creation Start
+2015-01-20 11:19:00,114 INFO  [main] root: output File creation End
+2015-01-20 11:19:00,114 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:19:42,590 INFO  [main] root: Main Method start
+2015-01-20 11:19:54,137 INFO  [main] root: recentUsers method start
+2015-01-20 11:19:54,150 INFO  [main] root: recentUsers method end
+2015-01-20 11:19:54,150 INFO  [main] root: Geo Location method start
+2015-01-20 11:19:54,151 INFO  [main] root: Geo Location method end
+2015-01-20 11:19:54,151 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:19:54,162 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:19:54,162 INFO  [main] root: Total Time :11
+2015-01-20 11:19:54,162 INFO  [main] root: Main method End
+2015-01-20 11:20:47,794 INFO  [main] root: Main mehod start
+2015-01-20 11:20:47,795 INFO  [main] root: output File creation Start
+2015-01-20 11:20:47,796 INFO  [main] root: output File creation End
+2015-01-20 11:20:47,796 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:20:48,239 INFO  [main] root: Input  File Reading End
+2015-01-20 11:20:48,543 INFO  [main] root: success file  Start
+2015-01-20 11:20:48,544 INFO  [main] root: success file end
+2015-01-20 11:20:48,544 INFO  [main] root: Main method End
+2015-01-20 11:20:48,544 INFO  [main] root: Total Time : 0
+2015-01-20 11:23:55,747 INFO  [main] root: Main Method start
+2015-01-20 11:24:00,270 INFO  [main] root: recentUsers method start
+2015-01-20 11:24:00,272 INFO  [main] root: recentUsers method end
+2015-01-20 11:24:00,272 INFO  [main] root: Geo Location method start
+2015-01-20 11:24:00,272 INFO  [main] root: Geo Location method end
+2015-01-20 11:24:00,272 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:24:00,275 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:24:00,275 INFO  [main] root: Total Time :4
+2015-01-20 11:24:00,276 INFO  [main] root: Main method End
+2015-01-20 11:24:05,597 INFO  [main] root: Main mehod start
+2015-01-20 11:24:05,597 INFO  [main] root: output File creation Start
+2015-01-20 11:24:05,598 INFO  [main] root: output File creation End
+2015-01-20 11:24:05,598 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:24:05,652 INFO  [main] root: Input  File Reading End
+2015-01-20 11:24:05,694 INFO  [main] root: success file  Start
+2015-01-20 11:24:05,694 INFO  [main] root: success file end
+2015-01-20 11:24:05,694 INFO  [main] root: Main method End
+2015-01-20 11:24:05,694 INFO  [main] root: Total Time : 0
+2015-01-20 11:25:23,368 INFO  [main] root: Main Method start
+2015-01-20 11:25:41,423 INFO  [main] root: recentUsers method start
+2015-01-20 11:25:41,430 INFO  [main] root: recentUsers method end
+2015-01-20 11:25:41,430 INFO  [main] root: Geo Location method start
+2015-01-20 11:25:41,430 INFO  [main] root: Geo Location method end
+2015-01-20 11:25:41,430 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:25:41,438 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:25:41,438 INFO  [main] root: Total Time :18
+2015-01-20 11:25:41,438 INFO  [main] root: Main method End
+2015-01-20 11:26:23,591 INFO  [main] root: Main mehod start
+2015-01-20 11:26:23,592 INFO  [main] root: output File creation Start
+2015-01-20 11:26:23,593 INFO  [main] root: output File creation End
+2015-01-20 11:26:23,593 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:26:24,038 INFO  [main] root: Input  File Reading End
+2015-01-20 11:26:24,360 INFO  [main] root: success file  Start
+2015-01-20 11:26:24,361 INFO  [main] root: success file end
+2015-01-20 11:26:24,361 INFO  [main] root: Main method End
+2015-01-20 11:26:24,361 INFO  [main] root: Total Time : 0
+2015-01-20 11:27:38,536 INFO  [main] root: Main Method start
+2015-01-20 11:27:44,413 INFO  [main] root: recentUsers method start
+2015-01-20 11:27:44,419 INFO  [main] root: recentUsers method end
+2015-01-20 11:27:44,419 INFO  [main] root: Geo Location method start
+2015-01-20 11:27:44,420 INFO  [main] root: Geo Location method end
+2015-01-20 11:27:44,420 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:27:44,426 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:27:44,426 INFO  [main] root: Total Time :6
+2015-01-20 11:27:44,426 INFO  [main] root: Main method End
+2015-01-20 11:27:50,328 INFO  [main] root: Main mehod start
+2015-01-20 11:27:50,328 INFO  [main] root: output File creation Start
+2015-01-20 11:27:50,328 INFO  [main] root: output File creation End
+2015-01-20 11:27:50,328 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:27:50,419 INFO  [main] root: Input  File Reading End
+2015-01-20 11:27:50,484 INFO  [main] root: success file  Start
+2015-01-20 11:27:50,484 INFO  [main] root: success file end
+2015-01-20 11:27:50,485 INFO  [main] root: Main method End
+2015-01-20 11:27:50,485 INFO  [main] root: Total Time : 0
+2015-01-20 11:28:50,329 INFO  [main] root: Main Method start
+2015-01-20 11:29:00,581 INFO  [main] root: recentUsers method start
+2015-01-20 11:29:00,587 INFO  [main] root: recentUsers method end
+2015-01-20 11:29:00,587 INFO  [main] root: Geo Location method start
+2015-01-20 11:29:00,587 INFO  [main] root: Geo Location method end
+2015-01-20 11:29:00,587 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:29:00,594 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:29:00,594 INFO  [main] root: Total Time :10
+2015-01-20 11:29:00,594 INFO  [main] root: Main method End
+2015-01-20 11:29:49,719 INFO  [main] root: Main mehod start
+2015-01-20 11:29:49,720 INFO  [main] root: output File creation Start
+2015-01-20 11:29:49,720 INFO  [main] root: output File creation End
+2015-01-20 11:29:49,720 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:29:50,183 INFO  [main] root: Input  File Reading End
+2015-01-20 11:29:50,478 INFO  [main] root: success file  Start
+2015-01-20 11:29:50,479 INFO  [main] root: success file end
+2015-01-20 11:29:50,479 INFO  [main] root: Main method End
+2015-01-20 11:29:50,479 INFO  [main] root: Total Time : 0
+2015-01-20 11:31:56,287 INFO  [main] root: Main Method start
+2015-01-20 11:32:09,228 INFO  [main] root: recentUsers method start
+2015-01-20 11:32:09,235 INFO  [main] root: recentUsers method end
+2015-01-20 11:32:09,235 INFO  [main] root: Geo Location method start
+2015-01-20 11:32:09,235 INFO  [main] root: Geo Location method end
+2015-01-20 11:32:09,235 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:32:09,243 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:32:09,243 INFO  [main] root: Total Time :13
+2015-01-20 11:32:09,243 INFO  [main] root: Main method End
+2015-01-20 11:32:56,984 INFO  [main] root: Main mehod start
+2015-01-20 11:32:56,985 INFO  [main] root: output File creation Start
+2015-01-20 11:32:56,985 INFO  [main] root: output File creation End
+2015-01-20 11:32:56,985 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:32:57,419 INFO  [main] root: Input  File Reading End
+2015-01-20 11:32:57,776 INFO  [main] root: success file  Start
+2015-01-20 11:32:57,776 INFO  [main] root: success file end
+2015-01-20 11:32:57,777 INFO  [main] root: Main method End
+2015-01-20 11:32:57,777 INFO  [main] root: Total Time : 0
+2015-01-20 11:33:47,716 INFO  [main] root: Main Method start
+2015-01-20 11:33:58,460 INFO  [main] root: recentUsers method start
+2015-01-20 11:33:58,469 INFO  [main] root: recentUsers method end
+2015-01-20 11:33:58,469 INFO  [main] root: Geo Location method start
+2015-01-20 11:33:58,469 INFO  [main] root: Geo Location method end
+2015-01-20 11:33:58,469 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:33:58,480 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:33:58,480 INFO  [main] root: Total Time :10
+2015-01-20 11:33:58,480 INFO  [main] root: Main method End
+2015-01-20 11:34:50,121 INFO  [main] root: Main mehod start
+2015-01-20 11:34:50,122 INFO  [main] root: output File creation Start
+2015-01-20 11:34:50,122 INFO  [main] root: output File creation End
+2015-01-20 11:34:50,122 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:34:50,557 INFO  [main] root: Input  File Reading End
+2015-01-20 11:34:50,919 INFO  [main] root: success file  Start
+2015-01-20 11:34:50,920 INFO  [main] root: success file end
+2015-01-20 11:34:50,920 INFO  [main] root: Main method End
+2015-01-20 11:34:50,920 INFO  [main] root: Total Time : 0
+2015-01-20 11:36:18,024 INFO  [main] root: Main Method start
+2015-01-20 11:36:29,973 INFO  [main] root: recentUsers method start
+2015-01-20 11:36:29,984 INFO  [main] root: recentUsers method end
+2015-01-20 11:36:29,984 INFO  [main] root: Geo Location method start
+2015-01-20 11:36:29,985 INFO  [main] root: Geo Location method end
+2015-01-20 11:36:29,985 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:36:29,992 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:36:29,992 INFO  [main] root: Total Time :12
+2015-01-20 11:36:29,992 INFO  [main] root: Main method End
+2015-01-20 11:37:18,866 INFO  [main] root: Main mehod start
+2015-01-20 11:37:18,867 INFO  [main] root: output File creation Start
+2015-01-20 11:37:18,867 INFO  [main] root: output File creation End
+2015-01-20 11:37:18,867 INFO  [main] root: Input  File Reading Start
+2015-01-20 11:37:19,290 INFO  [main] root: Input  File Reading End
+2015-01-20 11:37:19,591 INFO  [main] root: success file  Start
+2015-01-20 11:37:19,591 INFO  [main] root: success file end
+2015-01-20 11:37:19,592 INFO  [main] root: Main method End
+2015-01-20 11:37:19,592 INFO  [main] root: Total Time : 0
+2015-01-20 11:38:41,747 INFO  [main] root: Main Method start
+2015-01-20 11:38:54,535 INFO  [main] root: recentUsers method start
+2015-01-20 11:38:54,540 INFO  [main] root: recentUsers method end
+2015-01-20 11:38:54,541 INFO  [main] root: Geo Location method start
+2015-01-20 11:38:54,541 INFO  [main] root: Geo Location method end
+2015-01-20 11:38:54,541 INFO  [main] root: MostInfluencers method start
+2015-01-20 11:38:54,547 INFO  [main] root: MostInfluencers method end
+2015-01-20 11:38:54,547 INFO  [main] root: Total Time :12
+2015-01-20 11:38:54,547 INFO  [main] root: Main method End
+2015-01-20 11:39:39,634 INFO  [main] root: Main mehod start
+2015-01-20 11:39:39,635 INFO  [main] root: output File creation Start
+2015-01-20 11:39:39,635 INFO  [main] root: output File creation End
+2015-01-20 11:39:39,635 INFO  [main] root: Input  File Reading Start
+2015-01-20 12:21:35,784 INFO  [main] root: Main Method start
+2015-01-20 12:21:53,801 INFO  [main] root: recentUsers method start
+2015-01-20 12:21:53,809 INFO  [main] root: recentUsers method end
+2015-01-20 12:21:53,809 INFO  [main] root: Geo Location method start
+2015-01-20 12:21:53,810 INFO  [main] root: Geo Location method end
+2015-01-20 12:21:53,810 INFO  [main] root: MostInfluencers method start
+2015-01-20 12:21:53,819 INFO  [main] root: MostInfluencers method end
+2015-01-20 12:21:53,819 INFO  [main] root: Total Time :18
+2015-01-20 12:21:53,819 INFO  [main] root: Main method End
+2015-01-20 12:22:45,933 INFO  [main] root: Main mehod start
+2015-01-20 12:22:45,934 INFO  [main] root: output File creation Start
+2015-01-20 12:22:45,934 INFO  [main] root: output File creation End
+2015-01-20 12:22:45,935 INFO  [main] root: Input  File Reading Start
+2015-01-20 12:22:46,367 INFO  [main] root: Input  File Reading End
+2015-01-20 12:22:46,670 INFO  [main] root: success file  Start
+2015-01-20 12:22:46,671 INFO  [main] root: success file end
+2015-01-20 12:22:46,671 INFO  [main] root: Main method End
+2015-01-20 12:22:46,671 INFO  [main] root: Total Time : 0
+2015-01-20 12:27:33,322 INFO  [main] root: Main Method start
+2015-01-20 12:27:46,565 INFO  [main] root: recentUsers method start
+2015-01-20 12:27:46,573 INFO  [main] root: recentUsers method end
+2015-01-20 12:27:46,574 INFO  [main] root: Geo Location method start
+2015-01-20 12:27:46,574 INFO  [main] root: Geo Location method end
+2015-01-20 12:27:46,574 INFO  [main] root: MostInfluencers method start
+2015-01-20 12:27:46,590 INFO  [main] root: MostInfluencers method end
+2015-01-20 12:27:46,590 INFO  [main] root: Total Time :13
+2015-01-20 12:27:46,590 INFO  [main] root: Main method End
+2015-01-20 12:28:02,792 INFO  [main] root: Main mehod start
+2015-01-20 12:28:02,793 INFO  [main] root: output File creation Start
+2015-01-20 12:28:02,793 INFO  [main] root: output File creation End
+2015-01-20 12:28:02,793 INFO  [main] root: Input  File Reading Start
+2015-01-20 12:28:03,010 INFO  [main] root: Input  File Reading End
+2015-01-20 12:28:03,239 INFO  [main] root: success file  Start
+2015-01-20 12:28:03,240 INFO  [main] root: success file end
+2015-01-20 12:28:03,240 INFO  [main] root: Main method End
+2015-01-20 12:28:03,240 INFO  [main] root: Total Time : 0
+2015-01-20 12:42:40,114 INFO  [main] root: Main Method start
+2015-01-20 12:42:55,077 INFO  [main] root: recentUsers method start
+2015-01-20 12:42:55,091 INFO  [main] root: recentUsers method end
+2015-01-20 12:42:55,091 INFO  [main] root: Geo Location method start
+2015-01-20 12:42:55,091 INFO  [main] root: Geo Location method end
+2015-01-20 12:42:55,091 INFO  [main] root: MostInfluencers method start
+2015-01-20 12:42:55,103 INFO  [main] root: MostInfluencers method end
+2015-01-20 12:42:55,104 INFO  [main] root: Total Time :15
+2015-01-20 12:42:55,104 INFO  [main] root: Main method End
+2015-01-20 12:43:40,502 INFO  [main] root: Main mehod start
+2015-01-20 12:43:40,503 INFO  [main] root: output File creation Start
+2015-01-20 12:43:40,504 INFO  [main] root: output File creation End
+2015-01-20 12:43:40,504 INFO  [main] root: Input  File Reading Start
+2015-01-20 12:43:40,914 INFO  [main] root: Input  File Reading End
+2015-01-20 12:43:41,194 INFO  [main] root: success file  Start
+2015-01-20 12:43:41,195 INFO  [main] root: success file end
+2015-01-20 12:43:41,195 INFO  [main] root: Main method End
+2015-01-20 12:43:41,195 INFO  [main] root: Total Time : 0
+2015-01-20 13:12:36,777 INFO  [main] root: Main Method start
+2015-01-20 13:12:51,460 INFO  [main] root: recentUsers method start
+2015-01-20 13:12:51,469 INFO  [main] root: recentUsers method end
+2015-01-20 13:12:51,469 INFO  [main] root: Geo Location method start
+2015-01-20 13:12:51,470 INFO  [main] root: Geo Location method end
+2015-01-20 13:12:51,470 INFO  [main] root: MostInfluencers method start
+2015-01-20 13:12:51,479 INFO  [main] root: MostInfluencers method end
+2015-01-20 13:12:51,480 INFO  [main] root: Total Time :14
+2015-01-20 13:12:51,480 INFO  [main] root: Main method End
+2015-01-20 13:13:44,690 INFO  [main] root: Main mehod start
+2015-01-20 13:13:44,691 INFO  [main] root: output File creation Start
+2015-01-20 13:13:44,691 INFO  [main] root: output File creation End
+2015-01-20 13:13:44,691 INFO  [main] root: Input  File Reading Start
+2015-01-20 13:13:45,123 INFO  [main] root: Input  File Reading End
+2015-01-20 13:13:45,380 INFO  [main] root: success file  Start
+2015-01-20 13:13:45,381 INFO  [main] root: success file end
+2015-01-20 13:13:45,381 INFO  [main] root: Main method End
+2015-01-20 13:13:45,381 INFO  [main] root: Total Time : 0
+2015-01-20 13:15:38,823 INFO  [main] root: Main Method start
+2015-01-20 13:15:48,457 INFO  [main] root: recentUsers method start
+2015-01-20 13:15:48,467 INFO  [main] root: recentUsers method end
+2015-01-20 13:15:48,467 INFO  [main] root: Geo Location method start
+2015-01-20 13:15:48,467 INFO  [main] root: Geo Location method end
+2015-01-20 13:15:48,467 INFO  [main] root: MostInfluencers method start
+2015-01-20 13:15:48,476 INFO  [main] root: MostInfluencers method end
+2015-01-20 13:15:48,477 INFO  [main] root: Total Time :9
+2015-01-20 13:15:48,477 INFO  [main] root: Main method End
+2015-01-20 13:15:59,841 INFO  [main] root: Main mehod start
+2015-01-20 13:15:59,842 INFO  [main] root: output File creation Start
+2015-01-20 13:15:59,842 INFO  [main] root: output File creation End
+2015-01-20 13:15:59,842 INFO  [main] root: Input  File Reading Start
+2015-01-20 13:16:00,045 INFO  [main] root: Input  File Reading End
+2015-01-20 13:16:00,208 INFO  [main] root: success file  Start
+2015-01-20 13:16:00,209 INFO  [main] root: success file end
+2015-01-20 13:16:00,209 INFO  [main] root: Main method End
+2015-01-20 13:16:00,209 INFO  [main] root: Total Time : 0
+2015-01-20 13:19:04,406 INFO  [main] root: Main Method start
+2015-01-20 13:19:15,772 INFO  [main] root: recentUsers method start
+2015-01-20 13:19:15,780 INFO  [main] root: recentUsers method end
+2015-01-20 13:19:15,780 INFO  [main] root: Geo Location method start
+2015-01-20 13:19:15,781 INFO  [main] root: Geo Location method end
+2015-01-20 13:19:15,781 INFO  [main] root: MostInfluencers method start
+2015-01-20 13:19:15,788 INFO  [main] root: MostInfluencers method end
+2015-01-20 13:19:15,788 INFO  [main] root: Total Time :11
+2015-01-20 13:19:15,789 INFO  [main] root: Main method End
+2015-01-20 13:19:29,719 INFO  [main] root: Main mehod start
+2015-01-20 13:19:29,719 INFO  [main] root: output File creation Start
+2015-01-20 13:19:29,720 INFO  [main] root: output File creation End
+2015-01-20 13:19:29,720 INFO  [main] root: Input  File Reading Start
+2015-01-20 13:19:29,982 INFO  [main] root: Input  File Reading End
+2015-01-20 13:19:30,247 INFO  [main] root: success file  Start
+2015-01-20 13:19:30,247 INFO  [main] root: success file end
+2015-01-20 13:19:30,248 INFO  [main] root: Main method End
+2015-01-20 13:19:30,248 INFO  [main] root: Total Time : 0
+2015-01-20 13:23:38,078 INFO  [main] root: Main Method start
+2015-01-20 13:23:49,822 INFO  [main] root: recentUsers method start
+2015-01-20 13:23:49,830 INFO  [main] root: recentUsers method end
+2015-01-20 13:23:49,830 INFO  [main] root: Geo Location method start
+2015-01-20 13:23:49,830 INFO  [main] root: Geo Location method end
+2015-01-20 13:23:49,830 INFO  [main] root: MostInfluencers method start
+2015-01-20 13:23:49,838 INFO  [main] root: MostInfluencers method end
+2015-01-20 13:23:49,838 INFO  [main] root: Total Time :11
+2015-01-20 13:23:49,838 INFO  [main] root: Main method End
+2015-01-20 13:24:36,077 INFO  [main] root: Main mehod start
+2015-01-20 13:24:36,078 INFO  [main] root: output File creation Start
+2015-01-20 13:24:36,079 INFO  [main] root: output File creation End
+2015-01-20 13:24:36,079 INFO  [main] root: Input  File Reading Start
+2015-01-20 13:24:36,517 INFO  [main] root: Input  File Reading End
+2015-01-20 13:24:36,849 INFO  [main] root: success file  Start
+2015-01-20 13:24:36,849 INFO  [main] root: success file end
+2015-01-20 13:24:36,849 INFO  [main] root: Main method End
+2015-01-20 13:24:36,849 INFO  [main] root: Total Time : 0
+2015-01-20 13:27:24,540 INFO  [main] root: Main Method start
+2015-01-20 13:27:39,272 INFO  [main] root: recentUsers method start
+2015-01-20 13:27:39,285 INFO  [main] root: recentUsers method end
+2015-01-20 13:27:39,285 INFO  [main] root: Geo Location method start
+2015-01-20 13:27:39,286 INFO  [main] root: Geo Location method end
+2015-01-20 13:27:39,286 INFO  [main] root: MostInfluencers method start
+2015-01-20 13:27:39,307 INFO  [main] root: MostInfluencers method end
+2015-01-20 13:27:39,307 INFO  [main] root: Total Time :14
+2015-01-20 13:27:39,307 INFO  [main] root: Main method End
+2015-01-20 13:28:22,094 INFO  [main] root: Main mehod start
+2015-01-20 13:28:22,094 INFO  [main] root: output File creation Start
+2015-01-20 13:28:22,094 INFO  [main] root: output File creation End
+2015-01-20 13:28:22,095 INFO  [main] root: Input  File Reading Start
+2015-01-20 13:28:22,514 INFO  [main] root: Input  File Reading End
+2015-01-20 13:28:22,922 INFO  [main] root: success file  Start
+2015-01-20 13:28:22,923 INFO  [main] root: success file end
+2015-01-20 13:28:22,923 INFO  [main] root: Main method End
+2015-01-20 13:28:22,923 INFO  [main] root: Total Time : 0
+2015-01-20 13:34:06,698 INFO  [main] root: Main Method start
+2015-01-20 13:34:17,415 INFO  [main] root: recentUsers method start
+2015-01-20 13:34:17,422 INFO  [main] root: recentUsers method end
+2015-01-20 13:34:17,422 INFO  [main] root: Geo Location method start
+2015-01-20 13:34:17,422 INFO  [main] root: Geo Location method end
+2015-01-20 13:34:17,423 INFO  [main] root: MostInfluencers method start
+2015-01-20 13:34:17,430 INFO  [main] root: MostInfluencers method end
+2015-01-20 13:34:17,430 INFO  [main] root: Total Time :10
+2015-01-20 13:34:17,430 INFO  [main] root: Main method End
+2015-01-20 13:35:12,078 INFO  [main] root: Main mehod start
+2015-01-20 13:35:12,079 INFO  [main] root: output File creation Start
+2015-01-20 13:35:12,079 INFO  [main] root: output File creation End
+2015-01-20 13:35:12,079 INFO  [main] root: Input  File Reading Start
+2015-01-20 13:35:12,535 INFO  [main] root: Input  File Reading End
+2015-01-20 13:35:12,846 INFO  [main] root: success file  Start
+2015-01-20 13:35:12,847 INFO  [main] root: success file end
+2015-01-20 13:35:12,847 INFO  [main] root: Main method End
+2015-01-20 13:35:12,847 INFO  [main] root: Total Time : 0
+2015-01-20 14:37:11,740 INFO  [main] root: Main Method start
+2015-01-20 14:37:26,745 INFO  [main] root: recentUsers method start
+2015-01-20 14:37:26,759 INFO  [main] root: recentUsers method end
+2015-01-20 14:37:26,759 INFO  [main] root: Geo Location method start
+2015-01-20 14:37:26,760 INFO  [main] root: Geo Location method end
+2015-01-20 14:37:26,760 INFO  [main] root: MostInfluencers method start
+2015-01-20 14:37:26,773 INFO  [main] root: MostInfluencers method end
+2015-01-20 14:37:26,773 INFO  [main] root: Total Time :15
+2015-01-20 14:37:26,773 INFO  [main] root: Main method End
+2015-01-20 14:38:21,343 INFO  [main] root: Main mehod start
+2015-01-20 14:38:21,343 INFO  [main] root: output File creation Start
+2015-01-20 14:38:21,344 INFO  [main] root: output File creation End
+2015-01-20 14:38:21,344 INFO  [main] root: Input  File Reading Start
+2015-01-20 14:38:21,726 INFO  [main] root: Input  File Reading End
+2015-01-20 14:38:22,070 INFO  [main] root: success file  Start
+2015-01-20 14:38:22,070 INFO  [main] root: success file end
+2015-01-20 14:38:22,070 INFO  [main] root: Main method End
+2015-01-20 14:38:22,071 INFO  [main] root: Total Time : 0
+2015-01-20 15:04:43,938 INFO  [main] root: Main Method start
+2015-01-20 15:05:01,266 INFO  [main] root: recentUsers method start
+2015-01-20 15:05:01,278 INFO  [main] root: recentUsers method end
+2015-01-20 15:05:01,278 INFO  [main] root: Geo Location method start
+2015-01-20 15:05:01,279 INFO  [main] root: Geo Location method end
+2015-01-20 15:05:01,279 INFO  [main] root: MostInfluencers method start
+2015-01-20 15:05:01,290 INFO  [main] root: MostInfluencers method end
+2015-01-20 15:05:01,290 INFO  [main] root: Total Time :17
+2015-01-20 15:05:01,290 INFO  [main] root: Main method End
+2015-01-20 15:05:43,797 INFO  [main] root: Main mehod start
+2015-01-20 15:05:43,797 INFO  [main] root: output File creation Start
+2015-01-20 15:05:43,798 INFO  [main] root: output File creation End
+2015-01-20 15:05:43,798 INFO  [main] root: Input  File Reading Start
+2015-01-20 15:05:44,249 INFO  [main] root: Input  File Reading End
+2015-01-20 15:05:44,572 INFO  [main] root: success file  Start
+2015-01-20 15:05:44,572 INFO  [main] root: success file end
+2015-01-20 15:05:44,573 INFO  [main] root: Main method End
+2015-01-20 15:05:44,573 INFO  [main] root: Total Time : 0
+2015-01-20 17:00:36,937 INFO  [main] root: Main Method start
+2015-01-20 17:00:56,103 INFO  [main] root: recentUsers method start
+2015-01-20 17:00:56,109 INFO  [main] root: recentUsers method end
+2015-01-20 17:00:56,110 INFO  [main] root: Geo Location method start
+2015-01-20 17:00:56,110 INFO  [main] root: Geo Location method end
+2015-01-20 17:00:56,110 INFO  [main] root: MostInfluencers method start
+2015-01-20 17:00:56,117 INFO  [main] root: MostInfluencers method end
+2015-01-20 17:00:56,117 INFO  [main] root: Total Time :19
+2015-01-20 17:00:56,117 INFO  [main] root: Main method End
+2015-01-20 17:01:38,560 INFO  [main] root: Main mehod start
+2015-01-20 17:01:38,560 INFO  [main] root: output File creation Start
+2015-01-20 17:01:38,560 INFO  [main] root: output File creation End
+2015-01-20 17:01:38,561 INFO  [main] root: Input  File Reading Start
+2015-01-20 17:01:38,899 INFO  [main] root: Input  File Reading End
+2015-01-20 17:01:39,217 INFO  [main] root: success file  Start
+2015-01-20 17:01:39,218 INFO  [main] root: success file end
+2015-01-20 17:01:39,218 INFO  [main] root: Main method End
+2015-01-20 17:01:39,218 INFO  [main] root: Total Time : 0

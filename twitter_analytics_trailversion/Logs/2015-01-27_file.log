@@ -1,0 +1,36 @@
+2015-01-27 12:29:06,913 INFO  [main] root: Main Method start
+2015-01-27 12:29:20,859 INFO  [main] root: recentUsers method start
+2015-01-27 12:29:20,886 INFO  [main] root: recentUsers method end
+2015-01-27 12:29:20,886 INFO  [main] root: Geo Location method start
+2015-01-27 12:29:20,887 INFO  [main] root: Geo Location method end
+2015-01-27 12:29:20,887 INFO  [main] root: MostInfluencers method start
+2015-01-27 12:29:20,906 INFO  [main] root: MostInfluencers method end
+2015-01-27 12:29:20,906 INFO  [main] root: Total Time :15
+2015-01-27 12:29:20,906 INFO  [main] root: Main method End
+2015-01-27 12:29:34,236 INFO  [main] root: Main Method start
+2015-01-27 12:29:50,524 INFO  [main] root: recentUsers method start
+2015-01-27 12:29:50,525 INFO  [main] root: recentUsers method end
+2015-01-27 12:29:50,525 INFO  [main] root: Geo Location method start
+2015-01-27 12:29:50,526 INFO  [main] root: Geo Location method end
+2015-01-27 12:29:50,526 INFO  [main] root: MostInfluencers method start
+2015-01-27 12:29:50,526 INFO  [main] root: MostInfluencers method end
+2015-01-27 12:29:50,527 INFO  [main] root: Total Time :16
+2015-01-27 12:29:50,527 INFO  [main] root: Main method End
+2015-01-27 12:30:25,343 INFO  [main] root: Main mehod start
+2015-01-27 12:30:25,344 INFO  [main] root: output File creation Start
+2015-01-27 12:30:25,344 INFO  [main] root: output File creation End
+2015-01-27 12:30:25,345 INFO  [main] root: Input  File Reading Start
+2015-01-27 12:30:25,901 INFO  [main] root: Input  File Reading End
+2015-01-27 12:30:26,251 INFO  [main] root: success file  Start
+2015-01-27 12:30:26,251 INFO  [main] root: success file end
+2015-01-27 12:30:26,251 INFO  [main] root: Main method End
+2015-01-27 12:30:26,252 INFO  [main] root: Total Time : 1
+2015-01-27 12:30:42,617 INFO  [main] root: Main mehod start
+2015-01-27 12:30:42,618 INFO  [main] root: output File creation Start
+2015-01-27 12:30:42,618 INFO  [main] root: output File creation End
+2015-01-27 12:30:42,618 INFO  [main] root: Input  File Reading Start
+2015-01-27 12:30:43,011 INFO  [main] root: Input  File Reading End
+2015-01-27 12:30:43,344 INFO  [main] root: success file  Start
+2015-01-27 12:30:43,345 INFO  [main] root: success file end
+2015-01-27 12:30:43,345 INFO  [main] root: Main method End
+2015-01-27 12:30:43,345 INFO  [main] root: Total Time : 0

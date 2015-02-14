@@ -1,0 +1,11 @@
+Warning messages:
+1: In dir.create(paste(parent, folders[i], sep = "/")) :
+  '/home/gsandeep/Documents/twitteranalyticsproduct/customer_experience/public/users_data/apptwitter/rajinikanth//Tweeter' already exists
+2: In dir.create(paste(parent, folders[i], sep = "/")) :
+  '/home/gsandeep/Documents/twitteranalyticsproduct/customer_experience/public/users_data/apptwitter/rajinikanth//sentiment_graphs' already exists
+3: In dir.create(paste(parent, folders[i], sep = "/")) :
+  '/home/gsandeep/Documents/twitteranalyticsproduct/customer_experience/public/users_data/apptwitter/rajinikanth//most_pos_neg' already exists
+4: In dir.create(paste(parent, folders[i], sep = "/")) :
+  '/home/gsandeep/Documents/twitteranalyticsproduct/customer_experience/public/users_data/apptwitter/rajinikanth//Some_pos_neg' already exists
+5: In dir.create(paste(parent, folders[i], sep = "/")) :
+  '/home/gsandeep/Documents/twitteranalyticsproduct/customer_experience/public/users_data/apptwitter/rajinikanth//wordcloud_img' already exists
